@@ -1,0 +1,40 @@
+//
+// Alerts
+//
+
+.alert {
+    --title-spacing: 0 0 0.25rem;
+    --text-spacing: 0 0 0.25rem;
+
+    .alert-heading, p.alert-heading {
+      margin-bottom: 0.5rem;
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+    }
+
+    p:not(.alert-heading), ul, ol, dl {
+      margin-bottom: 0rem !important;
+    }
+
+    &.alert-fluid {
+        border-radius: 0px;
+    }
+
+}
+
+@each $state in map-keys($theme-colors) {
+  .alert-#{$state} {
+    --#{$prefix}alert-color: var(--#{$prefix}#{$state});
+    --#{$prefix}alert-bg: var(--#{$prefix}#{$state}-bg-subtle);
+    --#{$prefix}alert-border-color: var(--#{$prefix}#{$state}-border-subtle);
+    --#{$prefix}alert-link-color: var(--#{$prefix}#{$state});
+  }
+  .alert-#{$state} a {
+    color: var(--#{$prefix}#{$state});
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

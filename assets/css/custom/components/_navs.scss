@@ -1,0 +1,50 @@
+//
+// // Main Menu
+//
+
+@media (min-width: 992px) {
+  #userMenu {order: 2;}
+}
+
+
+.nav.nav-underline {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.nav.nav-underline .nav-item {
+    width: auto;
+    max-width: 100%;
+    flex: 0 0 auto;
+}
+
+.nav-underline .nav-link.active, .nav-underline .show > .nav-link {
+    font-weight: inherit;
+}
+
+.sidebar .offcanvas-body {
+    padding: 0;
+    overflow-y: scroll !important;
+}
+
+.sidebar .navbar-nav .nav-item .nav-link {
+    align-items:center;
+    display:flex;
+    line-height: 1.25rem;
+}
+
+.sidebar .navbar-nav .nav-item .nav-link[data-bs-toggle=collapse]::after {
+  flex-shrink: 0;
+  width: $accordion-icon-width;
+  height: $accordion-icon-width;
+  margin-left: auto;
+  content: "";
+  background-image: $accordion-button-icon;
+  background-repeat: no-repeat;
+  background-size: $accordion-icon-width;
+  @include transition($accordion-icon-transition);
+}
+.sidebar .navbar-nav .nav-item .nav-link[data-bs-toggle=collapse][aria-expanded=true]:after {
+    transform: $accordion-icon-transform;
+}
