@@ -4,15 +4,6 @@
 //
 // // Soft
 //
-
-label {
-  line-height: 1;
-}
-
-.btn {
-  text-transform: none !important;
-}
-
 @each $color, $value in $theme-colors {
   .btn-#{$color}-subtle {
     // Soft colors for background and border
@@ -64,14 +55,12 @@ label {
 //
 // // Light button
 //
-
 .btn-light {
 
   // Basic styles for neutral state
   background-color: $white;
   border-color: shift-color($primary, $btn-soft-bg-level) !important;
   color: $body-color;
-  box-shadow: none !important;
 
   // Styles for hover active states
   &:hover, &:active, &.active, &:active:hover, &.show, .btn-check:checked + &, .btn-check:active + & {
