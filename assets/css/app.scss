@@ -2,63 +2,63 @@
 // =============================================================================
 
 // 1. Functions
-@import "bootstrap/scss/functions";
+@import "../vendor/bootstrap-5.3.3/scss/functions";
 
 // 2. Custom - Variables & styles overrides for theme customization
 // @import "./custom/theme_PF_custom";
 @import "./custom/theme_MP_default";
 
 // 3. Required Bootstrap stylesheets
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
+@import "../vendor/bootstrap-5.3.3/scss/variables";
+@import "../vendor/bootstrap-5.3.3/scss/variables-dark";
 
 // 4. Custom - Map overrides
 
 
 // 5. Required Bootstrap parts
 
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/root";
+@import "../vendor/bootstrap-5.3.3/scss/maps";
+@import "../vendor/bootstrap-5.3.3/scss/mixins";
+@import "../vendor/bootstrap-5.3.3/scss/root";
 
 // 6. Optional Bootstrap parts as needed
-@import "bootstrap/scss/utilities";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
-@import "bootstrap/scss/images";
-@import "bootstrap/scss/containers";
-@import "bootstrap/scss/grid";
-@import "bootstrap/scss/tables";
-@import "bootstrap/scss/forms";
-@import "bootstrap/scss/buttons";
-@import "bootstrap/scss/transitions";
-@import "bootstrap/scss/dropdown";
-@import "bootstrap/scss/button-group";
-@import "bootstrap/scss/nav";
-@import "bootstrap/scss/navbar";
-@import "bootstrap/scss/card";
-@import "bootstrap/scss/accordion";
-@import "bootstrap/scss/breadcrumb";
-@import "bootstrap/scss/pagination";
-@import "bootstrap/scss/badge";
-@import "bootstrap/scss/alert";
-@import "bootstrap/scss/progress";
-@import "bootstrap/scss/list-group";
-@import "bootstrap/scss/close";
-@import "bootstrap/scss/toasts";
-@import "bootstrap/scss/modal";
-//@import "bootstrap/scss/tooltip";
-//@import "bootstrap/scss/popover";
-// @import "bootstrap/scss/carousel";
-//@import "bootstrap/scss/spinners";
-@import "bootstrap/scss/offcanvas";
-@import "bootstrap/scss/placeholders";
+@import "../vendor/bootstrap-5.3.3/scss/utilities";
+@import "../vendor/bootstrap-5.3.3/scss/reboot";
+@import "../vendor/bootstrap-5.3.3/scss/type";
+@import "../vendor/bootstrap-5.3.3/scss/images";
+@import "../vendor/bootstrap-5.3.3/scss/containers";
+@import "../vendor/bootstrap-5.3.3/scss/grid";
+@import "../vendor/bootstrap-5.3.3/scss/tables";
+@import "../vendor/bootstrap-5.3.3/scss/forms";
+@import "../vendor/bootstrap-5.3.3/scss/buttons";
+@import "../vendor/bootstrap-5.3.3/scss/transitions";
+@import "../vendor/bootstrap-5.3.3/scss/dropdown";
+@import "../vendor/bootstrap-5.3.3/scss/button-group";
+@import "../vendor/bootstrap-5.3.3/scss/nav";
+@import "../vendor/bootstrap-5.3.3/scss/navbar";
+@import "../vendor/bootstrap-5.3.3/scss/card";
+@import "../vendor/bootstrap-5.3.3/scss/accordion";
+@import "../vendor/bootstrap-5.3.3/scss/breadcrumb";
+@import "../vendor/bootstrap-5.3.3/scss/pagination";
+@import "../vendor/bootstrap-5.3.3/scss/badge";
+@import "../vendor/bootstrap-5.3.3/scss/alert";
+@import "../vendor/bootstrap-5.3.3/scss/progress";
+@import "../vendor/bootstrap-5.3.3/scss/list-group";
+@import "../vendor/bootstrap-5.3.3/scss/close";
+@import "../vendor/bootstrap-5.3.3/scss/toasts";
+@import "../vendor/bootstrap-5.3.3/scss/modal";
+//@import "../vendor/bootstrap-5.3.3/scss/tooltip";
+//@import "../vendor/bootstrap-5.3.3/scss/popover";
+// @import "../vendor/bootstrap-5.3.3/scss/carousel";
+//@import "../vendor/bootstrap-5.3.3/scss/spinners";
+@import "../vendor/bootstrap-5.3.3/scss/offcanvas";
+@import "../vendor/bootstrap-5.3.3/scss/placeholders";
 
 // Helpers
-@import "bootstrap/scss/helpers";
+@import "../vendor/bootstrap-5.3.3/scss/helpers";
 
 // 7. Bootstrap' utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "bootstrap/scss/utilities/api";
+@import "../vendor/bootstrap-5.3.3/scss/utilities/api";
 
 // 8. Custom - Additional custom code
 @import "./custom/components/alerts";
