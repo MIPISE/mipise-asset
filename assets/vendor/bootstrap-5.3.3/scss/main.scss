@@ -1,0 +1,47 @@
+// 1. Importer les fonctions (doit toujours être en premier)
+@import "functions";
+
+// 2. Importer les variables (nécessaire avant tous les composants qui les utilisent)
+@import "variables";
+@import "variables-dark"; // Si tu utilises les variables pour le thème sombre
+
+// 3. Importer les mixins (avant les composants pour qu'ils puissent utiliser les mixins)
+@import "mixins";
+
+// 4. Importer la base et les utilitaires de Bootstrap
+@import "maps";
+@import "root";
+@import "utilities";
+
+// 5. Importer les composants Bootstrap (les variables doivent déjà être définies)
+@import "alert";
+@import "badge";
+@import "breadcrumb";
+@import "button-group";
+@import "buttons";
+@import "card";
+@import "carousel";
+@import "close";
+@import "containers";
+@import "dropdown";
+@import "forms";
+@import "grid";
+@import "helpers";
+@import "images";
+@import "list-group";
+@import "modal";
+@import "nav";
+@import "navbar";
+@import "offcanvas";
+@import "pagination";
+@import "placeholders";
+@import "popover";
+@import "progress";
+@import "reboot";
+@import "root";
+@import "spinners";
+@import "tables";
+@import "toasts";
+@import "tooltip";
+@import "transitions";
+@import "type";
