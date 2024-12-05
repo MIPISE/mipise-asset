@@ -1,0 +1,90 @@
+//
+// // Dropdowns
+//
+.dropdown .dropdown-menu {
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+// Sizing
+
+$dropdown-sizes: (
+    sm: 10vw,
+    md: 25vw,
+    lg: 50vw,
+    xl: 75vw,
+    xxl: 100vw
+);
+
+@include media-breakpoint-up(md) {
+    @each $size, $min-width in $dropdown-sizes {
+        .dropdown-menu-#{$size} {
+            min-width: $min-width !important;
+        }
+    }
+}
+//// Arrow
+
+.dropdown-toggle::after {
+    content: "\e07c";
+    border: none;
+    display: inline-block;
+    vertical-align: bottom;
+    font-family: uicons-regular-straight !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+}
+
+.dropdown-toggle[data-bs-toggle=collapse][aria-expanded=true]:after, .dropdown-toggle[data-bs-toggle=dropdown][aria-expanded=true]:after {
+    transform: $accordion-icon-transform;
+}
+
+
+//// Wizard dropdown for subscription workflows & more cases
+
+.dropdown.wizard{
+    position: relative;
+}
+
+.dropdown.wizard .active-step {
+    background-color: var(--bs-body-bg);
+    border-radius: var(--bs-border-radius);
+    border: $border-width solid var(--bs-border-color);
+    padding: $spacer;
+    color: var(--bs-body-color);
+    text-decoration: none;
+}
+
+.dropdown.wizard .dropdown-menu {
+    position: relative !important;
+    transform: translate(0, 0) !important;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dropdown.wizard .dropdown-toggle::after {
+  margin-left: 1em;
+}
+
+.dropdown.wizard [data-bs-toggle=dropdown]::after {
+  flex-shrink: 0;
+  width: $accordion-icon-width;
+  height: $accordion-icon-width;
+  margin-left: auto;
+  content: "";
+  background-image: $accordion-button-icon;
+  background-repeat: no-repeat;
+  background-size: $accordion-icon-width;
+  @include transition($accordion-icon-transition);
+}
+
+.dropdown.wizard [data-bs-toggle=dropdown][aria-expanded=true]:after {
+    transform: $accordion-icon-transform;
+}

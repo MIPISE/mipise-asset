@@ -4,7 +4,7 @@
 // Full screen height minus stickyheader height for large screen only
 
 @media (min-width: 992px) {
-  .min-vh-stickyheader {
+  .h-screen {
     min-height: calc(100vh - #{$header-height});
   }
 }
@@ -80,19 +80,19 @@
     @if $direction == 'start' {
         border-left-width: $width;
         border-left-style: solid;
-        border-left-color: $color;
+        border-left-color: $color !important;
     } @else if $direction == 'top' {
         border-top-width: $width;
         border-top-style: solid;
-        border-top-color: $color;
+        border-top-color: $color !important;
     } @else if $direction == 'end' {
         border-right-width: $width;
         border-right-style: solid;
-        border-right-color: $color;
+        border-right-color: $color !important;
     } @else if $direction == 'bottom' {
         border-bottom-width: $width;
         border-bottom-style: solid;
-        border-bottom-color: $color;
+        border-bottom-color: $color !important;
     }
 }
 
@@ -109,4 +109,9 @@
     .border-bottom-#{$color-name} {
         @include border-theme('bottom', $color-value);
     }
+}
+
+.input-group .rounded-end {
+    border-top-right-radius: var(--bs-border-radius) !important;
+    border-bottom-right-radius: var(--bs-border-radius) !important;
 }

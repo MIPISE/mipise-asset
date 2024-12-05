@@ -1,0 +1,87 @@
+table {
+    //font-size: small;
+    border-radius: $border-radius;
+
+    & ol, ul, dl {
+      margin-bottom: 0;
+    }
+
+    & th {
+    font-size: $sub-sup-font-size;
+    text-transform: uppercase;
+
+      & i {
+        font-size: smaller;
+      }
+
+      & a {
+        color: $body-color;
+      }
+    }
+
+    & tfoot {
+    font-size: small;
+    font-weight: 500;
+    }
+
+    & .row-hidden {
+    padding: 0px;
+    border: unset;
+    }
+  }
+
+.table {
+  margin-bottom: 0;
+
+  thead {
+    vertical-align: middle;
+    height: 40px;
+  }
+}
+
+// Table pagination
+.table-pagination {
+
+}
+//
+
+/*--- Fixed column of actions ---*/
+
+//@media (min-width: 992px) {
+.table-responsive.table-actions  {
+  min-height: 300px !important;
+}
+.table-actions   {
+
+  & th.action, td.action {
+    position:sticky;
+    right:0px;
+    vertical-align: middle;
+    z-index: 1;
+    text-align: center;
+    width: 36px;
+    padding: 0.15rem;
+  }
+
+}
+//}
+
+.table-actions td.action {
+background-color: $white;
+}
+
+.table-actions .dropend .dropdown-menu {
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+/*--- Contextual action buttons in table rows only visible on hover - large screen only ---*/
+
+@media (min-width: 992px) {
+  .table-actions table tbody td:not(.action) .btn:not(.btn-display){
+    visibility:hidden;
+  }
+  .table-actions table tbody tr:hover .btn:not(.btn-display) {
+    visibility:visible;
+  }
+}
