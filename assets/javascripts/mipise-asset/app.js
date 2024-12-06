@@ -1,20 +1,20 @@
 // =============================================================================
-import * as Popper from "../../vendor/@popperjs/core"
+//= require "../../vendor/@popperjs/core"
 
 //= require '../../vendor/bootstrap/js/dist/alert'
 //= require '../../vendor/bootstrap/js/dist/button'
-// import '../../../vendor/bootstrap/js/dist/carousel'
-import '../../vendor/bootstrap/js/dist/collapse'
-import '../../vendor/bootstrap/js/dist/dropdown'
-import '../../vendor/bootstrap/js/dist/modal'
-import '../../vendor/bootstrap/js/dist/offcanvas'
-//import '../../../vendor/bootstrap/js/dist/popover'
-import '../../vendor/bootstrap/js/dist/scrollspy'
-import '../../vendor/bootstrap/js/dist/tab'
-import '../../vendor/bootstrap/js/dist/toast'
-import '../../vendor/bootstrap/js/dist/tooltip'
+//= require '../../../vendor/bootstrap/js/dist/carousel'
+//= require '../../vendor/bootstrap/js/dist/collapse'
+//= require '../../vendor/bootstrap/js/dist/dropdown'
+//= require '../../vendor/bootstrap/js/dist/modal'
+//= require '../../vendor/bootstrap/js/dist/offcanvas'
+//= require '../../../vendor/bootstrap/js/dist/popover'
+//= require '../../vendor/bootstrap/js/dist/scrollspy'
+//= require '../../vendor/bootstrap/js/dist/tab'
+//= require '../../vendor/bootstrap/js/dist/toast'
+//= require '../../vendor/bootstrap/js/dist/tooltip'
 
 // Elements
 // =============================================================================
-import './elements/sidebar.js'
-import './utils/input_masks'
+//= require './elements/sidebar.js'
+//= require './utils/input_masks'
