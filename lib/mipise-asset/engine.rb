@@ -3,8 +3,10 @@
 module MipiseAsset
   class Engine < ::Rails::Engine
     initializer 'mipise.assets' do |app|
-      p app
-      p app.config
+      p app.present?
+      p app.config.present?
+      p app.config.assets.present?
+      p app.config.assets
       app.config.assets.path << MipiseAsset.assets_path
     end
   end
