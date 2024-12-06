@@ -1,5 +1,5 @@
 // =============================================================================
-import * as Popper from "@popperjs/core"
+import * as Popper from "../../../vendor/@popperjs/core"
 
 import '../../../vendor/bootstrap/js/dist/alert'
 import '../../../vendor/bootstrap/js/dist/button'
