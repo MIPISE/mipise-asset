@@ -1,7 +1,7 @@
 // =============================================================================
 // require "@popperjs/core/index"
 
-//= require '../../vendor/bootstrap/js/dist/alert'
+//= require 'bootstrap/js/dist/alert'
 //= require '../../vendor/bootstrap/js/dist/button'
 //= require '../../../vendor/bootstrap/js/dist/carousel'
 //= require '../../vendor/bootstrap/js/dist/collapse'
