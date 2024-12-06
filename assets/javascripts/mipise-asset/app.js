@@ -2,17 +2,17 @@
 // require "@popperjs/core/index"
 
 //= require 'bootstrap/js/dist/alert'
-//= require '../../vendor/bootstrap/js/dist/button'
-//= require '../../../vendor/bootstrap/js/dist/carousel'
-//= require '../../vendor/bootstrap/js/dist/collapse'
-//= require '../../vendor/bootstrap/js/dist/dropdown'
-//= require '../../vendor/bootstrap/js/dist/modal'
-//= require '../../vendor/bootstrap/js/dist/offcanvas'
-//= require '../../../vendor/bootstrap/js/dist/popover'
-//= require '../../vendor/bootstrap/js/dist/scrollspy'
-//= require '../../vendor/bootstrap/js/dist/tab'
-//= require '../../vendor/bootstrap/js/dist/toast'
-//= require '../../vendor/bootstrap/js/dist/tooltip'
+//= require 'bootstrap/js/dist/button'
+//= require 'bootstrap/js/dist/carousel'
+//= require 'bootstrap/js/dist/collapse'
+//= require 'bootstrap/js/dist/dropdown'
+//= require 'bootstrap/js/dist/modal'
+//= require 'bootstrap/js/dist/offcanvas'
+//= require 'bootstrap/js/dist/popover'
+//= require 'bootstrap/js/dist/scrollspy'
+//= require 'bootstrap/js/dist/tab'
+//= require 'bootstrap/js/dist/toast'
+//= require 'bootstrap/js/dist/tooltip'
 
 // Elements
 // =============================================================================
