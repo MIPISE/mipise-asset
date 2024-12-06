@@ -1,9 +1,10 @@
 # frozen_string_literal: true
-#require 'rails/all'
 
 module MipiseAsset
   class Engine < ::Rails::Engine
-    initializer 'mipise.asset' do |app|
+    initializer 'mipise.assets' do |app|
+      p app
+      p app.config
       app.config.assets.path << MipiseAsset.assets_path
     end
   end
