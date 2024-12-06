@@ -19,7 +19,7 @@ module MipiseAsset
     end
 
     def vendor_path
-      @vendor_path ||= File.expand_path('../vendor', File.dirname(__FILE__))
+      File.join assets_path, 'vendor'
     end
   end
 end
