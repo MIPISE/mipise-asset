@@ -3,9 +3,7 @@
 module MipiseAsset
   class << self
     def load!
-      if defined? ::Rails
-        require 'rails/engine'
-      end
+      require 'mipise-asset/engine' if defined?(::Rails)
     end
 
     def assets_path
