@@ -6,9 +6,9 @@ module MipiseAsset
       p app.present?
       p app.config.present?
       p app.config.assets.present?
-      p app.config.assets.path.present?
-      p app.config.assets.path
-      app.config.assets.path << MipiseAsset.assets_path
+      p app.config.assets.paths.present?
+      p app.config.assets.paths
+      app.config.assets.paths << MipiseAsset.assets_path
     end
   end
 end
