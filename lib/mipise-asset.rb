@@ -17,6 +17,10 @@ module MipiseAsset
     def javascripts_path
       File.join assets_path, 'javascripts'
     end
+
+    def vendor_path
+      @vendor_path ||= File.expand_path('../vendor', File.dirname(__FILE__))
+    end
   end
 end
 
