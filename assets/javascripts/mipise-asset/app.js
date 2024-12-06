@@ -1,5 +1,5 @@
 // =============================================================================
-//= require "../../vendor/@popperjs/core"
+//= require "../../vendor/@popperjs/core/src/index"
 
 //= require '../../vendor/bootstrap/js/dist/alert'
 //= require '../../vendor/bootstrap/js/dist/button'
