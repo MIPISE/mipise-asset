@@ -9,6 +9,7 @@
 
 // 2.1 Custom - Variables spécifiques à la plateforme (import avant les variables génériques Mipise)
 //@import "./custom/theme_PF_custom";
+// %{PLATFORM PARAM}
 
 // 2.2 Custom - Variables génériques Mipise
 @import "custom/theme_MP_default";
