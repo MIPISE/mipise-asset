@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'rails/engine'
+require 'rails/all'
 
 module MipiseAsset
   module Rails
