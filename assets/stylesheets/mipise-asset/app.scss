@@ -61,19 +61,19 @@
 @import "../../vendor/bootstrap/scss/utilities/api";
 
 // 7. Custom - Component-specific styles (after Bootstrap)
-@import "custom/components/alerts";
-@import "custom/components/badges";
-@import "custom/components/buttons";
-@import "custom/components/cards";
-@import "custom/components/tables";
-@import "custom/components/dropdowns";
-@import "custom/components/forms";
-@import "custom/components/icons";
-@import "custom/components/layouts";
-@import "custom/components/navs";
-@import "custom/components/progress";
-@import "custom/components/utilities";
-@import "custom/components/sidebar";
+@import "./custom/components/alerts";
+@import "./custom/components/badges";
+@import "./custom/components/buttons";
+@import "./custom/components/cards";
+@import "./custom/components/tables";
+@import "./custom/components/dropdowns";
+@import "./custom/components/forms";
+@import "./custom/components/icons";
+@import "./custom/components/layouts";
+@import "./custom/components/navs";
+@import "./custom/components/progress";
+@import "./custom/components/utilities";
+@import "./custom/components/sidebar";
 
 // 8. Custom - Styles spécifiques à la plateforme (import en dernier)
 // @import "./custom/theme_PF_custom_styles"; /* Fichier de personnalisation de la plateforme, à importer en dernier */
