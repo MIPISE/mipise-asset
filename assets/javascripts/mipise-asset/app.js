@@ -1,8 +1,8 @@
 // =============================================================================
 import * as Popper from "../../vendor/@popperjs/core"
 
-import '../../vendor/bootstrap/js/dist/alert'
-import '../../vendor/bootstrap/js/dist/button'
+//= require '../../vendor/bootstrap/js/dist/alert'
+//= require '../../vendor/bootstrap/js/dist/button'
 // import '../../../vendor/bootstrap/js/dist/carousel'
 import '../../vendor/bootstrap/js/dist/collapse'
 import '../../vendor/bootstrap/js/dist/dropdown'
