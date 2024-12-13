@@ -1,0 +1,67 @@
+//
+// // Main Menu
+//
+.navbar {
+  background-color: $white;
+}
+
+@media (min-width: 992px) {
+  .navbar-brand .logo {
+    height: 35px;
+    max-width: 8rem;
+  }
+
+  header .navbar-brand {
+    width: $sidebar-width;
+  }
+
+  #menu-user {
+    order: 2;
+  }
+
+  #toggler,
+  #signup i {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-brand .logo {
+    height: 26px;
+    max-width: 8rem;
+  }
+
+  #signup span,
+  #header-workflow #support span,
+  #header-workflow #user-space span {
+    display: none;
+  }
+
+  #signup.btn,
+  #header-workflow #support.btn,
+  #header-workflow #user-space.btn  {
+    width: 2.0625rem;
+    height: 2.0625rem;
+  }
+}
+
+
+//
+// // Inner nav
+//
+
+.nav.nav-underline {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.nav.nav-underline .nav-item {
+    width: auto;
+    max-width: 100%;
+    flex: 0 0 auto;
+}
+
+.nav-underline .nav-link.active, .nav-underline .show > .nav-link {
+    font-weight: $nav-link-font-weight;
+}

@@ -1,0 +1,116 @@
+// Base Badge styles
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: .5rem;
+
+    &.badge-bordered {
+        border: solid 1px $white;
+    }
+}
+
+// Color Variations
+
+@mixin badge-variant($bg-color) {
+  background-color: $bg-color;
+  color: #fff; // Assurer que le texte reste blanc pour toutes les couleurs de fond
+  border-color: darken($bg-color, 15%); // Optionnel: une bordure un peu plus foncée que le fond
+}
+
+@each $color, $value in $theme-colors {
+  .badge-#{$color} {
+    @include badge-variant($value);
+
+    &.badge-bordered {
+      border: solid 1px $white;
+    }
+  }
+
+}
+
+.badge-white{
+  background-color: $white;
+  color: $primary;
+}
+
+// Subtle variations
+
+@mixin badge-subtle-variant($bg-color, $text-color) {
+  $subtle-bg: tint-color($bg-color, 85%); // Création d'une version plus claire pour le fond subtil
+  background-color: $subtle-bg;
+  color: darken($bg-color, 5%); // Utilisation de la couleur principale pour le texte
+  border-color: darken($subtle-bg, 10%); // Une bordure légèrement plus foncée que le fond subtil
+}
+
+@each $color, $value in $theme-colors {
+  .badge-#{$color}-subtle {
+    @include badge-subtle-variant($value, $value);
+
+    &.badge-bordered {
+      border: solid 1px $white;
+    }
+  }
+}
+
+// Form variations
+.badge-square {
+    border-radius: $border-radius; // Forme carrée
+}
+
+.badge-circle {
+    border-radius: 50%; // Forme circulaire
+}
+
+////// Size variations
+
+.badge-square, .badge-circle {
+  width: 1.25rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+
+
+  &.badge-sm {
+      width: 1rem;
+      min-width: 1rem;
+      height: 1rem;
+      font-size: $font-size-base * 0.65;
+  }
+
+  &.badge-lg {
+      width: 3rem;
+      min-width: 3rem;
+      height: 3rem;
+      font-size: $font-size-base * 1.25;
+  }
+
+  &.badge-xl {
+      width: 4rem;
+      min-width: 4rem;
+      height: 4rem;
+      font-size: $font-size-base * 1.5;
+  }
+}
+
+// Badge dot (pour les petites pastilles)
+.badge-dot {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    color: $body-color;
+
+    i {
+        width: .375rem;
+        height: .375rem;
+        border-radius: 50%;
+        margin-right: .35rem;
+    }
+
+    &.badge-lg i {
+        width: .625rem;
+        height: .625rem;
+    }
+}

@@ -1,0 +1,98 @@
+.bg-light .card {
+        border-color: $light;
+}
+
+.bg-white .card {
+        border-color: $border-color;
+}
+
+
+  // Mixin qui applique les bordures pour card, header, footer, hr, et dropdown
+  @mixin apply-border-and-style($bg-class, $border-color) {
+    .#{$bg-class} {
+      // Bordures des cartes
+      .card {
+        border-color: $border-color;
+
+        // Bordures pour les header et footer des cartes
+        .card-header,
+        .card-footer {
+          border-color: $border-color;
+        }
+      }
+
+      // Lignes horizontales (<hr>)
+      hr {
+        border-color: $border-color;
+      }
+
+      // Dropdowns
+      .dropdown-menu, .dropdown.wizard .active-step {
+        border-color: $border-color;
+      }
+
+      // List group
+      .list-group {
+        border-color: $border-color;
+      }
+    }
+  }
+
+  // Utilisation d'une boucle pour générer les classes dynamiquement
+  @each $color, $subtle-color in (
+    primary: $primary-bg-subtle,
+    secondary: $secondary-bg-subtle,
+    success: $success-bg-subtle,
+    danger: $danger-bg-subtle,
+    warning: $warning-bg-subtle,
+    info: $info-bg-subtle,
+    light: $light-bg-subtle,
+    dark: $dark-bg-subtle
+  ) {
+    @include apply-border-and-style("bg-#{$color}-subtle", $subtle-color);
+  }
+
+.list-group-rounded .list-group-item {
+    --#{$prefix}list-group-bg: var(--bs-primary-bg-subtle);
+    border: $border-width solid var(--bs-primary-bg-subtle);
+    border-radius: var(--bs-border-radius);
+    margin-bottom: $spacer * .5 ;
+  }
+
+// .card-header, .card-footer {
+//     background-color: inherit;
+// }
+
+.card-header-tabs .nav-link.active {
+    border-bottom-color: var(--bs-nav-underline-link-active-color);
+}
+
+.card-header .card-title {
+    margin-bottom: -0.25rem;
+}
+
+.card-subtitle {
+    margin-bottom: var(--#{$prefix}card-title-spacer-y);
+}
+
+// Card header
+
+.card-header-tabs {
+    // margin-top: calc(-#{$card-cap-padding-x} - 1px);
+    // margin-bottom: calc(-#{$card-cap-padding-y} - 2px);
+    margin-left: 0;
+    margin-right: 0;
+
+    // .nav-item {
+    //     margin-right: .75rem;
+    // }
+
+    .nav-link {
+    padding-top: calc(#{$card-cap-padding-y} * .5rem);
+    padding-bottom: calc(#{$card-cap-padding-y} * .5rem);
+    //     &.active {
+    //         background-color: transparent;
+    //         border-bottom-color: $primary;
+    //     }
+    }
+}
