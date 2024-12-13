@@ -14,6 +14,10 @@ module MipiseAsset
       File.join assets_path, "javascripts"
     end
 
+    def images_path
+      File.join assets_path, "images"
+    end
+
     def stylesheets_path
       File.join assets_path, "stylesheets"
     end
