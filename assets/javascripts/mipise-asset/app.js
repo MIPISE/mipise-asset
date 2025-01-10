@@ -23,4 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
   inputMaskScript.src = "https://cdn.jsdelivr.net/npm/inputmask@5.0.9/dist/inputmask.min.js"
   inputMaskScript.onload = () => loadCustomInputMasks();
   document.body.appendChild(inputMaskScript);
+
+  // Import flaticon dynamic
 });
