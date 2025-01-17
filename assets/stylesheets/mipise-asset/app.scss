@@ -17,8 +17,8 @@
 
 // 3. Required Bootstrap stylesheets (variables, maps, and mixins come first)
 @import "../../vendor/bootstrap/scss/variables"; // Must be before components
-@import "../../vendor/bootstrap/scss/maps";      // Must be before components
-@import "../../vendor/bootstrap/scss/mixins";    // Mixins used in components
+@import "../../vendor/bootstrap/scss/maps"; // Must be before components
+@import "../../vendor/bootstrap/scss/mixins"; // Mixins used in components
 
 // 4. Bootstrap core components
 @import "../../vendor/bootstrap/scss/root";
@@ -68,6 +68,7 @@
 @import "./custom/components/tables";
 @import "./custom/components/dropdowns";
 @import "./custom/components/forms";
+@import "./custom/components/pdf_viewers";
 @import "./custom/components/icons";
 @import "./custom/components/layouts";
 @import "./custom/components/navs";
