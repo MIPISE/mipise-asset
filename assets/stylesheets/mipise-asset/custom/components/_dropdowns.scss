@@ -24,6 +24,7 @@ $dropdown-sizes: (
         }
     }
 }
+
 //// Arrow
 
 .dropdown-toggle::after {
@@ -41,14 +42,15 @@ $dropdown-sizes: (
     transform: translate(0, 0);
 }
 
-.dropdown-toggle[data-bs-toggle=collapse][aria-expanded=true]:after, .dropdown-toggle[data-bs-toggle=dropdown][aria-expanded=true]:after {
+.dropdown-toggle[data-bs-toggle=collapse][aria-expanded=true]:after,
+.dropdown-toggle[data-bs-toggle=dropdown][aria-expanded=true]:after {
     transform: $accordion-icon-transform;
 }
 
 
 //// Wizard dropdown for subscription workflows & more cases
 
-.dropdown.wizard{
+.dropdown.wizard {
     position: relative;
 }
 
@@ -70,19 +72,19 @@ $dropdown-sizes: (
 }
 
 .dropdown.wizard .dropdown-toggle::after {
-  margin-left: 1em;
+    margin-left: 1em;
 }
 
 .dropdown.wizard [data-bs-toggle=dropdown]::after {
-  flex-shrink: 0;
-  width: $accordion-icon-width;
-  height: $accordion-icon-width;
-  margin-left: auto;
-  content: "";
-  background-image: $accordion-button-icon;
-  background-repeat: no-repeat;
-  background-size: $accordion-icon-width;
-  @include transition($accordion-icon-transition);
+    flex-shrink: 0;
+    width: $accordion-icon-width;
+    height: $accordion-icon-width;
+    margin-left: auto;
+    content: "";
+    background-image: $accordion-button-icon;
+    background-repeat: no-repeat;
+    background-size: $accordion-icon-width;
+    @include transition($accordion-icon-transition);
 }
 
 .dropdown.wizard [data-bs-toggle=dropdown][aria-expanded=true]:after {

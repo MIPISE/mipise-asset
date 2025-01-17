@@ -2,12 +2,19 @@
 // // // Icons
 // //
 
+// // Rotation
+
+i.fi-rotate {
+    transform: rotate(180deg);
+    margin-bottom: 5px !important;
+}
+
 // Flaticon library
 i[class^="fi-rs-"]:before, i[class*=" fi-rs-"]:before, span[class^="fi-rs-"]:before, span[class*="fi-rs-"]:before {
     line-height: 0 !important;
 }
 i.fi {
-    margin-bottom: -3.5px;
+    margin-bottom: -4.5px;
 }
 
 // // // Icons sizes

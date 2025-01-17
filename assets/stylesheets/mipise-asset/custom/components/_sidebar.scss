@@ -2,22 +2,25 @@ header,
 .sidebar-header {
   @extend .bg-white;
   @extend .sticky-top;
-  height: $header-height;
-  min-height: $header-height;
+  // height: $header-height;
+  // min-height: $header-height;
 }
 
 .header-master {
   min-height: $header-master-height;
   display: flex;
+  justify-content:space-between;
+  align-items: center;
   z-index: 1040; // Ensures the header appears above other elements
   position: fixed;
   top: 0; // Fixe la position en haut de la page
   background-color: $primary; // Ajoute un fond pour éviter que le contenu défile sous le header
-  width: 100vw;
+  min-width: 100vw;
 }
 
 #wrapper {
   //display: flex;
+  position: relative;
 
   #content-wrapper {
     position: relative;
@@ -90,7 +93,7 @@ header,
   transition: transform 0.15s ease-in-out;
   z-index: 1030;
   transform: translateX(-$sidebar-width);
-
+}
   .sidebar {
     display: flex;
     flex-direction: column;
@@ -106,7 +109,7 @@ header,
         .nav-link {
           display: flex;
           align-items: center;
-          padding: map-get($spacers, 2);
+          padding: 0.5rem map-get($spacers, 2);
           background-color: $white;
           color: $body-color;
           //border-left: 5px solid $white;
@@ -142,8 +145,9 @@ header,
 
         // Sous-menu (collapse)
         .collapse .nav-link {
-          //padding-left: map-get($spacers, 2);
+          padding-left: 40px;
           background-color: $light;
+          font-weight: inherit;
           //border-color: $primary-bg-subtle;
 
           &:hover,
@@ -204,7 +208,7 @@ header,
       }
     }
   }
-}
+
 
 
 // Sidebar and content with fixed positions
@@ -238,7 +242,7 @@ header,
   transition: left, right, 0.3s;
   position: fixed;
   left: calc($sidebar-width - 1rem);
-  top: 0.875rem;
+  //top: 0.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,17 +258,17 @@ header,
 }
 
 // Gestion de la marge des éléments sticky-top en cas de présence d'un master header
-.header-master + #wrapper #content-wrapper {
+.header-master + #wrapper #content-wrapper, .header-master#header-super-admin + #AppMenuSidebar + #wrapper #content-wrapper {
   min-height: calc(100vh - $header-master-height);
   top: $header-master-height;
   height: calc(100vh - $header-master-height);
 }
 
-.header-master + .sidebar-fixed#wrapper #sidebar-wrapper, .header-master + .sidebar-fixed#wrapper #content-wrapper {
+.header-master + .sidebar-fixed#wrapper #sidebar-wrapper, .header-master + .sidebar-fixed#wrapper #content-wrapper, .header-master#header-super-admin + #AppMenuSidebar + .sidebar-fixed#wrapper #sidebar-wrapper, .header-master#header-super-admin + #AppMenuSidebar + .sidebar-fixed#wrapper #content-wrapper {
   top: $header-master-height;
   height: calc(100vh - $header-master-height);
 }
 
-.header-master + #wrapper header.sticky-top {
+.header-master + #wrapper header.sticky-top, .header-master#header-super-admin + #AppMenuSidebar + #wrapper header.sticky-top {
   top: $header-master-height;
 }
