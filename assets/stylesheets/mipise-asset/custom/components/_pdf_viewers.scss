@@ -1,0 +1,243 @@
+.PdfViewer {
+
+  input,
+  button {
+    font: inherit;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 10px 0;
+
+    &>* {
+      &>* {
+        margin: 10px;
+      }
+    }
+
+    &__options {
+      display: flex;
+      flex-basis: 400px;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      margin: 0;
+
+      fieldset {
+        border: 1px solid black;
+        flex-grow: 1;
+        position: relative;
+        top: -10px;
+
+        legend {
+          font-weight: 600;
+
+          &+* {
+            margin-top: 0 !important;
+          }
+        }
+
+        label {
+          font-weight: 600;
+          display: block;
+
+          &:not(:first-of-type) {
+            margin-top: 1em;
+          }
+        }
+
+        input[type="checkbox"]+label,
+        input[type="radio"]+label {
+          font-weight: normal;
+          display: inline-block;
+          margin: 0;
+        }
+
+        form,
+        div {
+          &:not(:first-child) {
+            margin-top: 1em;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 1em;
+          }
+        }
+      }
+    }
+
+    // Ugly fix for IE11 which doesn't support html5 main tag
+    main {
+      display: block
+    }
+
+    &__content {
+      display: flex;
+      max-width: 100%;
+      flex-basis: 420px;
+      flex-direction: column;
+      flex-grow: 100;
+      align-items: stretch;
+
+      &__toc {
+        max-width: 100%;
+        max-height: 16vh;
+        margin-bottom: 20px;
+        border: 1px solid black;
+        overflow: auto;
+
+        .react-pdf {
+          &__message {
+            padding: 20px;
+          }
+        }
+      }
+
+      &__document {
+        max-width: 100%;
+        max-height: 160vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid black;
+        background-color: #1f2021;
+        overflow: auto;
+
+        .react-pdf {
+          &__Page {
+            max-width: calc("100% - 2em");
+            box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+            margin: 1em;
+
+            &__textContent {
+              mark {
+                opacity: 0.5;
+                background: #ff0;
+                box-shadow: 0px 2px 10px #ff0;
+                color: transparent;
+                white-space: pre;
+              }
+            }
+          }
+
+          &__message {
+            padding: 20px;
+            color: $white;
+            ;
+          }
+        }
+      }
+
+      &__controls {
+        max-width: 100%;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        color: $white;
+        ;
+        background-color: #36393b;
+        padding: 2%;
+
+        &_pagination {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+
+          input {
+            height: 20px;
+            text-align: center;
+            background: #afafaf;
+            border: none;
+            border-radius: 2px;
+          }
+        }
+
+        button {
+          width: 30px;
+          color: $white;
+          ;
+
+          i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $white;
+            ;
+          }
+
+          &#accept-terms-button,
+          &#close-pdf-viewer-button {
+            margin: auto;
+          }
+
+          &#accept-terms-button {
+            width: unset;
+          }
+        }
+      }
+
+      &__annotations {
+        max-width: 100%;
+        display: block;
+        margin-top: 1em;
+        align-self: center;
+
+        label,
+        textarea {
+          width: 100%;
+        }
+      }
+
+      &__initials {
+        position: relative;
+        width: 100%;
+
+        button {
+          bottom: 20px;
+          right: 0px;
+          position: absolute;
+          color: $white;
+          background-color: $primary;
+          border-color: $primary;
+          padding: .65rem 1rem;
+          font-size: 1rem;
+          line-height: 1.5;
+          border-radius: .25rem;
+          border: 1px solid transparent;
+          display: inline-block;
+          font-weight: normal;
+          text-align: center;
+          cursor: pointer;
+
+          &:hover {
+            color: $white;
+            background-color: $secondary;
+            border-color: $secondary;
+          }
+        }
+
+        img {
+          bottom: 90px;
+          left: 220px;
+          position: absolute;
+          border: $primary 3px solid;
+          padding: 3px;
+        }
+
+      }
+
+      &__info {
+        margin-top: 1em;
+      }
+
+      .react-pdf {
+        &__Document {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

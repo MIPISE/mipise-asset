@@ -1,9 +1,5 @@
-// .card .bg-primary-subtle {
-//   input,
-//   select,
-//   textarea,
-//   .form-control,
-//   .form-control-sm {
-//     border-color: #FFF;
-//   }
-// }
+label {
+    abbr[title] {
+        display: none;
+    }
+}
