@@ -47,7 +47,13 @@
     @include button-variant($hover-bg, $hover-border, $hover-color, $active-bg, $active-border, $active-color);
 
     // Styles for active states
-    &:active, &.active, &:active:hover, &.show, .btn.active, .btn-check:checked + &, .btn-check:active + & {
+    &:active,
+    &.active,
+    &:active:hover,
+    &.show,
+    .btn.active,
+    .btn-check:checked+&,
+    .btn-check:active+& {
       color: $value !important; // Maintenir la couleur du texte constante
     }
   }
@@ -64,7 +70,13 @@
   color: $body-color;
 
   // Styles for hover active states
-  &:hover, &:active, &.active, &:active:hover, &.show, .btn-check:checked + &, .btn-check:active + & {
+  &:hover,
+  &:active,
+  &.active,
+  &:active:hover,
+  &.show,
+  .btn-check:checked+&,
+  .btn-check:active+& {
     background-color: shift-color($primary, $btn-soft-bg-level) !important;
     border-color: $primary !important;
     color: $primary !important;
@@ -74,20 +86,21 @@
 //
 // // Extra Small button size
 //
-$btn-padding-y-xs:      .5rem !default;
-$btn-padding-x-xs:      .5rem !default;
-$btn-font-size-xs:      .75rem !default;
+$btn-padding-y-xs: .5rem !default;
+$btn-padding-x-xs: .5rem !default;
+$btn-font-size-xs: .75rem !default;
 
 .btn-xs {
- @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius-sm);
- line-height:0;
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius-sm);
+  line-height: 0;
 
-   & i {
-     font-size: $font-size-base * 0.65;
-     &.fi {
+  & i {
+    font-size: $font-size-base * 0.65;
+
+    &.fi {
       margin-bottom: -1.5px;
     }
-   }
+  }
 }
 
 //
@@ -101,32 +114,32 @@ $btn-font-size-xs:      .75rem !default;
 //
 // // Button square (for icon buttons only)
 //
-$btn-square-width:                      2.5rem !default;
-$btn-square-width-lg:                   3.125rem !default;
-$btn-square-width-sm:                   2.0625rem !default;
-$btn-square-width-xs:                   1.25rem !default;
+$btn-square-width: 2.8rem !default;
+$btn-square-width-lg: 3.125rem !default;
+$btn-square-width-sm: 2.0625rem !default;
+$btn-square-width-xs: 1.25rem !default;
 
 .btn-square {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: $btn-square-width;
-    height: $btn-square-width;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $btn-square-width;
+  height: $btn-square-width;
 
-    &.btn-xs {
-        width: $btn-square-width-xs;
-        height: $btn-square-width-xs;
-    }
+  &.btn-xs {
+    width: $btn-square-width-xs;
+    height: $btn-square-width-xs;
+  }
 
-    &.btn-sm {
-        width: $btn-square-width-sm;
-        height: $btn-square-width-sm;
-    }
+  &.btn-sm {
+    width: $btn-square-width-sm;
+    height: $btn-square-width-sm;
+  }
 
-    &.btn-lg {
-        width: $btn-square-width-lg;
-        height: $btn-square-width-lg;
-    }
+  &.btn-lg {
+    width: $btn-square-width-lg;
+    height: $btn-square-width-lg;
+  }
 }
 
 //
