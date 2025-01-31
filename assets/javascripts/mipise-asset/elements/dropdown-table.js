@@ -1,16 +1,17 @@
-// Dropdowns table height
+// Dropdowns
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('load', event => {
 
-    const dropdownElement = document.querySelector('.dropdown-responsive');
-    const dropdown = new bootstrap.Dropdown(dropdownElement, {
-        popperConfig: function (defaultBsPopperConfig) {
-            const newPopperConfig = {
-                ...defaultBsPopperConfig,
-                strategy: 'fixed',
-            };
-            return newPopperConfig;
-        }
-    });
+    document.querySelectorAll('.dropdown-responsive').forEach((dropdown) => {
+        new bootstrap.Dropdown(dropdown, {
+            popperConfig: function (defaultBsPopperConfig) {
+                const newPopperConfig = {
+                    ...defaultBsPopperConfig,
+                    strategy: 'fixed',
+                };
+                return newPopperConfig;
+            }
+        });
+    })
 
 });
