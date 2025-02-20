@@ -107,7 +107,6 @@
 
         .react-pdf {
           &__Page {
-            max-width: calc("100% - 2em");
             box-shadow: 0 0 8px rgba(0, 0, 0, .5);
             margin: 1em;
 
@@ -240,4 +239,21 @@
       }
     }
   }
+}
+
+@media (max-width: 760px) {
+  .PdfViewer {
+    &__container {
+      &__content {
+        &__document {
+          .react-pdf {
+            &__Page {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
