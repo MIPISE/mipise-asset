@@ -9,7 +9,7 @@ header,
 .header-master {
   min-height: $header-master-height;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
   z-index: 1040; // Ensures the header appears above other elements
   position: fixed;
@@ -94,78 +94,77 @@ header,
   z-index: 1030;
   transform: translateX(-$sidebar-width);
 }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-wrap: nowrap;
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  flex-wrap: nowrap;
+    .navbar-nav hr {
+      margin: map-get($spacers, 2) 0;
+    }
 
-  .navbar-nav hr {
-    margin: map-get($spacers, 2) 0;
-  }
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          display: flex;
+          align-items: center;
+          padding: 0.5rem map-get($spacers, 2);
+          background-color: $white;
+          color: $body-color;
+          //border-left: 5px solid $white;
+          font-weight: 500;
 
-  .navbar-nav {
-    .nav-item {
-      .nav-link {
-        display: flex;
-        align-items: center;
-        padding: 0.5rem map-get($spacers, 2);
-        background-color: $white;
-        color: $body-color;
-        //border-left: 5px solid $white;
-        font-weight: 500;
+          &[aria-expanded="true"] i.sidebar-collapse-arrow {
+            transform: rotate(90deg);
+            margin-bottom: 0px;
+          }
 
-        &[aria-expanded="true"] i.sidebar-collapse-arrow {
-          transform: rotate(90deg);
-          margin-bottom: 0px;
-        }
+          i:not(.sidebar-collapse-arrow) {
+            margin-right: map-get($spacers, 2);
+            font-size: $font-size-base;
+          }
 
-        i:not(.sidebar-collapse-arrow) {
-          margin-right: map-get($spacers, 2);
-          font-size: $font-size-base;
-        }
-
-        &:hover,
-        &:focus {
-          background-color: $primary-bg-subtle;
-          color: $primary;
-          //border-color: $primary;
-        }
-
-        &:active,
-        &.active {
-          background-color: $primary-bg-subtle;
-          color: $primary;
-
-          i {
+          &:hover,
+          &:focus {
+            background-color: $primary-bg-subtle;
             color: $primary;
+            //border-color: $primary;
+          }
+
+          &:active,
+          &.active {
+            background-color: $primary-bg-subtle;
+            color: $primary;
+
+            i {
+              color: $primary;
+            }
+          }
+        }
+
+        // Sous-menu (collapse)
+        .collapse .nav-link {
+          padding-left: 40px;
+          background-color: $light;
+          font-weight: inherit;
+          //border-color: $primary-bg-subtle;
+
+          &:hover,
+          &:focus {
+            background-color: $primary-bg-subtle;
+            color: $primary;
+            //border-color: $primary;
+          }
+
+          &:active,
+          &.active {
+            background-color: $primary-bg-subtle;
+            color: $primary;
+            //border-color: $primary;
           }
         }
       }
-
-      // Sous-menu (collapse)
-      .collapse .nav-link {
-        padding-left: 40px;
-        background-color: $light;
-        font-weight: inherit;
-        //border-color: $primary-bg-subtle;
-
-        &:hover,
-        &:focus {
-          background-color: $primary-bg-subtle;
-          color: $primary;
-          //border-color: $primary;
-        }
-
-        &:active,
-        &.active {
-          background-color: $primary-bg-subtle;
-          color: $primary;
-          //border-color: $primary;
-        }
-      }
-    }
 
     // Sidebar Header
     .sidebar-header {
@@ -181,70 +180,8 @@ header,
     // Sidebar Body
     .sidebar-body {
       flex-grow: 1;
-
-      .navbar-nav {
-        .nav-item {
-          .nav-link {
-            display: flex;
-            align-items: center;
-            padding: map-get($spacers, 2) map-get($spacers, 1);
-            background-color: $white;
-            color: $body-color;
-            border-left: 5px solid $white;
-
-            &[aria-expanded="true"] i.sidebar-collapse-arrow {
-              transform: rotate(90deg);
-              margin-bottom: 0px;
-            }
-
-            i:not(.sidebar-collapse-arrow) {
-              margin-right: map-get($spacers, 2);
-              font-size: $font-size-base;
-            }
-
-            &:hover,
-            &:focus {
-              background-color: $primary-bg-subtle;
-              color: $primary;
-              border-color: $primary;
-            }
-
-            &:active,
-            &.active {
-              background-color: $primary-bg-subtle;
-              color: $primary;
-
-              i {
-                color: $primary;
-              }
-            }
-          }
-        }
-
-
-        // Sous-menu (collapse)
-        .collapse .nav-link {
-          padding-left: map-get($spacers, 2);
-          background-color: $light;
-          border-color: $primary-bg-subtle;
-
-          &:hover,
-          &:focus {
-            background-color: $primary-bg-subtle;
-            color: $primary;
-            border-color: $primary;
-          }
-
-          &:active,
-          &.active {
-            background-color: $primary-bg-subtle;
-            color: $primary;
-            border-color: $primary;
-          }
-        }
       }
     }
-
 
     // Sidebar Footer
     .sidebar-footer {
@@ -254,9 +191,7 @@ header,
 
       .navbar-nav {
         .nav-item {
-
-          .nav-link,
-          .collapse .nav-link {
+          .nav-link, .collapse .nav-link {
             color: $primary;
             background: none;
             border-left: 5px solid transparent;
@@ -273,7 +208,6 @@ header,
       }
     }
   }
-}
 
 
 
@@ -290,7 +224,6 @@ header,
       overflow-y: auto;
     }
   }
-
   @media (min-width: 992px) {
     #content-wrapper {
       padding-left: $sidebar-width;
@@ -325,22 +258,17 @@ header,
 }
 
 // Gestion de la marge des éléments sticky-top en cas de présence d'un master header
-.header-master+#wrapper #content-wrapper,
-.header-master#header-super-admin+#AppMenuSidebar+#wrapper #content-wrapper {
+.header-master + #wrapper #content-wrapper, .header-master#header-super-admin + #AppMenuSidebar + #wrapper #content-wrapper {
   min-height: calc(100vh - $header-master-height);
   top: $header-master-height;
   height: calc(100vh - $header-master-height);
 }
 
-.header-master+.sidebar-fixed#wrapper #sidebar-wrapper,
-.header-master+.sidebar-fixed#wrapper #content-wrapper,
-.header-master#header-super-admin+#AppMenuSidebar+.sidebar-fixed#wrapper #sidebar-wrapper,
-.header-master#header-super-admin+#AppMenuSidebar+.sidebar-fixed#wrapper #content-wrapper {
+.header-master + .sidebar-fixed#wrapper #sidebar-wrapper, .header-master + .sidebar-fixed#wrapper #content-wrapper, .header-master#header-super-admin + #AppMenuSidebar + .sidebar-fixed#wrapper #sidebar-wrapper, .header-master#header-super-admin + #AppMenuSidebar + .sidebar-fixed#wrapper #content-wrapper {
   top: $header-master-height;
   height: calc(100vh - $header-master-height);
 }
 
-.header-master+#wrapper header.sticky-top,
-.header-master#header-super-admin+#AppMenuSidebar+#wrapper header.sticky-top {
+.header-master + #wrapper header.sticky-top, .header-master#header-super-admin + #AppMenuSidebar + #wrapper header.sticky-top {
   top: $header-master-height;
 }

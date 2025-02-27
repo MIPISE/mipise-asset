@@ -1,6 +1,7 @@
 import { loadCustomInputMasks } from "./mipise-asset/utils/input_masks.js";
 import './mipise-asset/elements/sidebar.js'
 import './mipise-asset/elements/dropdown-table.js'
+import './mipise-asset/elements/clipboard.js'
 
 document.addEventListener('DOMContentLoaded', function () {
   // Popper.js
