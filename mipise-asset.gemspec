@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "mipise-asset"
-  s.version = "0.1.0"
+  s.version = "0.1.4"
   s.summary = "Mipise main assets"
   s.description = "Mipise main assets"
   s.author = "Mipise"
