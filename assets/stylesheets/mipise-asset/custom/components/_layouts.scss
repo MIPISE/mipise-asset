@@ -18,10 +18,15 @@ h1,
   color: $primary;
 }
 
+.page-header h1,
 #page-header h1,
 .h1 {
   font-size: calc($h1-font-size * 0.85);
   color: $black;
+}
+
+footer {
+  border-top: $border-width solid $border-color;
 }
 
 // Remove margin for the last child in the page header and title

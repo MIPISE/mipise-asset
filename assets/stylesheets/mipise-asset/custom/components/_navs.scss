@@ -1,11 +1,17 @@
 //
 // // Main Menu
 //
+
+.header {
+  border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+}
 .navbar {
   background-color: $white;
 }
 
-#sidebar-user .navbar-brand .logo {
+#sidebar-user .navbar-brand .logo,
+#sidebar-manager .navbar-brand .logo,
+#sidebar-mps .navbar-brand .logo {
   height: 25px;
   max-width: 8rem;
 }
@@ -22,8 +28,8 @@
     max-height: 2.5rem;
   }
 
-  header .navbar-brand,
-  .sidebar-header .navbar-brand {
+  header .navbar-brand
+  /*.sidebar-header .navbar-brand */ {
     width: $sidebar-width;
     min-width: $sidebar-width;
   }
@@ -112,4 +118,9 @@
 .nav-underline .nav-link.active,
 .nav-underline .show>.nav-link {
   font-weight: $nav-link-font-weight;
+  color: $body-color;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    background-color: var(--bs-body-bg);
 }
