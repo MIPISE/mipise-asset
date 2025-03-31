@@ -1,4 +1,4 @@
-export function loadCustomInputMasks() {
+window.addEventListener("load", () => {
   // International phone number format
   const phoneNumberMask = Inputmask({
     mask: "9{1,3}9{4,15}",
@@ -67,4 +67,4 @@ export function loadCustomInputMasks() {
 
   for (const ibanBankCode of document.getElementsByClassName("inputmask_iban_key"))
     ibanKeyMask.mask(ibanBankCode);
-}
+});
