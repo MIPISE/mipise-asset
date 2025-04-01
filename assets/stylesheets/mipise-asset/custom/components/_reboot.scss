@@ -3,9 +3,18 @@
 //
 
 input,
-button,
+.btn:not(.btn-xs, .btn-sm, .btn-lg),
 select,
 optgroup,
 textarea {
   height: 45px;
+}
+
+.input-group-sm input,
+select.form-select-sm {
+  height: auto;
+}
+
+.btn:not(.btn-xs, .btn-sm, .btn-lg), {
+  line-height: 1.85rem;
 }

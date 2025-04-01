@@ -646,6 +646,7 @@ $font-family-sans-serif: Inter,
 // // $font-size-base affects the font size of the body text
 // $font-size-root:              null !default;
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-xs: $font-size-base * .75 !default;
 $font-size-sm: $font-size-base * .875 !default;
 // $font-size-lg:                $font-size-base * 1.25 !default;
 //
@@ -665,7 +666,7 @@ $line-height-sm: 1.25 !default;
 //
 $h1-font-size: $font-size-base * 2 !default;
 $h2-font-size: $font-size-base * 1.5 !default;
-$h3-font-size: $font-size-base !default;
+$h3-font-size: $font-size-base * 1.25 !default;
 $h4-font-size: $font-size-base !default;
 $h5-font-size: $font-size-base !default;
 // $h6-font-size:                $font-size-base !default;
@@ -701,7 +702,7 @@ $display-font-sizes: (
 //
 // $display-font-family: null !default;
 // $display-font-style:  null !default;
-$display-font-weight: $font-weight-normal !default;
+$display-font-weight: $headings-font-weight !default;
 // $display-line-height: $headings-line-height !default;
 // // scss-docs-end display-headings
 //
@@ -709,7 +710,7 @@ $display-font-weight: $font-weight-normal !default;
 $lead-font-size: $font-size-base * 1.15 !default;
 // $lead-font-weight:            300 !default;
 //
-// $small-font-size:             .875em !default;
+$small-font-size:             .875em !default;
 //
 // $sub-sup-font-size:           .75em !default;
 //
@@ -1200,10 +1201,10 @@ $form-check-min-height: 1.25em !default;
 // // scss-docs-start nav-variables
 // $nav-link-padding-y:                .5rem !default;
 // $nav-link-padding-x:                1rem !default;
-// $nav-link-font-size:                null !default;
+$nav-link-font-size:                $small-font-size !default;
 $nav-link-font-weight: 500 !default;
 $nav-link-color: $body-secondary-color !default;
-$nav-link-hover-color: $primary !default;
+$nav-link-hover-color: $body-color !default;
 // $nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
 // $nav-link-disabled-color:           var(--#{$prefix}secondary-color) !default;
 // $nav-link-focus-box-shadow:         $focus-ring-box-shadow !default;
@@ -1299,7 +1300,7 @@ $dropdown-min-width: 10rem !default;
 // $dropdown-padding-x:                0 !default;
 $dropdown-padding-y: .5rem !default;
 // $dropdown-spacer:                   .125rem !default;
-// $dropdown-font-size:                $font-size-base !default;
+$dropdown-font-size:                $small-font-size !default;
 // $dropdown-color:                    var(--#{$prefix}body-color) !default;
 // $dropdown-bg:                       var(--#{$prefix}body-bg) !default;
 $dropdown-border-color: $border-color !default;
@@ -1692,11 +1693,11 @@ $list-group-active-bg: $primary-bg-subtle !default;
 // // Breadcrumbs
 //
 // // scss-docs-start breadcrumb-variables
-$breadcrumb-font-size: $font-size-sm !default;
+$breadcrumb-font-size: $font-size-xs !default;
 // $breadcrumb-padding-y:              0 !default;
-$breadcrumb-padding-x: 0.175rem !default;
+// $breadcrumb-padding-x: 0 !default;
 // $breadcrumb-item-padding-x:         .5rem !default;
-$breadcrumb-margin-bottom: 0.75rem !default;
+$breadcrumb-margin-bottom: 1rem !default;
 // $breadcrumb-bg:                     null !default;
 // $breadcrumb-divider-color:          var(--#{$prefix}secondary-color) !default;
 // $breadcrumb-active-color:           var(--#{$prefix}secondary-color) !default;

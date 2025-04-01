@@ -1,7 +1,7 @@
 //
 // // Dropdowns
 //
-.dropdown .dropdown-menu {
+.dropdown-menu {
     max-height: 50vh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -29,6 +29,7 @@ $dropdown-sizes: (
 
 .dropdown-toggle::after {
     content: "\e07c";
+    color: var(--bs-body-color);
     border: none;
     display: inline-block;
     vertical-align: bottom;
