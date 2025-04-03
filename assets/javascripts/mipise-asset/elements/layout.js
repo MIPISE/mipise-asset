@@ -1,10 +1,10 @@
 // Footer dynamic 
 
-const footer = document.getElementById("cardFixed-footer");
+const pageHeight = document.documentElement.scrollHeight;
 
 window.addEventListener("scroll", () => {
+    const footer = document.getElementById("cardFixed-footer");
     const scrollPosition = window.scrollY + window.innerHeight;
-    const pageHeight = document.documentElement.scrollHeight;
     const offset = 100;
 
     if (scrollPosition > pageHeight - offset) {
