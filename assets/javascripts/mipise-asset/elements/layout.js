@@ -1,9 +1,9 @@
 // Footer dynamic
 document.addEventListener("DOMContentLoaded", () => {
     const pageHeight = document.documentElement.scrollHeight;
+    const footer = document.getElementById("cardFixed-footer");
 
-    window.addEventListener("scroll", () => {
-        const footer = document.getElementById("cardFixed-footer");
+    const updateFooterState = () => {
         const scrollPosition = window.scrollY + window.innerHeight;
         const offset = 100;
 
@@ -12,5 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             footer.style.position = "fixed";
         }
-    });
+    }
+
+    window.addEventListener("scroll", updateFooterState);
+    updateFooterState();
 });
