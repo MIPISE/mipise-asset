@@ -168,3 +168,13 @@ footer {
   bottom: -150px;
   right: -150px; // Position the SVG at the bottom-right corner
 }
+
+#cardFixed-footer {
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  transition: bottom 0.8s ease-in-out;
+}
