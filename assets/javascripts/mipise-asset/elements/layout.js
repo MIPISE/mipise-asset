@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageHeight = document.documentElement.scrollHeight;
     const footer = document.getElementById("cardFixed-footer");
 
+    if (footer == null)
+        return;
+
     const updateFooterState = () => {
         const scrollPosition = window.scrollY + window.innerHeight;
         const offset = 100;
