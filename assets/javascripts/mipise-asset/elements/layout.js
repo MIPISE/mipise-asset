@@ -14,8 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
             footer.style.position = "relative";
         } else {
             footer.style.position = "fixed";
+            footer.style.padding = "12px 5%";
         }
-    }
+    };
 
     window.addEventListener("scroll", updateFooterState);
     updateFooterState();
