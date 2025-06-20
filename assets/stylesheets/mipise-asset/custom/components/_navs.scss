@@ -124,3 +124,28 @@
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
     background-color: var(--bs-body-bg);
 }
+
+// // Table of contents pills
+
+//
+// Table of contents
+//
+
+.table-of-content .nav-pills {
+  --#{$prefix}nav-pills-border-radius: #{$nav-pills-border-radius};
+  --#{$prefix}nav-pills-link-active-color: $body;
+  --#{$prefix}nav-pills-link-active-bg: $light;
+
+  .nav-link {
+    @include border-radius(var(--#{$prefix}nav-pills-border-radius));
+  }
+
+  .nav-link.active,
+  .show > .nav-link {
+    background-color: $light;
+  }
+  .nav-link:hover,
+  .show > .nav-link:hover {
+    background-color: $light;
+  }
+}
