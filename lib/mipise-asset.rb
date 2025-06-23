@@ -10,12 +10,16 @@ module MipiseAsset
       @assets_path ||= File.expand_path("../assets", File.dirname(__FILE__))
     end
 
-    def javascripts_path
-      File.join assets_path, "javascripts"
+    def components_path
+      File.join assets_path, "components"
     end
 
     def images_path
       File.join assets_path, "images"
+    end
+
+    def javascripts_path
+      File.join assets_path, "javascripts"
     end
 
     def stylesheets_path
