@@ -10,7 +10,7 @@ export enum ButtonColors {
 export enum ButtonSizes {
     SMALL = "sm",
     MEDIUM = "md",
-    SUCCESS = "lg"
+    LARGE = "lg"
 }
 
 export type AbstractButtonProps = {
