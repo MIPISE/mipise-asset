@@ -117,7 +117,6 @@ header,
         padding: 0.5rem map-get($spacers, 2);
         color: $body-color;
         font-weight: 500;
-        font-size: inherit;
 
         &[aria-expanded="true"] i.sidebar-collapse-arrow {
           transform: rotate(90deg);
