@@ -1,41 +1,33 @@
-import React, {ReactElement} from "react";
-
-export enum ButtonColors {
-    DEFAULT = "primary",
-    DANGER = "danger",
-    SUCCESS = "success",
-    DARK = "dark"
-}
-
-export enum ButtonSizes {
-    SMALL = "sm",
-    MEDIUM = "md",
-    LARGE = "lg"
-}
+import React, { ReactElement } from "react";
+import { Colors, Size } from "../types";
 
 export type AbstractButtonProps = {
     children: ReactElement[] | string,
-    color: ButtonColors,
-    size: ButtonSizes,
+    color: Colors,
+    size: Size,
     variant?: "link" | "subtle"
+
 }
 
 const AbstractButton: React.FC<AbstractButtonProps>
-  = ({color, size, variant, children, ...props}) => {
-    const colorAndVariantClass = `btn-${color}${(variant ? `-${variant}` : "")}`;
+    = ({ color, size, variant, children, ...props }) => {
 
-    let content;
-    if (Array.isArray(children) || React.isValidElement(children)) {
-        content = children;
-    } else {
-        content = <span dangerouslySetInnerHTML={{ __html: children }} />;
-    }
+        let content;
+        if (Array.isArray(children) || React.isValidElement(children)) {
+            content = children;
+        } else {
+            content = <span dangerouslySetInnerHTML={{ __html: children }} />;
+        }
 
-    return (
-        <button className={`btn ${colorAndVariantClass} ${size ? `btn-${size}` : ""}`} {...props}>
-            {content}
-        </button>
-    );
-};
+        return (
+            <button
+                className={`btn btn-${color}${(variant ? `-${variant}` : "")} ${size ? `btn-${size}` : ""}`} {...props}>
+                <span
+                    className="" {...props}>
+                    {content}
+                </span>
+            </button>
+        );
+    };
 
 export default AbstractButton;

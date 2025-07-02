@@ -1,7 +1,7 @@
 import React from "react";
 import AbstractBadges, { AbstractBadgesProps } from "./AbstractBadges";
 
-type CircleBadgesProps = Omit<AbstractBadgesProps, "variant">
+export type CircleBadgesProps = Omit<AbstractBadgesProps, "variant">
 
 const CircleBadges: React.FC<CircleBadgesProps>
   = (props) => {

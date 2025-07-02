@@ -5,11 +5,12 @@ export type AbstractBadgesProps = {
     children: ReactElement[] | string,
     color: Colors,
     size: Size,
-    variant?: "circle"
+    variant?: "circle",
+    rounded?: "rounded",
 }
 
 const AbstractBadges: React.FC<AbstractBadgesProps>
-    = ({ color, size, variant, children, ...props }) => {
+    = ({ color, size, variant, children, rounded, ...props }) => {
 
         let content;
         if (Array.isArray(children) || React.isValidElement(children)) {
@@ -19,7 +20,7 @@ const AbstractBadges: React.FC<AbstractBadgesProps>
         }
 
         return (
-            <span className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""}`} {...props}>
+            <span className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""} ${rounded ? `${rounded}` : ""}`} {...props}>
                 {content}
             </span>
         );

@@ -6,6 +6,6 @@ type SubtleButtonProps = Omit<AbstractButtonProps, "variant">
 const SubtleButton: React.FC<SubtleButtonProps>
   = (props) => {
     return <AbstractButton {...props} variant={"subtle"}></AbstractButton>;
-}
+  }
 
 export default SubtleButton;

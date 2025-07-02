@@ -1,0 +1,16 @@
+export enum Icones {
+  category_entity_id_1 = "user",
+  category_entity_id_2 = "user-gear",
+  category_entity_id_3 = "corporate",
+  category_entity_id_4 = "people-roof",
+  category_entity_id_5 = "user",
+  category_entity_id_6 = "refer-arrow",
+  category_entity_id_7 = "users",
+  category_entity_id_8 = "corporate",
+  category_entity_id_9 = "wallet",
+  category_entity_id_10 = "people-roof",
+  default = "default-icon",
+  document = "file",
+  add = "add",
+  delete = "trash",
+}
