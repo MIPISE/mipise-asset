@@ -2,14 +2,14 @@ import React, { ReactElement } from "react";
 import { Colors } from "./types";
 
 export type SelectItemProps = {
-  data: ReactElement[] | string,
+  label: ReactElement[] | string,
 }
 
 const SelectItem: React.FC<SelectItemProps>
-  = ({ data }) => {
+  = ({ label }) => {
     return (
       <>
-        <option value="" selected>{data}</option>
+        <option value="" selected>{label}</option>
       </>
     );
   };
