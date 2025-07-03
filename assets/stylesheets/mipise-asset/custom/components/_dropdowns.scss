@@ -91,3 +91,26 @@ $dropdown-sizes: (
 .dropdown.wizard [data-bs-toggle=dropdown][aria-expanded=true]:after {
     transform: $accordion-icon-transform;
 }
+
+//// Dropdown on hover sidebar menu
+
+
+.drophover .dropdown-toggle::after {
+    pointer-events: none;
+}
+
+.drophover:hover .dropdown-menu {
+    display: block;
+}
+
+.drophover .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 180px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 9999;
+}

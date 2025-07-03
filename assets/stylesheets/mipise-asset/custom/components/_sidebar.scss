@@ -1,7 +1,7 @@
 header,
 .sidebar-header {
   @extend .bg-white;
-  @extend .sticky-top;
+  // @extend .sticky-top;
   // height: $header-height;
   // min-height: $header-height;
 }
@@ -9,7 +9,7 @@ header,
 .header-master {
   min-height: $header-master-height;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   z-index: 1040; // Ensures the header appears above other elements
   position: fixed;
@@ -46,7 +46,7 @@ header,
       width: 100%;
       height: 100%;
       background: #000;
-      z-index: 1037;
+      z-index: 1;
       opacity: 0.5;
       transition: opacity 0.3s ease-in-out;
     }
@@ -91,80 +91,83 @@ header,
   flex-basis: $sidebar-width;
   flex-shrink: 0;
   transition: transform 0.15s ease-in-out;
-  z-index: 1030;
+  z-index: 10;
+  overflow: visible;
+  position: relative;
+  height: 100vh;
   transform: translateX(-$sidebar-width);
 }
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    flex-wrap: nowrap;
 
-    .navbar-nav hr {
-      margin: map-get($spacers, 2) 0;
-    }
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-wrap: nowrap;
 
-    .navbar-nav {
-      .nav-item {
-        .nav-link {
-          display: flex;
-          align-items: center;
-          padding: 0.5rem map-get($spacers, 2);
-          background-color: $white;
-          color: $body-color;
-          //border-left: 5px solid $white;
-          font-weight: 500;
+  .navbar-nav hr {
+    margin: map-get($spacers, 2) 0;
+  }
 
-          &[aria-expanded="true"] i.sidebar-collapse-arrow {
-            transform: rotate(90deg);
-            margin-bottom: 0px;
-          }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem map-get($spacers, 2);
+        color: $body-color;
+        font-weight: 500;
 
-          i:not(.sidebar-collapse-arrow) {
-            margin-right: map-get($spacers, 2);
-            font-size: $font-size-base;
-          }
-
-          &:hover,
-          &:focus {
-            background-color: $primary-bg-subtle;
-            color: $primary;
-            //border-color: $primary;
-          }
-
-          &:active,
-          &.active {
-            background-color: $primary-bg-subtle;
-            color: $primary;
-
-            i {
-              color: $primary;
-            }
-          }
+        &[aria-expanded="true"] i.sidebar-collapse-arrow {
+          transform: rotate(90deg);
+          margin-bottom: 0px;
         }
 
-        // Sous-menu (collapse)
-        .collapse .nav-link {
-          padding-left: 40px;
-          background-color: $light;
-          font-weight: inherit;
-          //border-color: $primary-bg-subtle;
+        i:not(.sidebar-collapse-arrow) {
+          margin-right: map-get($spacers, 2);
+          font-size: $font-size-base;
+        }
 
-          &:hover,
-          &:focus {
-            background-color: $primary-bg-subtle;
-            color: $primary;
-            //border-color: $primary;
-          }
+        &:hover,
+        &:focus {
+          background-color: $primary-bg-subtle;
+          color: $primary;
+          //border-color: $primary;
+        }
 
-          &:active,
-          &.active {
-            background-color: $primary-bg-subtle;
+        &:active,
+        &.active {
+          background-color: $primary-bg-subtle;
+          color: $primary;
+
+          i {
             color: $primary;
-            //border-color: $primary;
           }
         }
       }
+
+      // Sous-menu (collapse)
+      .collapse .nav-link {
+        padding-left: 40px;
+        background-color: $light;
+        font-weight: inherit;
+        //border-color: $primary-bg-subtle;
+
+        &:hover,
+        &:focus {
+          background-color: $primary-bg-subtle;
+          color: $primary;
+          //border-color: $primary;
+        }
+
+        &:active,
+        &.active {
+          background-color: $primary-bg-subtle;
+          color: $primary;
+          //border-color: $primary;
+        }
+      }
+    }
 
     // Sidebar Header
     .sidebar-header {
@@ -180,50 +183,50 @@ header,
     // Sidebar Body
     .sidebar-body {
       flex-grow: 1;
-      }
     }
+  }
 
-    // Sidebar Footer
-    .sidebar-footer {
-      //padding: 0.75rem;
-      flex-shrink: 0;
-      margin-top: auto;
+  // Sidebar Footer
+  .sidebar-footer {
+    //padding: 0.75rem;
+    flex-shrink: 0;
+    margin-top: auto;
 
-      .navbar-nav {
-        .nav-item {
-          .nav-link, .collapse .nav-link {
-            color: $primary;
+    .navbar-nav {
+      .nav-item {
+
+        .nav-link,
+        .collapse .nav-link {
+          color: $primary;
+          background: none;
+          border-left: 5px solid transparent;
+          padding: map-get($spacers, 1) map-get($spacers, 1);
+
+          &:hover,
+          &:active,
+          &.active {
+            color: $body-color;
             background: none;
-            border-left: 5px solid transparent;
-            padding: map-get($spacers, 1) map-get($spacers, 1);
-
-            &:hover,
-            &:active,
-            &.active {
-              color: $body-color;
-              background: none;
-            }
           }
         }
       }
     }
   }
+}
 
 
 
 // Sidebar and content with fixed positions
 .sidebar-fixed#wrapper {
   #sidebar-wrapper {
+    z-index: 10;
+    overflow: visible;
     position: fixed;
     top: 0;
     height: 100vh;
     width: $sidebar-width;
-    z-index: 1038;
-
-    .sidebar-body {
-      overflow-y: auto;
-    }
   }
+
   @media (min-width: 992px) {
     #content-wrapper {
       padding-left: $sidebar-width;
@@ -241,7 +244,7 @@ header,
 #sidebarToggle {
   transition: left, right, 0.3s;
   position: fixed;
-  left: calc($sidebar-width - 1rem);
+  left: calc($sidebar-width);
   //top: 0.875rem;
   display: flex;
   align-items: center;
@@ -258,17 +261,58 @@ header,
 }
 
 // Gestion de la marge des éléments sticky-top en cas de présence d'un master header
-.header-master + #wrapper #content-wrapper, .header-master#header-super-admin + #AppMenuSidebar + #wrapper #content-wrapper {
+.header-master+#wrapper #content-wrapper,
+.header-master#header-super-admin+#AppMenuSidebar+#wrapper #content-wrapper {
   min-height: calc(100vh - $header-master-height);
   top: $header-master-height;
   height: calc(100vh - $header-master-height);
 }
 
-.header-master + .sidebar-fixed#wrapper #sidebar-wrapper, .header-master + .sidebar-fixed#wrapper #content-wrapper, .header-master#header-super-admin + #AppMenuSidebar + .sidebar-fixed#wrapper #sidebar-wrapper, .header-master#header-super-admin + #AppMenuSidebar + .sidebar-fixed#wrapper #content-wrapper {
+.header-master+.sidebar-fixed#wrapper #sidebar-wrapper,
+.header-master+.sidebar-fixed#wrapper #content-wrapper,
+.header-master#header-super-admin+#AppMenuSidebar+.sidebar-fixed#wrapper #sidebar-wrapper,
+.header-master#header-super-admin+#AppMenuSidebar+.sidebar-fixed#wrapper #content-wrapper {
   top: $header-master-height;
   height: calc(100vh - $header-master-height);
 }
 
-.header-master + #wrapper header.sticky-top, .header-master#header-super-admin + #AppMenuSidebar + #wrapper header.sticky-top {
+.header-master+#wrapper header.sticky-top,
+.header-master#header-super-admin+#AppMenuSidebar+#wrapper header.sticky-top {
   top: $header-master-height;
+}
+
+#sidebar-user {
+  overflow: visible;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: fixed;
+  height: 100%;
+
+  .navbar-nav {
+    .nav-item {
+      position: relative;
+
+      &.li {
+        position: relative;
+      }
+    }
+
+    .open-item {
+      background-color: $primary-bg-subtle;
+
+      .open-main-focus {
+        background-color: $primary;
+        color: $white;
+      }
+
+      .open-focus {
+        color: $primary;
+      }
+    }
+
+  }
+}
+
+#sidebar-user::-webkit-scrollbar {
+  display: none;
 }
