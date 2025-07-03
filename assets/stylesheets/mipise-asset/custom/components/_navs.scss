@@ -5,6 +5,7 @@
 .header {
   border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
 }
+
 .navbar {
   background-color: $white;
 }
@@ -29,7 +30,9 @@
   }
 
   header .navbar-brand
-  /*.sidebar-header .navbar-brand */ {
+
+  /*.sidebar-header .navbar-brand */
+    {
     width: $sidebar-width;
     min-width: $sidebar-width;
   }
@@ -118,9 +121,10 @@
 .nav-underline .nav-link.active,
 .nav-underline .show>.nav-link {
   font-weight: $nav-link-font-weight;
-  color: $body-color;
+  //  color: $body-color;
 }
 
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-    background-color: var(--bs-body-bg);
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  background-color: var(--bs-body-bg);
 }
