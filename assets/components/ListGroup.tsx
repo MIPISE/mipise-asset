@@ -1,19 +1,18 @@
 import React, { ReactElement } from "react";
 import { Colors } from "./types";
-import Card, { CardProps } from "./Cards/Card";
+import ListItem, { ListItemProps } from "./ListItem";
 
-export type DocumentDownloadProps = {
-  label: ReactElement[] | string,
-  CardProps: CardProps
+export type ListGroupProps = {
+  ListItemProps: ListItemProps
 }
 
-const DocumentDownload: React.FC<DocumentDownloadProps>
-  = ({ label, CardProps }) => {
+const ListGroup: React.FC<ListGroupProps>
+  = ({ ListItemProps }) => {
     return (
-      <>
-        <Card {...CardProps} />
-      </>
+      <div className={`list-group list-group-rounded`}>
+        <ListItem {...ListItemProps} />
+      </div>
     );
   };
 
-export default DocumentDownload;
+export default ListGroup;

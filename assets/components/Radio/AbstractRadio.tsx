@@ -1,14 +1,15 @@
 import React, { ReactElement } from "react";
-import { Colors, Size, Direction } from "../types";
 import ItemRadio from "./ItemRadio";
 
+type helpTextProp = false | string | undefined;
 
 export type AbstractRadioProps = {
   label: ReactElement[] | string,
+  helpText: helpTextProp
 }
 
 const AbstractRadio: React.FC<AbstractRadioProps>
-  = ({ label, ...props }) => {
+  = ({ label, helpText, ...props }) => {
 
     return (
       <div className="form-group">
@@ -17,6 +18,10 @@ const AbstractRadio: React.FC<AbstractRadioProps>
           {label}
         </legend>
         <ItemRadio data={"Célibataire"} />
+        <div
+          className="form-text">
+          {helpText}
+        </div>
       </div>
     );
   };

@@ -9,12 +9,13 @@ export type IconeButtonProps = {
   icone: Icones,
   variant?: "link" | "subtle",
   iconeEnd: boolean,
-  square?: boolean
+  square?: boolean,
+  className?: string
 
 }
 
 const IconeButton: React.FC<IconeButtonProps>
-  = ({ color, size, variant, children, icone, iconeEnd, square, ...props }) => {
+  = ({ color, size, variant, children, icone, iconeEnd, square, className, ...props }) => {
 
     let content;
     if (Array.isArray(children) || React.isValidElement(children)) {
@@ -25,7 +26,7 @@ const IconeButton: React.FC<IconeButtonProps>
 
     return (
       <button
-        className={`btn btn-${color}${(variant ? `-${variant}` : "")} ${size ? `btn-${size}` : ""} ${square ? `btn-square` : "d-inline-flex align-items-center justify-content-center"}`}{...props}>
+        className={`btn btn-${color}${(variant ? `-${variant}` : "")} ${size ? `btn-${size}` : ""} ${square ? `btn-square` : "d-inline-flex align-items-center justify-content-center"} ${className} `}{...props}>
         <i
           className={`fi fi-rs-${icone} ${(iconeEnd ? `fi fi-rs-${icone} ${square ? `` : "ps-2"} order-2` : `fi fi-rs-${icone} pe-2`)}`} aria-hidden="true">
         </i>

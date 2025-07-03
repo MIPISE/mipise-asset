@@ -9,10 +9,12 @@ export type IconeBadgesProps = {
     icone: Icones,
     variant?: "circle",
     rounded?: "rounded",
+    className?: string
+
 }
 
 const IconeBadges: React.FC<IconeBadgesProps>
-    = ({ color, size, variant, children, rounded, icone, ...props }) => {
+    = ({ color, size, variant, children, rounded, icone, className, ...props }) => {
 
         let content;
         if (Array.isArray(children) || React.isValidElement(children)) {
@@ -22,7 +24,7 @@ const IconeBadges: React.FC<IconeBadgesProps>
         }
 
         return (
-            <div className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${rounded ? `${rounded}` : ""}`}>
+            <div className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""} ${className} ${rounded ? `${rounded}` : ""}`}>
                 <i className={`fi fi-rs-${icone} pe-1`} aria-hidden="true"></i>
                 <span className="d-sm-flex d-none pe-1" {...props}>
                     {content}
