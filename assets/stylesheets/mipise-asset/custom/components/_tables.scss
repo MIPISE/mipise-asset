@@ -1,0 +1,109 @@
+table {
+  //font-size: small;
+  border-radius: $border-radius;
+
+  & ol,
+  ul,
+  dl {
+    margin-bottom: 0;
+  }
+
+  & li {
+    /*font-size: $small-font-size;*/
+  }
+
+  & th {
+    font-size: $sub-sup-font-size;
+    text-transform: uppercase;
+
+    & i {
+      font-size: smaller;
+      padding-left: 2.5px;
+    }
+
+    & a {
+      color: $body-color;
+    }
+  }
+
+  & td {
+    font-size: $small-font-size;
+  }
+
+  & tfoot {
+    /*font-size: small;*/
+    font-weight: 500;
+  }
+
+  & .row-hidden {
+    padding: 0px;
+    border-bottom: unset;
+
+    & .show {
+      border-bottom: inset;
+    }
+  }
+
+  tfoot {
+    background-color: $primary-bg-subtle;
+  }
+}
+
+.table {
+  margin-bottom: 0;
+
+  thead {
+    vertical-align: middle;
+    height: 40px;
+  }
+}
+
+.table-responsive {
+  //padding: 1% 0 3% 0;
+  //margin: 0 0 1.5rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  z-index: 9;
+}
+
+
+/*--- Fixed column of actions ---*/
+
+//@media (min-width: 992px) {
+.table-actions {
+
+  & th.action,
+  td.action {
+    position: sticky;
+    right: 0px;
+    vertical-align: middle;
+    z-index: 1;
+    text-align: center;
+    width: 36px;
+    padding: 0.125rem;
+    background-color: $white;
+  }
+
+}
+
+//}
+
+.table-actions .dropend .dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+
+/*--- Contextual action buttons in table rows only visible on hover - large screen only ---*/
+
+@media (min-width: 992px) {
+  .table-actions table tbody td:not(.action) .btn:not(.btn-display) {
+    visibility: hidden;
+  }
+
+  .table-actions table tbody tr:hover .btn:not(.btn-display) {
+    visibility: visible;
+  }
+}
