@@ -11,19 +11,14 @@
   "keywords": [
     "assets"
   ],
-  "author": "Mipise",
-  "license": "ISC",
+  "license": "MIT",
+  "author": "Mipise Group",
   "homepage": "https://github.com/MIPISE/mipise-asset#readme",
-  "dependencies": {
-    "@types/node": "^24.0.0",
-    "babel-loader": "^10.0.0",
-    "fs": "^0.0.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "webpack": "^5.99.9"
-  },
   "devDependencies": {
-    "@types/prop-types": "^15.7.15",
-    "@types/react": "^19.1.7"
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.7",
+    "babel-loader": "^10.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
