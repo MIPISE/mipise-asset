@@ -1,7 +1,6 @@
 // Dropdowns
 
 window.addEventListener('load', event => {
-
     document.querySelectorAll('.dropdown-responsive').forEach((dropdown) => {
         new bootstrap.Dropdown(dropdown, {
             popperConfig: function (defaultBsPopperConfig) {
@@ -12,6 +11,5 @@ window.addEventListener('load', event => {
                 return newPopperConfig;
             }
         });
-    })
-
+    });
 });
