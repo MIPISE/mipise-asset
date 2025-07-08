@@ -18,7 +18,7 @@ const renderComponent = (component, index, pathKey) => {
     }
     props["children"] = children.length > 0 ? children : component.innerHTML;
 
-    const ComponentFunction = require(`../../../components/${componentName}.tsx`).default;
+    const ComponentFunction = require(`../../components/${componentName}.tsx`).default;
     return (
         <ComponentFunction {...props} key={currentKey}/>
     );
