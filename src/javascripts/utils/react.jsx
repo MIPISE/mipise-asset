@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     components.forEach((component, i) => {
         const key = component.getAttribute("data-name");
         const renderedComponent = renderComponent(component, i, key);
-        ReactDOM.createRoot(component).render(renderedComponent);
+        ReactDOM.createRoot(component.parentElement).render(renderedComponent);
+        component.remove();
     })
 });
