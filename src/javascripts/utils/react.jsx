@@ -25,16 +25,13 @@ const renderComponent = (component, index, pathKey) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const allComponents = Array.from(document.querySelectorAll("div[data-component]"));
     const topLevelComponents = [];
-    const componentsToRemove = new Set();
+    const allComponents = document.querySelectorAll("div[data-component]");
 
     allComponents.forEach(component => {
-        componentsToRemove.add(component);
-
         let isTopLevel = true;
         let parent = component.parentElement;
-        while (parent) {
+        while (parent && parent !== document.body && parent.nodeType === 1) {
             if (parent.hasAttribute('data-component')) {
                 isTopLevel = false;
                 break;
@@ -50,12 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const key = component.getAttribute("data-name");
         const renderedComponent = renderComponent(component, i, key);
 
-        ReactDOM.createRoot(component.parentElement).render(renderedComponent);
-    });
-
-    componentsToRemove.forEach(component => {
-        if (component.parentNode) {
-            component.remove();
-        }
+        const root = ReactDOM.createRoot(component);
+        root.render(renderedComponent);
     });
 });
