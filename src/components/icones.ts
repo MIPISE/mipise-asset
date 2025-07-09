@@ -12,6 +12,6 @@ export enum Icones {
   ARROW_CIRCLE_UP = "arrow-circle-up",
   ARROW_CIRCLE_DOWN = "arrow-circle-down",
   ARROW_CIRCLE_RIGHT = "arrow-circle-right",
-
+  MENU = "bars-sort"
 
 }
