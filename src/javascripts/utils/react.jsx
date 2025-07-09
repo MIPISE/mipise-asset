@@ -25,24 +25,37 @@ const renderComponent = (component, index, pathKey) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const parentMap = new Map();
-    const components = document.querySelectorAll("div[data-component]");
-    components.forEach((component) => {
-        const parentElement = component.parentElement;
-        if (!parentMap.has(parentElement)) {
-            parentMap.set(parentElement, []);
+    const allComponents = Array.from(document.querySelectorAll("div[data-component]"));
+    const topLevelComponents = [];
+    const componentsToRemove = new Set();
+
+    allComponents.forEach(component => {
+        componentsToRemove.add(component);
+
+        let isTopLevel = true;
+        let parent = component.parentElement;
+        while (parent) {
+            if (parent.hasAttribute('data-component')) {
+                isTopLevel = false;
+                break;
+            }
+            parent = parent.parentElement;
         }
-        parentMap.get(parentElement).push(component);
+        if (isTopLevel) {
+            topLevelComponents.push(component);
+        }
     });
 
-    parentMap.forEach((componentsInParent, parentElement) => {
-        const renderedComponents = [];
-        componentsInParent.forEach((component, i) => {
-            const key = component.getAttribute("data-name");
-            renderedComponents.push(renderComponent(component, i, key));
-        });
+    topLevelComponents.forEach((component, i) => {
+        const key = component.getAttribute("data-name");
+        const renderedComponent = renderComponent(component, i, key);
 
-        ReactDOM.createRoot(parentElement).render(<>{renderedComponents}</>);
-        componentsInParent.forEach(component => component.remove());
+        ReactDOM.createRoot(component.parentElement).render(renderedComponent);
+    });
+
+    componentsToRemove.forEach(component => {
+        if (component.parentNode) {
+            component.remove();
+        }
     });
 });
