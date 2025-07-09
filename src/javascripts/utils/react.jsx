@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             roots.push(cachedRoot);
         }
 
+        console.log(roots);
         cachedRoot.root.render(renderedComponent);
         component.remove();
     })
