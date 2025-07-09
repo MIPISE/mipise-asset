@@ -2,6 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+const roots = [];
+
 const renderComponent = (component, index, pathKey) => {
     const props = {};
     component.getAttributeNames().forEach((name) => props[name.replace("data-", "")] = component.getAttribute(name));
@@ -29,7 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     components.forEach((component, i) => {
         const key = component.getAttribute("data-name");
         const renderedComponent = renderComponent(component, i, key);
-        ReactDOM.createRoot(component.parentElement).render(renderedComponent);
+
+        if (!roots.includes(component.parentElement))
+            roots.push(ReactDOM.createRoot(component.parentElement))
+        roots.find(component.parentElement).render(renderedComponent);
+
         component.remove();
     })
 });
