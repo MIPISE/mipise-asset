@@ -32,12 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const key = component.getAttribute("data-name");
         const renderedComponent = renderComponent(component, i, key);
 
-        if (!roots.includes(component.parentElement))
-            roots.push({element: component.parentElement, root: ReactDOM.createRoot(component.parentElement)});
-        console.log(roots);
-        console.log(roots.find((root) => root.element === component.parentElement));
-        roots.find((root) => root.element === component.parentElement).root.render(renderedComponent);
+        let cachedRoot = roots.find((root) => root.element === component.parentElement);
+        if (!cachedRoot) {
+            cachedRoot = {element: component.parentElement, root: ReactDOM.createRoot(component.parentElement)};
+            roots.push(cachedRoot);
+        }
 
+        cachedRoot.root.render(renderedComponent);
         component.remove();
     })
 });
