@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const renderedComponent = renderComponent(component, i, key);
 
         if (!roots.includes(component.parentElement))
-            roots.push(ReactDOM.createRoot(component.parentElement))
-        roots.find((root) => root === component.parentElement).render(renderedComponent);
+            roots.push({element: component.parentElement, root: ReactDOM.createRoot(component.parentElement)});
+        roots.find((root) => root.element === component.parentElement).render(renderedComponent);
 
         component.remove();
     })
