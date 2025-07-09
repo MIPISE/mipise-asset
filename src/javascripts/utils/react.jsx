@@ -2,6 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+const roots = [];
+
 const renderComponent = (component, index, pathKey) => {
     const props = {};
     component.getAttributeNames().forEach((name) => props[name.replace("data-", "")] = component.getAttribute(name));
@@ -25,29 +27,18 @@ const renderComponent = (component, index, pathKey) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const topLevelComponents = [];
-    const allComponents = document.querySelectorAll("div[data-component]");
-
-    allComponents.forEach(component => {
-        let isTopLevel = true;
-        let parent = component.parentElement;
-        while (parent && parent !== document.body && parent.nodeType === 1) {
-            if (parent.hasAttribute('data-component')) {
-                isTopLevel = false;
-                break;
-            }
-            parent = parent.parentElement;
-        }
-        if (isTopLevel) {
-            topLevelComponents.push(component);
-        }
-    });
-
-    topLevelComponents.forEach((component, i) => {
+    const components = document.querySelectorAll("div[data-component]");
+    components.forEach((component, i) => {
         const key = component.getAttribute("data-name");
         const renderedComponent = renderComponent(component, i, key);
 
-        const root = ReactDOM.createRoot(component);
-        root.render(renderedComponent);
-    });
+        let cachedRoot = roots.find((root) => root.element === component.parentElement);
+        if (!cachedRoot) {
+            cachedRoot = {element: component.parentElement, root: ReactDOM.createRoot(component.parentElement)};
+            roots.push(cachedRoot);
+        }
+
+        cachedRoot.root.render(renderedComponent);
+        component.remove();
+    })
 });
