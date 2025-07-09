@@ -1,17 +1,24 @@
 import React, { ReactElement } from "react";
-import { Colors, Size } from "../types";
 
 export type ItemDropdown = {
-  data: ReactElement[] | string,
+  children: ReactElement[] | string,
+  link: string
 }
 
 const ItemDropdown: React.FC<ItemDropdown>
-  = ({ data, ...props }) => {
+  = ({ children, link }) => {
+
+    let content;
+    if (Array.isArray(children) || React.isValidElement(children)) {
+      content = children;
+    } else {
+      content = <span dangerouslySetInnerHTML={{ __html: children }} />;
+    }
 
     return (
       <li>
-        <a
-          className="dropdown-item" href="#" type="button" aria-label="">{data}
+        <a className="dropdown-item" href={link} type="button" aria-label="">
+          {content}
         </a>
       </li>
     );
