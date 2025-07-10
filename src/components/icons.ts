@@ -12,6 +12,13 @@ export enum Icons {
   ARROW_CIRCLE_UP = "arrow-circle-up",
   ARROW_CIRCLE_DOWN = "arrow-circle-down",
   ARROW_CIRCLE_RIGHT = "arrow-circle-right",
-  MENU = "bars-sort"
-
+  MENU = "bars-sort",
+  CREDIT_CARD = "credit-card"
 }
+
+const iconMapping = (name: string): string | undefined => {
+  const key = (name.toUpperCase()) as keyof Icons;
+  if (Icons[key])
+    return Icons[key];
+};
+export default iconMapping;
