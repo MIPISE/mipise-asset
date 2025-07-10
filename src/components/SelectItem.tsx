@@ -1,15 +1,15 @@
 import React, { ReactElement } from "react";
-import { Colors } from "./types";
+import {Colors, GlobalProps} from "./types";
 
-export type SelectItemProps = {
+export type SelectItemProps = GlobalProps & {
   label: ReactElement[] | string,
 }
 
 const SelectItem: React.FC<SelectItemProps>
-  = ({ label }) => {
+  = ({ label, ...props }) => {
     return (
       <>
-        <option value="" selected>{label}</option>
+        <option className={props.classes} value="" selected>{label}</option>
       </>
     );
   };

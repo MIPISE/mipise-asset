@@ -1,29 +1,27 @@
 import React, { ReactElement } from "react";
 import ItemCheckbox from "./ItemCheckbox";
+import {GlobalProps} from "../types";
 
-type helpTextProp = false | string | undefined;
-
-export type AbstractCheckboxProps = {
+export type AbstractCheckboxProps = GlobalProps & {
   label: ReactElement[] | string,
-  helpText: helpTextProp
-
+  helpText?: string
 }
 
 const AbstractCheckbox: React.FC<AbstractCheckboxProps>
   = ({ label, helpText, ...props }) => {
 
     return (
-      <div className="form-group">
+      <div className={`form-group ${props.classes}`}>`
         <label
           className="form-label">
           {label}
         </label>
         <ItemCheckbox
           data={"Célibataire"} />
-        <div
+        {helpText && <div
           className="form-text">
           {helpText}
-        </div>
+        </div>}
       </div>
     );
   };

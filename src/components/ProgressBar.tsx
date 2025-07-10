@@ -1,19 +1,19 @@
 import React from "react";
-import {Colors} from "./types";
+import {Colors, GlobalProps} from "./types";
 
-type ProgressBarProps = {
-    value: number,
-    max: number,
-    backgroundColor?: Colors,
-    animated?: boolean,
+type ProgressBarProps = GlobalProps & {
+    value: number
+    max: number
+    backgroundColor?: Colors
+    animated?: boolean
     striped?: boolean
 };
 
 const ProgressBar: React.FC<ProgressBarProps>
-  = ({ value, max, backgroundColor = Colors.PRIMARY, animated = false, striped = false}) => {
+  = ({ value, max, backgroundColor = Colors.PRIMARY, animated = false, striped = false, ...props}) => {
     const progressValue = Math.round(value / max * 100);
 
-    let classes = `progress-bar bg-${backgroundColor}`;
+    let classes = `progress-bar bg-${backgroundColor} ${props.classes}`;
     if (animated)
         classes += " progress-bar-animated";
 

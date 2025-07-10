@@ -1,8 +1,8 @@
 import React, {ReactElement} from "react";
-import { Colors, Size, Direction } from "../types";
+import {Colors, Size, Direction, GlobalProps} from "../types";
 import { ItemDropdown } from "./ItemDropdown";
 
-export type AbstractDropdown = {
+export type AbstractDropdown = GlobalProps & {
   title: ReactElement[] | string,
   children: ReactElement<ItemDropdown>[]
   color?: Colors,
@@ -17,7 +17,7 @@ const AbstractDropdown: React.FC<AbstractDropdown>
 
     return (
       <div
-        className={`drop${direction}${fullW ? ` d-grid` : ""}${hover ? " drophover" : ""}`}>
+        className={`drop${direction}${fullW ? ` d-grid` : ""}${hover ? " drophover" : ""} ${props.classes}`}>
         <button
           className={`btn btn-${color}${size ? ` btn-${size}` : ""}${fullW ? " d-flex flex-start justify-content-between align-items-center" : ""}  dropdown-toggle dropdown-responsive`} {...props}
           type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls=""

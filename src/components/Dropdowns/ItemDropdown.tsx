@@ -1,12 +1,13 @@
 import React, { ReactElement } from "react";
+import {GlobalProps} from "../types";
 
-export type ItemDropdown = {
+export type ItemDropdown = GlobalProps & {
   children: ReactElement[] | string,
   link: string
 }
 
 const ItemDropdown: React.FC<ItemDropdown>
-  = ({ children, link }) => {
+  = ({ children, link, ...props }) => {
 
     let content;
     if (Array.isArray(children) || React.isValidElement(children)) {
@@ -17,7 +18,7 @@ const ItemDropdown: React.FC<ItemDropdown>
 
     return (
       <li>
-        <a className="dropdown-item" href={link} type="button" aria-label="">
+        <a className={`dropdown-item ${props.classes}`} href={link} type="button" aria-label="">
           {content}
         </a>
       </li>

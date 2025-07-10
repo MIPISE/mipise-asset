@@ -1,27 +1,27 @@
 import React, { ReactElement } from "react";
-import { Colors } from "./types";
-import IconeButton, { IconeButtonProps } from "./Buttons/IconeButton";
-import IconeBadges, { IconeBadgesProps } from "./Badges/IconeBadges";
+import IconButton, { IconButtonProps } from "./Buttons/IconButton";
+import IconBadge, { IconBadgeProps } from "./Badges/IconBadge";
+import {GlobalProps} from "./types";
 
-export type ListItemProps = {
+export type ListItemProps = GlobalProps & {
   label: ReactElement[] | string,
-  IconeBadgesProps: IconeBadgesProps,
-  IconeButtonProps: IconeButtonProps,
+  IconBadgesProps: IconBadgeProps,
+  IconButtonProps: IconButtonProps,
 }
 
 const ListItem: React.FC<ListItemProps>
-  = ({ IconeBadgesProps, IconeButtonProps, label }) => {
+  = ({ IconBadgesProps, IconButtonProps, label, ...props }) => {
     return (
       <div
-        className="list-group-item d-grid d-md-flex flex-nowrap align-items-center gap-2">
+        className={`list-group-item d-grid d-md-flex flex-nowrap align-items-center gap-2 ${props.classes}`}>
         <div
           className="d-flex flex-row align-items-center">
-          <IconeBadges className="align-items-center justify-content-center me-2" {...IconeBadgesProps} />
+          <IconBadge classes="align-items-center justify-content-center me-2" {...IconBadgesProps} />
           <div
             className="flex-fill">{label}
           </div>
         </div>
-        <IconeButton className="ms-md-auto" {...IconeButtonProps} />
+        <IconButton classes="ms-md-auto" {...IconButtonProps} />
       </div>
     );
   };

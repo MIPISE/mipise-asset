@@ -1,9 +1,8 @@
 import React, { ReactElement } from "react";
-import { Colors, Size, Direction } from "../types";
+import { GlobalProps } from "../types";
 import ItemCustomRadio from "./ItemCustomRadio";
 
-
-export type CustomRadioProps = {
+export type CustomRadioProps = GlobalProps & {
   label: ReactElement[] | string,
 }
 
@@ -11,12 +10,12 @@ const CustomRadio: React.FC<CustomRadioProps>
   = ({ label, ...props }) => {
 
     return (
-      <div className="form-group">
+      <div className={`form-group ${props.classes}`}>
         <legend
           className="form-label">
           {label}
         </legend>
-        <ItemCustomRadio data={"Paiement par carte de crédit"} variantIcone />
+        <ItemCustomRadio data={"Paiement par carte de crédit"} variantIcon />
       </div>
     );
   };

@@ -22,3 +22,7 @@ export enum Direction {
   DOWN = "down",
   UP = "up",
 }
+
+export type GlobalProps = {
+  classes?: string,
+}

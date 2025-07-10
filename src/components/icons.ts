@@ -1,4 +1,4 @@
-export enum Icones {
+export enum Icons {
   WARNING = "triangle-warning",
   DEFAULT = "default-icon",
   DOCUMENT = "file",

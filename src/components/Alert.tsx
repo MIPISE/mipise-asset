@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import { Colors } from "./types";
+import {Colors, GlobalProps} from "./types";
 
-type AlertProps = {
+type AlertProps = GlobalProps & {
   children: ReactElement[] | string,
   color: Colors,
   dismissible?: boolean,
@@ -9,8 +9,8 @@ type AlertProps = {
 }
 
 const Alert: React.FC<AlertProps>
-  = ({ color, children, dismissible = false, large = false }) => {
-    let classes = `alert alert-${color}`;
+  = ({ color, children, dismissible = false, large = false, ...props }) => {
+    let classes = `alert alert-${color} ${props.classes}`;
 
     if (dismissible)
       classes += " alert-dismissible";

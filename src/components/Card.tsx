@@ -1,15 +1,15 @@
 import React, { ReactElement } from "react";
-import { Colors, BgColors } from "./types";
+import {Colors, GlobalProps} from "./types";
 
-type CardProps = {
+type CardProps = GlobalProps & {
   children: ReactElement[] | string,
-  background: BgColors,
+  background: Colors,
   border: Colors
 }
 
-const Alert: React.FC<CardProps>
-  = ({ background, children, border }) => {
-    let classes = `card ${background}`;
+const Card: React.FC<CardProps>
+  = ({ background, children, border, ...props }) => {
+    let classes = `card bg-${background} ${props.classes}`;
     let content;
     if (Array.isArray(children) || React.isValidElement(children)) {
       content = children;
@@ -26,4 +26,4 @@ const Alert: React.FC<CardProps>
     );
   };
 
-export default Alert;
+export default Card;
