@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import {Colors, GlobalProps, Size} from "../types";
 import { Icons } from "../icons";
 import {AbstractButtonProps} from "./AbstractButton";
+import Icon from "../Icon";
 
 export type IconButtonProps = AbstractButtonProps & {
   icon: Icons
@@ -19,14 +20,10 @@ const IconButton: React.FC<IconButtonProps>
       content = <span dangerouslySetInnerHTML={{ __html: children }} />;
     }
 
-    const iconClass = `fi fi-rs-${icon}`;
-
     return (
       <button
         className={`btn btn-${color}${(variant ? `-${variant}` : "")} ${size ? `btn-${size}` : ""} ${square ? `btn-square` : "d-inline-flex align-items-center justify-content-center"}${rounded ? ` rounded-${rounded}` : ""} ${props.classes} `}{...props}>
-        <i
-          className={`${iconClass}${iconEnd ? `${square ? "" : " ps-2"} order-2` : " pe-2"}`} aria-hidden="true">
-        </i>
+        <Icon name={icon} classes={`${iconEnd ? `${square ? "" : " ps-2"} order-2` : " pe-2"}`}/>
         <span
           className="" {...props}>
           {content}

@@ -1,12 +1,12 @@
 import React, { ReactElement } from "react";
 import {GlobalProps} from "../types";
 
-export type ItemDropdown = GlobalProps & {
+export type ItemDropdownProps = GlobalProps & {
   children: ReactElement[] | string,
   link: string
 }
 
-const ItemDropdown: React.FC<ItemDropdown>
+const ItemDropdown: React.FC<ItemDropdownProps>
   = ({ children, link, ...props }) => {
 
     let content;

@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import {Colors, GlobalProps, Size} from "../types";
 import { Icons } from "../icons";
+import Icon from "../Icon";
 
 export type IconBadgeProps = GlobalProps & {
     children: ReactElement[] | string,
@@ -23,7 +24,7 @@ const IconBadge: React.FC<IconBadgeProps>
 
         return (
             <div className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""} ${props.classes} ${rounded ? `${rounded}` : ""}`}>
-                <i className={`fi fi-rs-${icon} pe-1`} aria-hidden="true"></i>
+                <Icon name={icon} classes={"pe-1"}/>
                 <span className="d-sm-flex d-none pe-1" {...props}>
                     {content}
                 </span>

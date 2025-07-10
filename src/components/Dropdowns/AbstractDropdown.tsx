@@ -1,10 +1,10 @@
 import React, {ReactElement} from "react";
 import {Colors, Size, Direction, GlobalProps} from "../types";
-import { ItemDropdown } from "./ItemDropdown";
+import { ItemDropdownProps } from "./ItemDropdown";
 
 export type AbstractDropdown = GlobalProps & {
   title: ReactElement[] | string,
-  children: ReactElement<ItemDropdown>[]
+  children: ReactElement<ItemDropdownProps>[]
   color?: Colors,
   size?: Size,
   direction?: Direction,
