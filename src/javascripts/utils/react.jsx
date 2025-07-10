@@ -40,7 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const renderedComponent = renderComponent(component, i, key);
         const htmlString = renderToString(renderedComponent);
 
-        ReactDOM.createRoot(parentElement).render(<>{renderedComponents}</>);
-        componentsInParent.forEach(component => component.remove());
+        const previousElement = component.previousElementSibling;
+        if (previousElement) {
+            previousElement.insertAdjacentHTML("afterend", htmlString);
+        } else {
+            component.parentElement.insertAdjacentHTML("beforeend", htmlString);
+        }
+
+        component.remove();
     });
 });
