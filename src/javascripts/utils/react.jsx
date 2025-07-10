@@ -1,6 +1,6 @@
 // React Helper
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { renderToString } from "react-dom/server";
 
 const renderComponent = (component, index, pathKey) => {
     const props = {};
@@ -34,22 +34,11 @@ const renderComponent = (component, index, pathKey) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const parentMap = new Map();
     const components = document.querySelectorAll("div[data-component]");
-    components.forEach((component) => {
-        const parentElement = component.parentElement;
-        if (!parentMap.has(parentElement)) {
-            parentMap.set(parentElement, []);
-        }
-        parentMap.get(parentElement).push(component);
-    });
-
-    parentMap.forEach((componentsInParent, parentElement) => {
-        const renderedComponents = [];
-        componentsInParent.forEach((component, i) => {
-            const key = component.getAttribute("data-name");
-            renderedComponents.push(renderComponent(component, i, key));
-        });
+    components.forEach((component, i) => {
+        const key = component.getAttribute("data-name");
+        const renderedComponent = renderComponent(component, i, key);
+        const htmlString = renderToString(renderedComponent);
 
         ReactDOM.createRoot(parentElement).render(<>{renderedComponents}</>);
         componentsInParent.forEach(component => component.remove());
