@@ -4,7 +4,16 @@ import ReactDOM from "react-dom/client";
 
 const renderComponent = (component, index, pathKey) => {
     const props = {};
-    component.getAttributeNames().forEach((name) => props[name.replace("data-", "")] = component.getAttribute(name));
+    component.getAttributeNames().forEach((name) => {
+        if (name === "data-component")
+            return;
+
+        let prop = component.getAttribute(name);
+        if (prop === "")
+            prop = true;
+
+        props[name.replace("data-", "")] = prop;
+    });
 
     const componentName = props["name"];
     const currentKey = `${pathKey}_${componentName}_${index}`;
