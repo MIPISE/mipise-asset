@@ -3,11 +3,13 @@ import {GlobalProps} from "../types";
 
 export type ItemDropdownProps = GlobalProps & {
   children: ReactElement[] | string,
-  link: string
+  link: string,
+  "in-nav"?: boolean
 }
 
 const ItemDropdown: React.FC<ItemDropdownProps>
   = ({ children, link, ...props }) => {
+    const inNav = props["in-nav"];
 
     let content;
     if (Array.isArray(children) || React.isValidElement(children)) {
@@ -16,9 +18,10 @@ const ItemDropdown: React.FC<ItemDropdownProps>
       content = <span dangerouslySetInnerHTML={{ __html: children }} />;
     }
 
+    const classes = `${inNav ? "nav-link" : "dropdown-item"} ${props.classes}`;
     return (
       <li>
-        <a className={`dropdown-item ${props.classes}`} href={link} type="button" aria-label="">
+        <a className={classes} href={link} type="button" aria-label="">
           {content}
         </a>
       </li>
