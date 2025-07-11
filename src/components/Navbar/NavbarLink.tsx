@@ -13,7 +13,7 @@ const NavbarLink: React.FC<NavbarLinkProps> =
   ({link, label, icon, ...props}) => {
     return (
       <a className={`nav-link ${props.classes}`} href={link}>
-        {icon && <Icon name={icon}/>}
+        {icon && <Icon icon={icon}/>}
         {label}
       </a>
     )

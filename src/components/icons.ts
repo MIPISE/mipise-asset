@@ -19,7 +19,7 @@ export enum Icons {
   ARROW_COMPARISON = "arrow-comparison",
   BENEFIT_HAND = "benefit-hand",
   DUPLICATE = "duplicate",
-  CIRCLE_STAR = "circle-star"
+  CIRCLE_STAR = "circle-star",
 }
 
 const iconMapping = (name: string): string | undefined => {

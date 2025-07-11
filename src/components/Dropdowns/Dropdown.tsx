@@ -32,7 +32,7 @@ const Dropdown: React.FC<DropdownProps>
           aria-label="" value="">
           {titleIcon != null ?
             <>
-              <Icon name={titleIcon}/>
+              <Icon icon={titleIcon}/>
               <span>{title}</span>
             </> : title}
         </button>

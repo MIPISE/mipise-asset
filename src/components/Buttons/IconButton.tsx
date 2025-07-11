@@ -23,7 +23,7 @@ const IconButton: React.FC<IconButtonProps>
     return (
       <button
         className={`btn btn-${color}${(variant ? `-${variant}` : "")} ${size ? `btn-${size}` : ""} ${square ? `btn-square` : "d-inline-flex align-items-center justify-content-center"}${rounded ? ` rounded-${rounded}` : ""} ${props.classes} `}{...props}>
-        <Icon name={icon} classes={`${iconEnd ? `${square ? "" : "ps-2"} order-2` : "pe-2"}`}/>
+        <Icon icon={icon} classes={`${iconEnd ? `${square ? "" : "ps-2"} order-2` : "pe-2"}`}/>
         <span
           className="" {...props}>
           {content}

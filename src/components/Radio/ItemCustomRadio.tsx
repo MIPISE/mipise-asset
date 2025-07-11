@@ -17,7 +17,7 @@ const ItemCustomRadio: React.FC<ItemCustomRadioProps>
           className={`btn-check ${props.classes}`} type="radio" name="" id="" />
         <label
           className={`${variantIcon ? "btn btn-light btn-radio d-flex flex-wrap flex-column align-items-center py-3" : "btn btn-light"}`} {...props} htmlFor="">
-          {variantIcon && <Icon name={Icons.CREDIT_CARD} classes={`fs-3 text-primary me-2`}/>}
+          {variantIcon && <Icon icon={Icons.CREDIT_CARD} classes={`fs-3 text-primary me-2`}/>}
           {data}
         </label>
       </>
