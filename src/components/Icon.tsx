@@ -11,7 +11,7 @@ const Icon: React.FC<IconProps> =
   ({name, type = "rs", ...props}) => {
     const icon = iconMapping(name);
     if (!icon) {
-      console.error("Icône " + name + " introuvable dans la table de mappage");
+      console.error("Icône " + name.toUpperCase() + " introuvable dans la table de mappage");
       return;
     }
 

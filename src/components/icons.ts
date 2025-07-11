@@ -13,7 +13,13 @@ export enum Icons {
   ARROW_CIRCLE_DOWN = "arrow-circle-down",
   ARROW_CIRCLE_RIGHT = "arrow-circle-right",
   MENU = "bars-sort",
-  CREDIT_CARD = "credit-card"
+  CREDIT_CARD = "credit-card",
+  DASHBOARD = "dashboard-monitor",
+  USER = "user",
+  ARROW_COMPARISON = "arrow-comparison",
+  BENEFIT_HAND = "benefit-hand",
+  DUPLICATE = "duplicate",
+  CIRCLE_STAR = "circle-star"
 }
 
 const iconMapping = (name: string): string | undefined => {
