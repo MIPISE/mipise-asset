@@ -9,14 +9,8 @@ export type InputProps = GlobalProps & {
   color: Colors;
 };
 
-const Input: React.FC<InputProps> = ({
-  attribute,
-  objectName = "user", // default user
-  label,
-  placeholder,
-  color,
-  ...props
-}) => {
+const Input: React.FC<InputProps> 
+  = ({ attribute, objectName = "user", label, placeholder, color, ...props }) => {
   const name = `${objectName}[${attribute}]`;
   const id = `${objectName}_${attribute}`;
   const displayLabel =
@@ -31,7 +25,7 @@ const Input: React.FC<InputProps> = ({
         type="text"
         id={id}
         name={name}
-        className={`form-control form-control-${color}`}
+        className={`form-control test form-control-${color}`}
         placeholder={placeholder?.toString()}
       />
     </div>
