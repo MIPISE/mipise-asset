@@ -9,12 +9,20 @@ export type InputProps = GlobalProps & {
   color: Colors;
 };
 
-const Input: React.FC<InputProps> 
-  = ({ attribute, objectName = "user", label, placeholder, color, ...props }) => {
+const Input: React.FC<InputProps> = ({
+  attribute,
+  objectName = "user",
+  label,
+  placeholder,
+  color,
+  ...props
+}) => {
   const name = `${objectName}[${attribute}]`;
   const id = `${objectName}_${attribute}`;
   const displayLabel =
     label || attribute.charAt(0).toUpperCase() + attribute.slice(1);
+
+  const attributeClass = `input--${attribute.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
 
   return (
     <div className={`form-group ${props.classes}`}>
@@ -25,7 +33,7 @@ const Input: React.FC<InputProps>
         type="text"
         id={id}
         name={name}
-        className={`form-control test form-control-${color}`}
+        className={`form-control test form-control-${color} ${attributeClass}`}
         placeholder={placeholder?.toString()}
       />
     </div>
