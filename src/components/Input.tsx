@@ -1,20 +1,35 @@
 import React, { ReactElement } from "react";
-import {Colors, GlobalProps} from "./types";
+import { Colors, GlobalProps } from "./types";
 
 export type InputProps = GlobalProps & {
-  label: ReactElement[] | string,
-  placeholder: ReactElement[] | string,
-  color: Colors,
-}
+  attribute: string; // ← ex: "email"
+  objectName?: string; // ← ex: "user", "admin"
+  label?: ReactElement[] | string;
+  placeholder?: ReactElement[] | string;
+  color: Colors;
+};
 
-const Input: React.FC<InputProps>
-  = ({ color, label, placeholder, ...props }) => {
-    return (
-      <div className={`form-group ${props.classes}`}>
-        <label htmlFor="" className="form-label">{label}</label>
-        <input type="text" className="form-control" id="" placeholder={`${placeholder}`} />
-      </div>
-    );
-  };
+const Input: React.FC<InputProps> 
+  = ({ attribute, objectName = "user", label, placeholder, color, ...props }) => {
+  const name = `${objectName}[${attribute}]`;
+  const id = `${objectName}_${attribute}`;
+  const displayLabel =
+    label || attribute.charAt(0).toUpperCase() + attribute.slice(1);
+
+  return (
+    <div className={`form-group ${props.classes}`}>
+      <label htmlFor={id} className="form-label">
+        {displayLabel}
+      </label>
+      <input
+        type="text"
+        id={id}
+        name={name}
+        className={`form-control test`}
+        placeholder={placeholder?.toString()}
+      />
+    </div>
+  );
+};
 
 export default Input;
