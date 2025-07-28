@@ -9,7 +9,7 @@ type NavbarProps = GlobalProps & {
 const Navbar: React.FC<NavbarProps> =
   ({children, ...props}) => {
     return (
-      <ul className={`navbar-nav ${props.classes}`}>
+      <ul className={`navbar-nav ${props.classes || ""}`}>
         {children}
       </ul>
     )
