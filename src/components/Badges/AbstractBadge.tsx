@@ -20,7 +20,7 @@ const AbstractBadge: React.FC<AbstractBadgeProps>
         }
 
         return (
-            <span className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""} ${rounded ? `${rounded}` : ""} ${props.classes}`} {...props}>
+            <span className={`badge badge-${color}${size ? ` badge-${size}` : ""}${variant ? ` badge-${variant}` : ""}${rounded ? ` ${rounded}` : ""} ${props.classes || ""}`} {...props}>
                 {content}
             </span>
         );
