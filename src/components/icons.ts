@@ -20,6 +20,7 @@ export enum Icons {
   BENEFIT_HAND = "benefit-hand",
   DUPLICATE = "duplicate",
   CIRCLE_STAR = "circle-star",
+  SETTINGS = "workflow-setting-alt"
 }
 
 const iconMapping = (name: string): string | undefined => {
