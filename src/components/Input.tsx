@@ -2,19 +2,21 @@ import React, { ReactElement } from "react";
 import { Colors, GlobalProps } from "./types";
 
 export type InputProps = GlobalProps & {
-  attribute: string; // ← ex: "email"
-  objectName?: string; // ← ex: "user", "admin"
+  attribute: string;
+  objectName?: string;
   label?: ReactElement[] | string;
   placeholder?: ReactElement[] | string;
   color: Colors;
 };
 
-const Input: React.FC<InputProps> 
-  = ({ attribute, objectName = "user", label, placeholder, color, ...props }) => {
+const Input: React.FC<InputProps> = ({attribute, objectName = "user", label, placeholder, color, ...props}) => {
   const name = `${objectName}[${attribute}]`;
   const id = `${objectName}_${attribute}`;
+
   const displayLabel =
     label || attribute.charAt(0).toUpperCase() + attribute.slice(1);
+
+  const effectivePlaceholder = placeholder || displayLabel;
 
   return (
     <div className={`form-group ${props.classes}`}>
@@ -26,7 +28,7 @@ const Input: React.FC<InputProps>
         id={id}
         name={name}
         className={`form-control`}
-        placeholder={placeholder?.toString()}
+        placeholder={effectivePlaceholder?.toString()}
       />
     </div>
   );
