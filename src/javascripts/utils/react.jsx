@@ -21,19 +21,30 @@ const renderElement = (element, index, pathKey) => {
 
     const props = {};
     if (element.hasAttribute("data-component")) {
+        let componentName = attributes.find(a => a.name === "data-name");
+        if (!componentName) {
+            console.warn("Component usage without data-name value in : " + element);
+            return;
+        }
+        componentName = componentName.value;
+
         // React component
         attributes.forEach(attr => {
-            if (attr.name === "data-component")
+            let propName = attr.name.replace("data-", "");
+            if (["component", "name"].includes(propName))
                 return;
 
             let prop = attr.value;
             if (prop === "")
                 prop = true;
 
-            props[attr.name.replace("data-", "")] = prop;
+            if (!propName.startsWith("aria-") && !propName.includes("bs-")) {
+                propName = propName.replace(/-(\w)/g, (str, p1) => {
+                    return p1.toUpperCase();
+                });
+            }
+            props[propName] = prop;
         });
-
-        const componentName = props["name"];
         props["children"] = children;
 
         const ComponentFunction = require(`../../components/${componentName}.tsx`).default;
