@@ -1,17 +1,23 @@
 import React, { ReactElement } from "react";
-import {Colors, GlobalProps} from "./types";
+import { GlobalProps } from "./types";
 
 export type SelectItemProps = GlobalProps & {
-  label: ReactElement[] | string,
-}
+  label: ReactElement[] | string;
+  value: string | number;
+  selected?: boolean; // gérer une sélection manuelle
+};
 
-const SelectItem: React.FC<SelectItemProps>
-  = ({ label, ...props }) => {
-    return (
-      <>
-        <option className={props.classes} value="" selected>{label}</option>
-      </>
-    );
-  };
+const SelectItem: React.FC<SelectItemProps> = ({
+  label,
+  value,
+  selected = false,
+  classes = ""
+}) => {
+  return (
+    <option value={value} className={classes} selected={selected}>
+      {label}
+    </option>
+  );
+};
 
 export default SelectItem;

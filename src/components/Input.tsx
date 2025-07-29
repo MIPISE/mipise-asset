@@ -25,7 +25,7 @@ const Input: React.FC<InputProps>
         type="text"
         id={id}
         name={name}
-        className={`form-control test`}
+        className={`form-control`}
         placeholder={placeholder?.toString()}
       />
     </div>
