@@ -4,12 +4,11 @@ import {GlobalProps} from "../types";
 export type ItemDropdownProps = GlobalProps & {
   children: ReactElement[] | string,
   link: string,
-  "in-nav"?: boolean
+  inNav?: boolean
 }
 
 const ItemDropdown: React.FC<ItemDropdownProps>
-  = ({ children, link, ...props }) => {
-    const inNav = props["in-nav"];
+  = ({ children, link, inNav, ...props }) => {
 
     let content;
     if (Array.isArray(children) || React.isValidElement(children)) {

@@ -7,25 +7,25 @@ import Icon from "../Icon";
 export type DropdownProps = GlobalProps & {
   title: ReactElement[] | string
   children: ReactElement<ItemDropdownProps>[]
-  "title-icon"?: Icons,
-  "in-nav"?: boolean
+  titleIcon?: Icons,
+  inNav?: boolean
   color?: Colors
   size?: Size
   direction?: Direction
-  "full-w"?: boolean
+  fullWidth?: boolean
   hover?: boolean
 }
 
 const Dropdown: React.FC<DropdownProps>
-  = ({ title, children, color = Colors.LIGHT, size = Size.MEDIUM, direction = Direction.END, hover = false, ...props }) => {
-    const titleIcon = props["title-icon"] || null;
-    const inNav = props["in-nav"];
-    const fullW = props["full-w"] || true;
+  = ({ title, children, titleIcon,
+       inNav, color = Colors.LIGHT,
+       size = Size.MEDIUM, direction = Direction.END,
+       hover, fullWidth = true, ...props }) => {
 
-    const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${fullW ? " d-flex flex-start justify-content-between align-items-center" : ""}  dropdown-toggle dropdown-responsive`
+    const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${fullWidth ? " d-flex flex-start justify-content-between align-items-center" : ""}  dropdown-toggle dropdown-responsive`
     return (
       <div
-        className={`drop${direction}${fullW ? ` d-grid` : ""}${hover ? " drophover" : ""} ${props.classes}`}>
+        className={`drop${direction}${fullWidth ? ` d-grid` : ""}${hover ? " drophover" : ""} ${props.classes}`}>
         <button
           className={btnClasses} {...props}
           type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls=""
