@@ -1,15 +1,10 @@
-import React, { ReactElement } from "react";
-import {Colors, GlobalProps, Size} from "../types";
+import React from "react";
 import { Icons } from "../icons";
 import Icon from "../Icon";
+import {AbstractBadgeProps} from "./AbstractBadge";
 
-export type IconBadgeProps = GlobalProps & {
-    children: ReactElement[] | string,
-    color: Colors,
-    size: Size,
-    icon: Icons,
-    variant?: "circle",
-    rounded?: "rounded"
+export type IconBadgeProps = AbstractBadgeProps & {
+    icon: Icons
 }
 
 const IconBadge: React.FC<IconBadgeProps>
@@ -23,7 +18,7 @@ const IconBadge: React.FC<IconBadgeProps>
         }
 
         return (
-            <div className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""} ${props.classes} ${rounded ? `${rounded}` : ""}`}>
+            <div className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""} ${rounded ? `${rounded}` : ""} ${props.classes || ""}`}>
                 <Icon icon={icon} classes={"pe-1"}/>
                 <span className="d-sm-flex d-none pe-1" {...props}>
                     {content}
