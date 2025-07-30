@@ -1,5 +1,7 @@
-import React, {HTMLInputTypeAttribute, InputHTMLAttributes, ReactElement} from "react";
+import React, {HTMLInputTypeAttribute, InputHTMLAttributes, ReactElement, useEffect, useRef, useState} from "react";
 import { GlobalProps } from "../types";
+import optionalManagement from "./optionalManagement";
+import OptionalText from "./OptionalText";
 
 export type AbstractInputProps = GlobalProps & InputHTMLAttributes<HTMLInputElement> & {
   attribute: string;
@@ -7,6 +9,7 @@ export type AbstractInputProps = GlobalProps & InputHTMLAttributes<HTMLInputElem
   objectName?: string;
   label?: ReactElement[] | string;
   placeholder?: ReactElement[] | string;
+  required?: boolean;
   hint?: ReactElement[] | string;
   inputHtmlProps?: {
     classes: string
@@ -28,10 +31,14 @@ const AbstractInput: React.FC<AbstractInputProps> = ({
   objectName = "user",
   label,
   placeholder,
+  required,
   hint,
   inputHtmlProps,
   ...props
 }) => {
+  const inputRef = useRef(null);
+  const [isRequired, setIsRequired] = useState(required || false);
+
   const name = `${objectName}[${attribute}]`;
   const id = `${objectName}_${attribute}`;
 
@@ -42,10 +49,12 @@ const AbstractInput: React.FC<AbstractInputProps> = ({
 
   const inputClasses = inputHtmlProps?.classes || "form-control";
 
+  useEffect(optionalManagement(inputRef, setIsRequired), []);
+
   return (
     <div className={`form-group ${id} ${props.classes || ""}`}>
       <label htmlFor={id} className="form-label">
-        {displayLabel}
+        {displayLabel} {!isRequired && <OptionalText/>}
       </label>
       <input
         type={type}
@@ -53,6 +62,8 @@ const AbstractInput: React.FC<AbstractInputProps> = ({
         name={name}
         className={inputClasses}
         placeholder={placeholderText}
+        required={isRequired}
+        ref={inputRef}
       />
       {hint && <small className="form-text text-muted">{hint}</small>}
     </div>

@@ -1,6 +1,8 @@
-import React, { ReactElement } from "react";
+import React, {ReactElement, useEffect, useRef, useState} from "react";
 import { GlobalProps } from "../../types";
 import SelectItem from "./SelectItem";
+import optionalManagement from "../optionalManagement";
+import OptionalText from "../OptionalText";
 
 export type SelectOption = {
   label: string;
@@ -18,6 +20,9 @@ export type SelectProps = GlobalProps & {
 };
 
 const Select: React.FC<SelectProps> = ({attribute, collection, objectName = "user", label, placeholder, required = false, ...props}) => {
+  const selectRef = useRef(null);
+  const [isRequired, setIsRequired] = useState(required || false);
+
   const name = `${objectName}[${attribute}]`;
   const id = `${objectName}_${attribute}`;
 
@@ -37,10 +42,12 @@ const Select: React.FC<SelectProps> = ({attribute, collection, objectName = "use
     collection = JSON.parse(collection) as SelectOption[];
   }
 
+  useEffect(optionalManagement(selectRef, setIsRequired), []);
+
   return (
     <div className={`form-group ${props.classes}`}>
       <label htmlFor={id} className="form-label">
-        {displayLabel}
+        {displayLabel} {!isRequired && <OptionalText/>}
       </label>
       <select
         id={id}
@@ -48,6 +55,7 @@ const Select: React.FC<SelectProps> = ({attribute, collection, objectName = "use
         required={required}
         className={`form-select ${attributeClass}`}
         defaultValue={collection.find(c => c.selected)?.value || ""}
+        ref={selectRef}
       >
         <option value="" disabled>
           {effectivePlaceholder}
