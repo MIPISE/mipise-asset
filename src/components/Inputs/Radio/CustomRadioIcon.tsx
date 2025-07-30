@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { GlobalProps } from "../types";
+import { GlobalProps } from "../../types";
 import CustomRadio from "./CustomRadio";
 import ItemCustomRadio from "./ItemCustomRadio";
 

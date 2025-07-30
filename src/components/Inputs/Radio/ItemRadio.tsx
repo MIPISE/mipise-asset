@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import {Colors, GlobalProps, Size} from "../types";
+import {GlobalProps} from "../../types";
 
 export type ItemRadioProps = GlobalProps & {
   data: ReactElement[] | string,

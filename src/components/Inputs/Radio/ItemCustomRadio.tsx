@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import {Colors, GlobalProps, Size} from "../types";
-import Icon from "../Icon";
-import {Icons} from "../icons";
+import {GlobalProps} from "../../types";
+import Icon from "../../Icon";
+import {Icons} from "../../icons";
 
 export type ItemCustomRadioProps = GlobalProps & {
   data: ReactElement[] | string,

@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import ItemRadio from "./ItemRadio";
-import {GlobalProps} from "../types";
+import {GlobalProps} from "../../types";
 
 export type AbstractRadioProps = GlobalProps & {
   label: ReactElement[] | string,
