@@ -1,3 +1,5 @@
+import {ReactElement} from "react";
+
 export enum Colors {
   WHITE = "white",
   PRIMARY = "primary",
@@ -24,5 +26,6 @@ export enum Direction {
 }
 
 export type GlobalProps = {
-  classes?: string,
+  children?: ReactElement[]
+  classes?: string
 }
