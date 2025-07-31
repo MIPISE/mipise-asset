@@ -21,12 +21,15 @@ export enum Icons {
   DUPLICATE = "duplicate",
   CIRCLE_STAR = "circle-star",
   SETTINGS = "workflow-setting-alt",
-  SHOW_PASSWORD = "eye"
+  SHOW_PASSWORD = "eye",
+  HIDE_PASSWORD = "crossed-eye"
 }
 
 const iconMapping = (name: string): string | undefined => {
   const key = (name.toUpperCase()) as keyof Icons;
   if (Icons[key])
     return Icons[key];
+
+  return name;
 };
 export default iconMapping;

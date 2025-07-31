@@ -1,8 +1,8 @@
-import {extractText} from "./AbstractInput";
 import React, {useEffect, useRef, useState} from "react";
 import {GlobalProps} from "../types";
 import optionalManagement from "./optionalManagement";
-import OptionalText from "./OptionalText";
+import Label from "./Label";
+import parseInputProps from "./parseInputProps";
 
 type TextAreaProps = GlobalProps & {
   attribute: string,
@@ -16,11 +16,7 @@ type TextAreaProps = GlobalProps & {
 }
 
 const TextArea: React.FC<TextAreaProps> = ({
-  attribute,
   value,
-  objectName = "user",
-  label,
-  placeholder,
   required,
   rows,
   cols,
@@ -31,31 +27,20 @@ const TextArea: React.FC<TextAreaProps> = ({
 
   const textAreaRef = useRef(null);
   const [isRequired, setIsRequired] = useState(required || false);
+  useEffect(optionalManagement(textAreaRef, setIsRequired), []);
 
-  const name = `${objectName}[${attribute}]`;
-  const id = `${objectName}_${attribute}`;
-
-  const placeholderText = placeholder !== undefined
-    ? extractText(placeholder)
-    : extractText(label);
-
+  const { name, id, placeholder } = parseInputProps(props);
   rows ||= 5;
   cols ||= 5;
 
-  useEffect(optionalManagement(textAreaRef, setIsRequired), []);
-
   return (
     <div className={`form-group ${id} ${props.classes || ""}`}>
-      {label && (
-        <label htmlFor={id} className="form-label">
-          {label} {!isRequired && <OptionalText/>}
-        </label>
-      )}
+      <Label isRequired={isRequired} {...props}/>
       <textarea
         id={id}
         name={name}
         className={"form-control"}
-        placeholder={placeholderText}
+        placeholder={placeholder}
         rows={rows}
         cols={cols}
         required={isRequired}
