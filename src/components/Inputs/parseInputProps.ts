@@ -13,13 +13,13 @@ export const extractText = (node?: ReactElement[] | string): string => {
 
 export default ({
   attribute,
-  objectName = "user",
+  objectName,
   label,
   placeholder,
   inputHtmlProps
 }: InputItemProps & Omit<LabelProps, "isRequired">) => {
-  const name = `${objectName}[${attribute}]`;
-  const id = `${objectName}_${attribute}`;
+  const name = objectName ? `${objectName}[${attribute}]` : attribute;
+  const id = objectName ? `${objectName}_${attribute}` : attribute;
 
   const displayLabel = label || attribute.charAt(0).toUpperCase() + attribute.slice(1);
   const placeholderText = placeholder !== undefined
