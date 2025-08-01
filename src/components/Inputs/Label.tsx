@@ -5,9 +5,9 @@ import {GlobalProps} from "../types";
 
 export type LabelProps = GlobalProps & {
   attribute: string
+  isRequired: boolean
   label?: string
   objectName?: string
-  isRequired: boolean
 }
 
 const Label: React.FC<LabelProps> =

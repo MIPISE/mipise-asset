@@ -26,7 +26,6 @@ export default ({
     ? extractText(placeholder)
     : extractText(displayLabel);
 
-  const inputClasses = inputHtmlProps?.classes || "form-control";
-
+  const inputClasses = inputHtmlProps?.classes || ("form-control" + (inputHtmlProps?.additionalClasses ? " " + inputHtmlProps.additionalClasses : ""));
   return {name, id, label: displayLabel, placeholder: placeholderText, inputClasses};
 }

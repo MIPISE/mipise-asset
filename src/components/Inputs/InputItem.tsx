@@ -7,11 +7,12 @@ export type InputItemProps = GlobalProps & InputHTMLAttributes<HTMLInputElement>
   ref?: RefObject<any>
   type?: HTMLInputTypeAttribute
   objectName?: string;
-  placeholder?: ReactElement[] | string;
+  placeholder?: ReactElement[] | string
   required?: boolean;
   hint?: ReactElement[] | string;
   inputHtmlProps?: {
-    classes: string
+    classes?: string
+    additionalClasses?: string
   }
 };
 
@@ -24,6 +25,7 @@ const InputItem: React.FC<InputItemProps> = ({ref, type, required, ...props}) =>
   // Avoid double props
   delete props.attribute;
   delete props.inputHtmlProps;
+  delete props.objectName;
 
   return (
     <input type={type}
