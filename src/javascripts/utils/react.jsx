@@ -43,7 +43,12 @@ const renderElement = (element, index, pathKey) => {
                     return p1.toUpperCase();
                 });
             }
-            props[propName] = prop;
+
+            try {
+                props[propName] = JSON.parse(prop);
+            } catch (e) {
+                props[propName] = prop;
+            }
         });
         props["children"] = children;
 
