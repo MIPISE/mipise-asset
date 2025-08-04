@@ -18,7 +18,7 @@ const IconBadge: React.FC<IconBadgeProps>
         }
 
         return (
-            <div className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""} ${rounded ? `${rounded}` : ""} ${props.classes || ""}`}>
+            <div className={`badge badge-${color} ${size ? `badge-${size}` : ""} ${variant ? `badge-${variant}` : ""} ${rounded ? ` rounded-${rounded}` : ""} ${props.classes || ""}`}>
                 <Icon icon={icon} classes={"pe-1"}/>
                 <span className="d-sm-flex d-none pe-1" {...props}>
                     {content}
