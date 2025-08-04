@@ -37,9 +37,7 @@ const Select: React.FC<SelectProps> = ({collection, required, includeBlank, ...p
         ref={selectRef}
       >
         {includeBlank &&
-          <option value="" disabled>
-            {placeholder}
-          </option>
+          <option value="" disabled></option>
         }
         {collection.map((item: SelectOption, idx: number) => (
           <SelectItem key={idx} {...item} />
