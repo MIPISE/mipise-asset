@@ -89,4 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const root = createRoot(component);
         root.render(rendered);
     });
+
+    setTimeout(() => document.dispatchEvent(new Event("ReactComponentHydrated")), components.length * 10);
 });
