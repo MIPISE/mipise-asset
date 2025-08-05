@@ -1,8 +1,7 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import {Colors, GlobalProps} from "./types";
 
 type AlertProps = GlobalProps & {
-  children: ReactElement[] | string,
   color: Colors,
   dismissible?: boolean,
   large?: boolean
@@ -20,7 +19,7 @@ const Alert: React.FC<AlertProps>
 
     return (
       <div className={classes} role={"alert"}>
-        <span dangerouslySetInnerHTML={{ __html: children }} />
+        { children }
         {dismissible &&
           <button className={"btn-close"} type={"button"} data-bs-dismiss="alert" aria-label={"Close"}></button>
         }
