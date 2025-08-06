@@ -6,7 +6,6 @@
         border-color: $border-color;
 }
 
-
   // Mixin qui applique les bordures pour card, header, footer, hr, et dropdown
   @mixin apply-border-and-style($bg-class, $border-color) {
     .#{$bg-class} {
