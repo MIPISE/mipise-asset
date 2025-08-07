@@ -19,7 +19,7 @@ export default ({
   inputHtmlProps
 }: InputItemProps & Omit<LabelProps, "isRequired">) => {
   const name = objectName ? `${objectName}[${attribute}]` : attribute;
-  const id = objectName ? `${objectName}_${attribute}` : attribute;
+  const id = objectName ? `${objectName.replaceAll("[", "_").replaceAll("]", "")}_${attribute}` : attribute;
 
   const displayLabel = label || attribute.charAt(0).toUpperCase() + attribute.slice(1);
   const placeholderText = placeholder !== undefined
