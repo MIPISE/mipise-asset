@@ -6,7 +6,7 @@ type PhoneInputProps = Omit<AbstractInputProps, "type">
 const PhoneInput: React.FC<PhoneInputProps> =
   ({...props}) => {
     return (
-      <AbstractInput type="tel" pattern="^\\d{8,15}$" inputMode="numeric" data-behavior="digits-only" {...props}/>
+      <AbstractInput type="tel" pattern="^\d{8,15}$" inputMode="numeric" data-behavior="digits-only" {...props}/>
     );
   };
 
