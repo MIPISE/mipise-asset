@@ -5,18 +5,18 @@ import {GlobalProps} from "./types";
 
 export type ListItemProps = GlobalProps & {
   label: ReactElement[] | string,
-  IconBadgesProps: IconBadgeProps,
+  IconBadgeProps: IconBadgeProps,
   IconButtonProps: IconButtonProps,
 }
 
 const ListItem: React.FC<ListItemProps>
-  = ({ IconBadgesProps, IconButtonProps, label, ...props }) => {
+  = ({ IconBadgeProps, IconButtonProps, label, ...props }) => {
     return (
       <div
         className={`list-group-item d-grid d-md-flex flex-nowrap align-items-center gap-2 ${props.classes}`}>
         <div
           className="d-flex flex-row align-items-center">
-          <IconBadge classes="align-items-center justify-content-center me-2" {...IconBadgesProps} />
+          <IconBadge classes="align-items-center justify-content-center me-2" {...IconBadgeProps} />
           <div
             className="flex-fill">{label}
           </div>
