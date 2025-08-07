@@ -36,7 +36,8 @@ const renderElement = (element, index, pathKey) => {
 
             let prop = attr.value;
             if (prop === "")
-                prop = true;
+                if (propName !== "value")
+                    prop = true;
 
             if (!propName.startsWith("aria-") && !propName.includes("bs-")) {
                 propName = propName.replace(/-(\w)/g, (str, p1) => {

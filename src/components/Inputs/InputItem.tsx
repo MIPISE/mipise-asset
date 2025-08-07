@@ -3,20 +3,21 @@ import {GlobalProps} from "../types";
 import parseInputProps from "./parseInputProps";
 
 export type InputItemProps = GlobalProps & InputHTMLAttributes<HTMLInputElement> & {
-  attribute: string;
+  attribute: string
   ref?: RefObject<any>
   type?: HTMLInputTypeAttribute
-  objectName?: string;
+  objectName?: string
   placeholder?: ReactElement[] | string
-  required?: boolean;
-  hint?: ReactElement[] | string;
+  required?: boolean
+  hint?: ReactElement[] | string
+  value?: string
   inputHtmlProps?: {
     classes?: string
     additionalClasses?: string
   }
 };
 
-const InputItem: React.FC<InputItemProps> = ({ref, type, required, ...props}) => {
+const InputItem: React.FC<InputItemProps> = ({ref, type, value, required, ...props}) => {
   const { id, name, inputClasses, placeholder } = parseInputProps(props);
 
   // Avoid children for void element
@@ -35,6 +36,7 @@ const InputItem: React.FC<InputItemProps> = ({ref, type, required, ...props}) =>
       placeholder={placeholder}
       required={required}
       ref={ref}
+      defaultValue={value}
       {...props}
     />
   );
