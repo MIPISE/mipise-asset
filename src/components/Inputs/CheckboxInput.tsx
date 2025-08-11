@@ -7,6 +7,7 @@ import InputItem from "./InputItem";
 const CheckboxInput: React.FC<AbstractInputProps> = ({
   required,
   hint,
+  checked,
   ...props
 }) => {
   const inputRef = useRef(null);
@@ -16,7 +17,7 @@ const CheckboxInput: React.FC<AbstractInputProps> = ({
   return (
     <div className={`form-group ${props.classes}`}>
       <div className="form-check">
-        <InputItem type="checkbox" ref={inputRef} inputHtmlProps={{classes: "form-check-input"}} {...props} />
+        <InputItem type="checkbox" ref={inputRef} inputHtmlProps={{classes: "form-check-input"}} defaultChecked={checked} {...props} />
         <Label classes="form-check-label" isRequired={isRequired} {...props}/>
         {hint && <div
             className="hint">
