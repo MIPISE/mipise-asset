@@ -10,15 +10,11 @@ export type ItemRadioProps = GlobalProps & {
 
 const ItemRadio: React.FC<ItemRadioProps>
   = ({ data, required, ...props }) => {
-    const inputRef = useRef(null);
-    const [isRequired, setIsRequired] = useState(required || false);
-    useEffect(optionalManagement(inputRef, setIsRequired), []);
-
     return (
       <div className={`form-check ${props.classes}`}>
-        <input className="form-check-input" type="radio" name="" id="" ref={inputRef} required={isRequired}/>
+        <input className="form-check-input" type="radio" name="" id=""/>
         <label className="form-check-label" htmlFor="">
-          {data} {!isRequired && <OptionalText/>}
+          {data}
         </label>
       </div>
     );

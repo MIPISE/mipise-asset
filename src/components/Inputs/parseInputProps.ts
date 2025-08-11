@@ -11,6 +11,14 @@ export const extractText = (node?: ReactElement[] | string): string => {
   return "";
 };
 
+export const formatId = (objectName: string, attribute: string) => {
+  return `${objectName.replaceAll("[", "_").replaceAll("]", "")}_${attribute}`;
+}
+
+export const formatName = (objectName: string, attribute: string) => {
+  return `${objectName}[${attribute}]`;
+}
+
 export default ({
   attribute,
   objectName,
@@ -18,8 +26,8 @@ export default ({
   placeholder,
   inputHtmlProps
 }: InputItemProps & Omit<LabelProps, "isRequired">) => {
-  const name = objectName ? `${objectName}[${attribute}]` : attribute;
-  const id = objectName ? `${objectName.replaceAll("[", "_").replaceAll("]", "")}_${attribute}` : attribute;
+  const name = objectName ? formatName(objectName, attribute) : attribute;
+  const id = objectName ? formatId(objectName, attribute) : attribute;
 
   const displayLabel = label || attribute.charAt(0).toUpperCase() + attribute.slice(1);
   const placeholderText = placeholder !== undefined

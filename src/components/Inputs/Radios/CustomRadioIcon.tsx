@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { GlobalProps } from "../../types";
 import CustomRadio from "./CustomRadio";
-import ItemCustomRadio from "./ItemCustomRadio";
+import CustomRadioItem from "./CustomRadioItem";
 
 export type CustomRadioIconProps = GlobalProps & {
   label: ReactElement[] | string,
@@ -13,7 +13,7 @@ const CustomRadioIcon: React.FC<CustomRadioIconProps>
 
     return (
       <CustomRadio className={props.classes} label={""}>
-        <ItemCustomRadio data={""} variantIcon />
+        <CustomRadioItem data={""} variantIcon />
       </CustomRadio>
     );
   };
