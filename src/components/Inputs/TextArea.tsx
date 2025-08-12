@@ -20,6 +20,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   required,
   rows,
   cols,
+  classes = "",
   ...props
 }) => {
   // Avoid children in props with react.jsx
@@ -33,8 +34,11 @@ const TextArea: React.FC<TextAreaProps> = ({
   rows ||= 5;
   cols ||= 5;
 
+  // Avoid React warning for unknown props
+  delete props.objectName
+
   return (
-    <div className={`form-group ${id} ${props.classes || ""}`}>
+    <div className={`form-group ${id} ${classes}`}>
       <Label isRequired={isRequired} {...props}/>
       <textarea
         id={id}

@@ -1,5 +1,4 @@
-import React, { ReactElement } from "react";
-import {Colors, GlobalProps, Size} from "../types";
+import React from "react";
 import { Icons } from "../icons";
 import {AbstractButtonProps} from "./AbstractButton";
 import Icon from "../Icon";
@@ -12,22 +11,14 @@ export type IconButtonProps = AbstractButtonProps & {
 }
 
 const IconButton: React.FC<IconButtonProps>
-  = ({ color, size, variant, children, icon, iconType = "rs", iconEnd, square, rounded, ...props }) => {
-
-    let content;
-    if (Array.isArray(children) || React.isValidElement(children)) {
-      content = children;
-    } else {
-      content = <span dangerouslySetInnerHTML={{ __html: children }} />;
-    }
-
+  = ({ color, size, variant, children, icon, iconType = "rs", iconEnd, square, rounded, classes = "", ...props }) => {
     return (
       <button
-        className={`btn btn-${color}${(variant ? `-${variant}` : "")} ${size ? `btn-${size}` : ""} ${square ? `btn-square` : "d-inline-flex align-items-center justify-content-center"}${rounded ? ` rounded-${rounded}` : ""} ${props.classes} `}{...props}>
+        className={`btn btn-${color}${(variant ? `-${variant}` : "")} ${size ? `btn-${size}` : ""} ${square ? `btn-square` : "d-inline-flex align-items-center justify-content-center"}${rounded ? ` rounded-${rounded}` : ""} ${classes} `}{...props}>
         <Icon icon={icon} type={iconType} classes={`${iconEnd ? `${square ? "" : "ps-2"} order-2` : "pe-2"}`}/>
         <span
           className="" {...props}>
-          {content}
+          {children}
         </span>
       </button>
     );
