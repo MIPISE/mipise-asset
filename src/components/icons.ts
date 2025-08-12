@@ -22,7 +22,10 @@ export enum Icons {
   CIRCLE_STAR = "circle-star",
   SETTINGS = "workflow-setting-alt",
   SHOW_PASSWORD = "eye",
-  HIDE_PASSWORD = "crossed-eye"
+  HIDE_PASSWORD = "crossed-eye",
+  COPY = "copy",
+  DOWNLOAD = "download",
+  DROPDOWN = "menu-dots-vertical"
 }
 
 const iconMapping = (name: string): string | undefined => {
