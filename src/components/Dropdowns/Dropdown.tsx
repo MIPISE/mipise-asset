@@ -3,6 +3,7 @@ import {Colors, Size, Direction, GlobalProps} from "../types";
 import { ItemDropdownProps } from "./ItemDropdown";
 import {Icons} from "../icons";
 import Icon from "../Icon";
+import DropdownMenu from "./DropdownMenu";
 
 export type DropdownProps = GlobalProps & {
   title: ReactElement[] | string
@@ -11,6 +12,7 @@ export type DropdownProps = GlobalProps & {
   inNav?: boolean
   color?: Colors
   size?: Size
+  square?: boolean
   direction?: Direction
   fullWidth?: boolean
   hover?: boolean
@@ -19,13 +21,13 @@ export type DropdownProps = GlobalProps & {
 const Dropdown: React.FC<DropdownProps>
   = ({ title, children, titleIcon,
        inNav, color = Colors.LIGHT,
-       size = Size.MEDIUM, direction = Direction.END,
-       hover, fullWidth = true, ...props }) => {
+       size = Size.MEDIUM, square = false, direction = Direction.END,
+       hover, fullWidth = true, classes = "", ...props }) => {
 
-    const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${fullWidth ? " d-flex flex-start justify-content-between align-items-center" : ""}  dropdown-toggle dropdown-responsive`
+    const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${square ? " btn-square" : ""}${fullWidth ? " d-flex flex-start justify-content-between align-items-center" : ""}  dropdown-toggle dropdown-responsive`
     return (
       <div
-        className={`drop${direction}${fullWidth ? ` d-grid` : ""}${hover ? " drophover" : ""} ${props.classes}`}>
+        className={`drop${direction}${fullWidth ? ` d-grid` : ""}${hover ? " drophover" : ""} ${classes}`}>
         <button
           className={btnClasses} {...props}
           type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls=""
@@ -36,10 +38,9 @@ const Dropdown: React.FC<DropdownProps>
               <span>{title}</span>
             </> : title}
         </button>
-        <ul
-          className="dropdown-menu">
+        <DropdownMenu>
           {children}
-        </ul>
+        </DropdownMenu>
       </div>
     );
   };
