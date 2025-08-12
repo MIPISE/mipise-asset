@@ -1,8 +1,8 @@
 import React, {Fragment} from "react";
-import {Colors, GlobalProps, Size} from "../types";
+import {Color, GlobalProps, Size} from "../types";
 
 export type AbstractButtonProps = GlobalProps & {
-  color: Colors
+  color: Color
   size: Size
   hyperlink?: boolean
   rounded?: number

@@ -1,10 +1,10 @@
 import React, { ReactElement } from "react";
-import {Colors, GlobalProps} from "./types";
+import {Color, GlobalProps} from "./types";
 
 type CardProps = GlobalProps & {
   children: ReactElement[] | string,
-  background: Colors,
-  border: Colors
+  background: Color,
+  border: Color
 }
 
 const Card: React.FC<CardProps>

@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 
-export enum Colors {
+export enum Color {
   WHITE = "white",
   PRIMARY = "primary",
   SECONDARY = "secondary",

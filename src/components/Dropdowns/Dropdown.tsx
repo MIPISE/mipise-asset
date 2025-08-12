@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import {Colors, Size, Direction, GlobalProps} from "../types";
+import {Color, Size, Direction, GlobalProps} from "../types";
 import { ItemDropdownProps } from "./ItemDropdown";
 import {Icons} from "../icons";
 import Icon from "../Icon";
@@ -10,7 +10,7 @@ export type DropdownProps = GlobalProps & {
   children: ReactElement<ItemDropdownProps>[]
   titleIcon?: Icons,
   inNav?: boolean
-  color?: Colors
+  color?: Color
   size?: Size
   square?: boolean
   direction?: Direction
@@ -20,7 +20,7 @@ export type DropdownProps = GlobalProps & {
 
 const Dropdown: React.FC<DropdownProps>
   = ({ title, children, titleIcon,
-       inNav, color = Colors.LIGHT,
+       inNav, color = Color.LIGHT,
        size = Size.MEDIUM, square = false, direction = Direction.END,
        hover, fullWidth = true, classes = "", ...props }) => {
 

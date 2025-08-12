@@ -1,5 +1,5 @@
-import React, { ReactElement } from "react";
-import {Colors, GlobalProps} from "./types";
+import React from "react";
+import {GlobalProps} from "./types";
 import ListItem, { ListItemProps } from "./ListItem";
 
 export type ListGroupProps = GlobalProps & {

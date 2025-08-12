@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
-import {Colors, GlobalProps, Size} from "../types";
+import React from "react";
+import {Color, GlobalProps, Size} from "../types";
 
 export type AbstractBadgeProps = GlobalProps & {
-    color: Colors,
+    color: Color,
     size: Size,
     variant?: string,
     rounded?: string,

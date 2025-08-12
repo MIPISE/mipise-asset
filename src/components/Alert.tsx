@@ -1,8 +1,8 @@
 import React from "react";
-import {Colors, GlobalProps} from "./types";
+import {Color, GlobalProps} from "./types";
 
 type AlertProps = GlobalProps & {
-  color: Colors,
+  color: Color,
   dismissible?: boolean,
   large?: boolean
 }

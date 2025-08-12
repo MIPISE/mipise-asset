@@ -1,10 +1,10 @@
 import React, { ReactElement } from "react";
-import {Colors, GlobalProps} from "../types";
+import {Color, GlobalProps} from "../types";
 
 export type CardProps = GlobalProps & {
   title?: ReactElement[] | string
   children?: ReactElement[] | string
-  background: Colors
+  background: Color
   header?: boolean
   footer?: boolean
 }
