@@ -16,15 +16,16 @@ export type DropdownProps = GlobalProps & {
   direction?: Direction
   fullWidth?: boolean
   hover?: boolean
+  toggleIcon?: boolean
 }
 
 const Dropdown: React.FC<DropdownProps>
   = ({ title, children, titleIcon,
        inNav, color = Color.LIGHT,
        size = Size.MEDIUM, square = false, direction = Direction.END,
-       hover, fullWidth = true, classes = "", ...props }) => {
+       hover, fullWidth = true, toggleIcon = true, classes = "", ...props }) => {
 
-    const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${square ? " btn-square" : ""}${fullWidth ? " d-flex flex-start justify-content-between align-items-center" : ""}  dropdown-toggle dropdown-responsive`
+    const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${square ? " btn-square" : ""}${fullWidth ? " d-flex flex-start justify-content-between align-items-center" : ""} ${toggleIcon ? " dropdown-toggle" : ""} dropdown-responsive`
     return (
       <div
         className={`drop${direction}${fullWidth ? ` d-grid` : ""}${hover ? " drophover" : ""} ${classes}`}>

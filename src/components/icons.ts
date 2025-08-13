@@ -7,6 +7,7 @@ export enum Icons {
   LOGOUT = "log-out",
   HEADSET = "user-headset",
   GEAR = "user-gear",
+  GEARS = "gears",
   OVERVIEW = "overview",
   ARROW_CIRCLE_LEFT = "arrow-circle-left",
   ARROW_CIRCLE_UP = "arrow-circle-up",
@@ -25,7 +26,8 @@ export enum Icons {
   HIDE_PASSWORD = "crossed-eye",
   COPY = "copy",
   DOWNLOAD = "download",
-  DROPDOWN = "menu-dots-vertical"
+  DROPDOWN = "menu-dots-vertical",
+  SORT = "sort"
 }
 
 const iconMapping = (name: string): string | undefined => {
