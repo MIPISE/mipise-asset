@@ -1,4 +1,4 @@
-import {ReactNode} from "react";
+import {PropsWithChildren} from "react";
 
 export enum Color {
   WHITE = "white",
@@ -25,7 +25,6 @@ export enum Direction {
   UP = "up",
 }
 
-export type GlobalProps = {
-  children?: ReactNode[]
+export type GlobalProps = PropsWithChildren<{
   classes?: string
-}
+}>
