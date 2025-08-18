@@ -2,6 +2,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
+const voidElements = ["img", "hr", "input"];
+
 /**
  * @param element Element
  * @param index number
@@ -73,7 +75,7 @@ const renderElement = (element, index, pathKey) => {
         if (element.className)
             props.className = element.className;
 
-        if (element.tagName.toLowerCase() === "img")
+        if (voidElements.includes(element.tagName.toLowerCase()))
             return React.createElement(element.tagName.toLowerCase(), { ...props, key: `${pathKey}_${element.tagName}_${index}}`});
 
         return React.createElement(element.tagName.toLowerCase(), { ...props, key: `${pathKey}_${element.tagName}_${index}}`}, children);
