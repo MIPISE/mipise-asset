@@ -1,13 +1,11 @@
 import React, {ReactElement} from "react";
 import {Color, Size, Direction, GlobalProps} from "../types";
-import { ItemDropdownProps } from "./ItemDropdown";
 import {Icons} from "../icons";
 import Icon from "../Icon";
 import DropdownMenu from "./DropdownMenu";
 
 export type DropdownProps = GlobalProps & {
   title: ReactElement[] | string
-  children: ReactElement<ItemDropdownProps>[]
   titleIcon?: Icons,
   inNav?: boolean
   color?: Color
@@ -17,13 +15,14 @@ export type DropdownProps = GlobalProps & {
   fullWidth?: boolean
   hover?: boolean
   toggleIcon?: boolean
+  customMenu?: boolean
 }
 
 const Dropdown: React.FC<DropdownProps>
   = ({ title, children, titleIcon,
        inNav, color = Color.LIGHT,
        size = Size.MEDIUM, square = false, direction = Direction.END,
-       hover, fullWidth = true, toggleIcon = true, classes = "", ...props }) => {
+       hover, fullWidth = true, toggleIcon = true, customMenu, classes = "", ...props }) => {
 
     const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${square ? " btn-square" : ""}${fullWidth ? " d-flex flex-start justify-content-between align-items-center" : ""} ${toggleIcon ? " dropdown-toggle" : ""} dropdown-responsive`
     return (
@@ -39,9 +38,10 @@ const Dropdown: React.FC<DropdownProps>
               <span>{title}</span>
             </> : title}
         </button>
-        <DropdownMenu>
-          {children}
-        </DropdownMenu>
+        {customMenu
+          ? <>{children}</>
+          : <DropdownMenu>{children}</DropdownMenu>
+        }
       </div>
     );
   };
