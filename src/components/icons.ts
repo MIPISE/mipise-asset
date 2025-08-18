@@ -27,7 +27,9 @@ export enum Icons {
   COPY = "copy",
   DOWNLOAD = "download",
   DROPDOWN = "menu-dots-vertical",
-  SORT = "sort"
+  SORT = "sort",
+  SEARCH = "search",
+  SETTINGS_SLIDERS = "settings-sliders"
 }
 
 const iconMapping = (name: string): string | undefined => {
