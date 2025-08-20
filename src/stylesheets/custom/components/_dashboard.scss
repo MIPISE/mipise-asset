@@ -1,26 +1,26 @@
 // Global styles for dashboard invest
-.dashboard{
-  h3{
+.dashboard {
+  h3 {
     margin: 0 !important;
   }
 
-  .box_project{
+  .box_project {
     padding: 0 2%;
 
-    &__inside{
+    &__inside {
       border: 1px solid #dddddd;
       padding: 6%;
     }
 
-    img{
+    img {
       width: 100%;
     }
 
-    h3{
-      margin : 2% 0 !important;
+    h3 {
+      margin: 2% 0 !important;
     }
 
-    span{
+    span {
       font-size: 0.9em;
     }
   }
@@ -30,7 +30,8 @@
 /*----------------------------------- Benefits section -------------------------------------------------------*/
 /*---------------------------------------------- ------------------ ----------------------------------------------*/
 
-#sponsorship, #offers {
+#sponsorship,
+#offers {
   padding: 0% 2%;
 }
 
@@ -39,95 +40,86 @@
 }
 
 .benefits_head {
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    display: block;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
 
-    h2{
-      font-size: 2em;
-      margin: 10px 0 0 0;
-    }
+  h2 {
+    font-size: 2em;
+    margin: 10px 0 0 0;
+  }
 }
 
-.benefits_head--desc, .benefits_tickets--left--desc, .benefits_tickets--right--desc {
+.benefits_head--desc,
+.benefits_tickets--left--desc,
+.benefits_tickets--right--desc {
   font-size: 0.8em;
   font-weight: 300;
   margin: 0;
 }
 
-#offers .benefits_head--ban {
-  background-color: #127c8a;
+.mipise-modal-dialog {
+  text-align: center !important;
+  width: 30% !important;
 }
 
-.mipise-modal-dialog .benefits_head--ban {
-  background-color: #127c8a!important;
-}
-
-.mipise-modal-dialog{
-  text-align: center!important;
-width : 30%!important;
-}
-
-.mipise-modal-container{
-display: -ms-flexbox;
-  display: flex!important;
+.mipise-modal-container {
+  display: -ms-flexbox;
+  display: flex !important;
   -ms-flex-align: center;
   align-items: center;
   min-height: calc(100% - (0.5rem * 2));
 }
-    
-  .benefits_sponsor--title, .benefits_godchilds--title {
-      font-weight: 600;
-      font-size: 1.5em;
-  }
-  
-  .benefits_sponsor--card, .benefits_gain--card {
-      background-color: #fbf6ef;
-      border-radius: 20px;
-  }
 
-  #offers .benefits_gain--card {
-      background-color: #e9f3f0;
-      border-radius: 20px;
-  }
-  
-  .benefits_godchilds--card {
-      background-color: #fafafa;
-      border-radius: 20px;
-  }
-  
-  .sponsorship_sponsor--logo:before {
-      content: url(https://res.cloudinary.com/hm3mec8bl/image/upload/msgmjjdu1aug2d9jqfb2)!important;
-      width: 10%;
-      display: block;
-      margin: 0 auto;
-  }
-  
-  .sponsorship_godchilds--logo:before {
-      content: url(https://res.cloudinary.com/hm3mec8bl/image/upload/af1qvxw3e75q9w4lq26u)!important;
+.benefits_sponsor--title,
+.benefits_godchilds--title {
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.benefits_sponsor--card,
+.benefits_gain--card {
+  background-color: #fbf6ef;
+  border-radius: 20px;
+}
+
+.benefits_godchilds--card {
+  background-color: #fafafa;
+  border-radius: 20px;
+}
+
+.sponsorship_sponsor--logo:before {
+  content: url(https://res.cloudinary.com/hm3mec8bl/image/upload/msgmjjdu1aug2d9jqfb2) !important;
   width: 10%;
-      display: block;
-      margin: 0 auto;
-  }
+  display: block;
+  margin: 0 auto;
+}
 
-  .offers_godchilds--logo:before {
-      content: url(https://res.cloudinary.com/hm3mec8bl/image/upload/msgmjjdu1aug2d9jqfb2)!important;
-      width: 10%;
-      display: block;
-      margin: 0 auto;
-  }
+.sponsorship_godchilds--logo:before {
+  content: url(https://res.cloudinary.com/hm3mec8bl/image/upload/af1qvxw3e75q9w4lq26u) !important;
+  width: 10%;
+  display: block;
+  margin: 0 auto;
+}
+
+.offers_godchilds--logo:before {
+  content: url(https://res.cloudinary.com/hm3mec8bl/image/upload/msgmjjdu1aug2d9jqfb2) !important;
+  width: 10%;
+  display: block;
+  margin: 0 auto;
+}
 
 
-  .slider-container {
-      max-width : 100%!important;
-  }
+.slider-container {
+  max-width: 100% !important;
+}
 
-  .slider-container .col .bx-wrapper {
-      box-shadow: none;
-      cursor: pointer;
-  }
-  
+.slider-container .col .bx-wrapper {
+  box-shadow: none;
+  cursor: pointer;
+}
+
 /*---------------------------------------------- ------------------ ----------------------------------------------*/
 /*----------------------------------- Benefits section end-------------------------------------------------------*/
 /*---------------------------------------------- ------------------ ----------------------------------------------*/
@@ -154,7 +146,8 @@ display: -ms-flexbox;
 }
 
 
-.benefits_tickets--left--amount,.benefits_tickets--right--amount {
+.benefits_tickets--left--amount,
+.benefits_tickets--right--amount {
   font-size: 2em;
   font-weight: 600
 }
@@ -166,12 +159,15 @@ display: -ms-flexbox;
   padding: 2% 0%
 }
 
-.benefits_sponsor,.benefits_godchilds {
+.benefits_sponsor,
+.benefits_godchilds {
   display: block;
   text-align: center;
 }
 
-.benefits_sponsor--card,.benefits_gain--card,.benefits_godchilds--card {
+.benefits_sponsor--card,
+.benefits_gain--card,
+.benefits_godchilds--card {
   width: 90%;
   margin: 0 auto;
   flex-wrap: nowrap;
@@ -186,45 +182,52 @@ display: -ms-flexbox;
   margin-top: 3%
 }
 
-.benefits_sponsor--title,.benefits_godchilds--title {
+.benefits_sponsor--title,
+.benefits_godchilds--title {
   margin: 3%
 }
 
-.benefits_sponsor_card--left,.benefits_godchilds_card--left {
+.benefits_sponsor_card--left,
+.benefits_godchilds_card--left {
   text-align: left
 }
 
-.benefits_sponsor_card--left h5,.benefits_gain_card--left,.benefits_godchilds_card--left h5 {
+.benefits_sponsor_card--left h5,
+.benefits_gain_card--left,
+.benefits_godchilds_card--left h5 {
   font-size: 1.2em;
   font-weight: 600;
   margin: 0;
   text-align: left
 }
 
-.benefits_sponsor_card--right,.benefits_godchilds_card--right {
+.benefits_sponsor_card--right,
+.benefits_godchilds_card--right {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
   align-items: center
 }
 
-.benefits_sponsor_card--amount,.benefits_godchilds_card--amount,.benefits_gain_card--right {
+.benefits_sponsor_card--amount,
+.benefits_godchilds_card--amount,
+.benefits_gain_card--right {
   font-size: 1.6em;
   font-weight: 600
 }
 
 @media only screen and (max-width: 1400px) {
   .benefits_tickets--left {
-      border-right:0;
-      border-bottom: 2px dotted black;
-      padding: 8% 0
+    border-right: 0;
+    border-bottom: 2px dotted black;
+    padding: 8% 0
   }
 
   .benefits_tickets--right {
-      padding: 8% 0
+    padding: 8% 0
   }
 
   .benefits_link--code {
-      margin: 4% 0
+    margin: 4% 0
   }
 }
