@@ -1,4 +1,4 @@
-import React, {ReactElement, ReactNode, useState} from "react";
+import React, {Fragment, ReactElement, ReactNode, useState} from "react";
 import {Cell, Pie, PieChart, ResponsiveContainer, Sector} from "recharts";
 import { GlobalProps } from "../types";
 import {ActiveShape} from "recharts/types/util/types";
@@ -74,11 +74,12 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
 
     let boxTextY = ey;
 
+    const date = Date.now();
     return (
       <g>
         <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
           <tspan textAnchor="middle" x={cx} dy={8}>{payload.name}</tspan>
-          <tspan textAnchor="middle" x={cx} dy={25}>{payload[activeFilter]}</tspan>
+          <tspan textAnchor="middle" x={cx} dy={25}>{payload[activeFilter]}€</tspan>
         </text>
         <Sector
           cx={cx}
@@ -104,15 +105,15 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
           <tspan x={ex + (cos >= 0 ? 1 : -1) * 12} textAnchor={textAnchor} y={boxTextY}>{payload.name}</tspan>
           {attributes.map((a) => {
             boxTextY += 30;
-            const title = <tspan key={`${a.label}_${payload.name}_title`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{a.label}</tspan>;
+            const title = <tspan key={`${a.label}_${payload.name}_${date}_title`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{a.label}</tspan>;
             boxTextY += 20;
-            const value = <tspan key={`${a.label}_${payload.name}_title`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{`${payload[a.name]}€`}</tspan>;
+            const value = <tspan key={`${a.label}_${payload.name}_${date}_value`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{`${payload[a.name]}€`}</tspan>;
 
             return (
-              <>
+              <Fragment key={`${a.label}_${payload.name}_${date}`}>
                 {title}
                 {value}
-              </>
+              </Fragment>
             );
           })}
         </text>
