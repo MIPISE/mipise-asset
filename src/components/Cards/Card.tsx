@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import {Color, GlobalProps} from "../types";
+import { Color, GlobalProps } from "../types";
 
 export type CardProps = GlobalProps & {
   title?: ReactElement[] | string
@@ -11,7 +11,7 @@ export type CardProps = GlobalProps & {
 
 const Card: React.FC<CardProps>
   = ({ background, children, title, header, footer, ...props }) => {
-    let classes = `card ${background} ${props.classes}`;
+    let classes = `card bg-${background} ${props.classes}`;
 
     return (
       <div className={classes}>
