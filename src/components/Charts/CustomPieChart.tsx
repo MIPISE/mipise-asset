@@ -43,6 +43,11 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
   classes = "",
   filter
 }) => {
+  const [activeFilter, setActiveFilter] = useState(attributes[0].name);
+  const handleFilterClick = (key: string) => {
+    setActiveFilter(key);
+  }
+
   const renderActiveShape: ActiveShape<PieSectorDataItem> = ({
      cx,
      cy,
@@ -73,7 +78,7 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
       <g>
         <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
           <tspan textAnchor="middle" x={cx} dy={8}>{payload.name}</tspan>
-          <tspan textAnchor="middle" x={cx} dy={25}>{payload.value}</tspan>
+          <tspan textAnchor="middle" x={cx} dy={25}>{payload[activeFilter]}</tspan>
         </text>
         <Sector
           cx={cx}
@@ -97,11 +102,11 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
         <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
         <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} fill="#333">
           <tspan x={ex + (cos >= 0 ? 1 : -1) * 12} textAnchor={textAnchor} y={boxTextY}>{payload.name}</tspan>
-          {attributes.map((a, i) => {
+          {attributes.map((a) => {
             boxTextY += 30;
             const title = <tspan key={`${a.label}_${payload.name}_title`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{a.label}</tspan>;
             boxTextY += 20;
-            const value = <tspan key={`${a.label}_${payload.name}_title`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{`${payload.item[a.name]}€`}</tspan>;
+            const value = <tspan key={`${a.label}_${payload.name}_title`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{`${payload[a.name]}€`}</tspan>;
 
             return (
               <>
@@ -118,21 +123,6 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
   const keys = attributes.map(a => a.name);
   const items = getItems(children, keys);
 
-  const [activeFilter, setActiveFilter] = useState(attributes[0].name);
-  const mapItemsWithFilter = () => {
-    return items.map(i => {
-      return {name: i.name, value: i[activeFilter], item: i}
-    })
-  }
-
-  const [data, setData] = useState<{name: string, value: string | number}[]>(mapItemsWithFilter);
-  const handleFilterClick = (key: string) => {
-    console.log("click")
-
-    setActiveFilter(key);
-    setData(mapItemsWithFilter);
-  }
-
   return (
     <>
       {filter &&
@@ -147,15 +137,15 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
         <PieChart>
           <Pie
             activeShape={renderActiveShape}
-            data={data}
+            data={items}
             cx="50%"
             cy="45%"
             innerRadius={120}
             outerRadius={180}
             fill="#8884d8"
-            dataKey="value"
+            dataKey={activeFilter}
           >
-            {data.map((entry, index) => (
+            {items.map((entry, index) => (
               <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
