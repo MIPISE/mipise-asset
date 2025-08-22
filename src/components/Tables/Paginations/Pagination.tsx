@@ -2,15 +2,23 @@ import React, {ReactElement} from "react";
 import {GlobalProps} from "../../types";
 
 type PaginationProps = GlobalProps & {
+  currentPer: number
+  link: string
   page: number
   pageCount: number
+  param: string
+  perParam: string
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   children,
-  classes = "",
+  currentPer,
+  link,
   page,
   pageCount,
+  param,
+  perParam,
+  classes = "",
   ...props
 }) => {
   const isFirst = page == 1;
@@ -18,13 +26,31 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const createPagesButton = () => {
     const pages: ReactElement[] = [];
-    for (let i = 1; i <= pageCount; i++) {
+
+    if (pageCount > 5 && page != 1) {
+      pages.push(
+        <li className="page-item disabled gap">
+          <p className="page-link">...</p>
+        </li>
+      );
+    }
+
+    for (let i = (page + 4 < pageCount ? page : (pageCount - 4)); i <= Math.min(page + 4, pageCount); i++) {
       pages.push(
         <li className={`page-item${i == page ? " active" : ""}`} aria-current={i == page ? "page" : null}>
-          <button className="page-link">{i}</button>
+          <a className="page-link" href={`${link}?${perParam}=${currentPer}&${param}=${i}`}>{i}</a>
         </li>
       )
     }
+
+    if (pageCount > 5 && page + 4 < pageCount) {
+      pages.push(
+        <li className="page-item disabled gap">
+          <p className="page-link">...</p>
+        </li>
+      );
+    }
+
     return pages;
   }
 
@@ -32,28 +58,25 @@ const Pagination: React.FC<PaginationProps> = ({
     <nav className={`table-pagination ms-md-auto ${classes}`} {...props}>
       <ul className="pagination pagination-sm">
         <li className={`page-item${isFirst ? " disabled" : ""}`}>
-          <button className="page-link" aria-label="First">
+          <a className="page-link" href={`${link}?${param}=1`} aria-label="First">
             <span aria-hidden="true">&laquo;</span>
-          </button>
+          </a>
         </li>
         <li className={`page-item${isFirst ? " disabled" : ""}`}>
-          <button className="page-link" aria-label="Previous">
+          <a className="page-link" aria-label="Previous" href={`${link}?${param}=${page - 1}`}>
             <span aria-hidden="true">&lsaquo;</span>
-          </button>
+          </a>
         </li>
         {createPagesButton()}
-        <li className="page-item disabled gap">
-          <a className="page-link" href="#">...</a>
-        </li>
         <li className={`page-item${isLast ? " disabled" : ""}`}>
-          <button className="page-link" aria-label="Next">
+          <a className="page-link" aria-label="Next" href={`${link}?${param}=${page + 1}`}>
             <span aria-hidden="true">&rsaquo;</span>
-          </button>
+          </a>
         </li>
         <li className={`page-item${isLast ? " disabled" : ""}`}>
-          <button className="page-link" aria-label="Last">
+          <a className="page-link" aria-label="Last" href={`${link}?${param}=${pageCount}`}>
             <span aria-hidden="true">&raquo;</span>
-          </button>
+          </a>
         </li>
       </ul>
     </nav>

@@ -1,27 +1,35 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import {GlobalProps} from "../../types";
 
 type LengthSelectorProps = GlobalProps & {
-  attribute: string
-  id?: string
+  currentPage: number
+  link: string
+  param: string
+  pageParam: string
+  selectedValue: number
   options?: number[]
 }
 
 const LengthSelector: React.FC<LengthSelectorProps> = ({
-  attribute,
-  id,
+  currentPage,
+  link,
+  param,
+  pageParam,
+  selectedValue,
   options = [10, 25, 50, 100],
   children,
   classes = "",
   ...props
 }) => {
-  id ||= attribute;
+  const handleLengthChoice = (evt: ChangeEvent<HTMLSelectElement>) => {
+    return window.location.href = `${link}?${pageParam}=${currentPage}&${param}=${evt.target.value}`;
+  }
 
   return (
     <label>
-      <select className="form-select form-select-sm" name={attribute} id={id} aria-controls={attribute} {...props}>
+      <select key={`${param}_length_selector`} className="form-select form-select-sm" onChange={handleLengthChoice} {...props} defaultValue={selectedValue}>
         {options.map(option => {
-          return <option value={option}>{option}</option>
+          return <option>{option}</option>
         })}
       </select>
     </label>
