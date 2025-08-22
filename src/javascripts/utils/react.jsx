@@ -1,8 +1,9 @@
 // React Helper
 import React from "react";
-import { createRoot } from "react-dom/client";
+import {createRoot} from "react-dom/client";
+import {flushSync} from "react-dom";
 
-const voidElements = ["img", "hr", "input"];
+const voidElements = ["img", "hr", "input", "link"];
 
 /**
  * @param element Element
@@ -13,8 +14,12 @@ const renderElement = (element, index, pathKey) => {
     if (element.nodeType === Node.COMMENT_NODE)
         return "";
 
-    if (element.nodeType === Node.TEXT_NODE)
+    if (element.nodeType === Node.TEXT_NODE) {
+        if (element.textContent === "\n")
+            return "";
+
         return element.textContent;
+    }
 
     const attributes = Array.from(element.attributes);
     const children = Array.from(element.childNodes).map((child, i) => {
@@ -85,13 +90,28 @@ const renderElement = (element, index, pathKey) => {
 document.addEventListener("DOMContentLoaded", () => {
     const components = document.querySelectorAll("div[data-component]");
     components.forEach((component, i) => {
-        const key = component.getAttribute("data-name");
-        const rendered = renderElement(component, i, `${key}_${i}`);
+        let parent = component.parentElement;
+        let componentHasComponentParent = false;
+        while (parent != null) {
+            if (parent.getAttributeNames().includes("data-component")) {
+                componentHasComponentParent = true;
+                break;
+            }
 
-        component.innerHTML = "";
-        const root = createRoot(component);
-        root.render(rendered);
+            parent = parent.parentElement;
+        }
+
+        if (!componentHasComponentParent) {
+            const key = component.getAttribute("data-name");
+            const rendered = renderElement(component, i, `${key}_${i}`);
+
+            flushSync(() => {
+                const root = createRoot(component);
+                root.render(rendered);
+            });
+            component.replaceWith(...component.childNodes);
+        }
     });
 
-    setTimeout(() => document.dispatchEvent(new Event("ReactComponentHydrated")), components.length * 10);
+    document.dispatchEvent(new Event("ReactComponentHydrated"));
 });
