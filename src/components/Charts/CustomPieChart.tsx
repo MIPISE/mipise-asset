@@ -1,10 +1,24 @@
-import React, {Fragment, ReactElement, ReactNode, useState} from "react";
-import {Cell, Pie, PieChart, ResponsiveContainer, Sector} from "recharts";
+import React, { Fragment, ReactElement, ReactNode, useState } from "react";
+import { Cell, Pie, PieChart, ResponsiveContainer, Sector } from "recharts";
 import { GlobalProps } from "../types";
-import {ActiveShape} from "recharts/types/util/types";
-import {PieSectorDataItem} from "recharts/types/polar/Pie";
+import tinycolor from "tinycolor2";
+import { ActiveShape } from "recharts/types/util/types";
+import { PieSectorDataItem } from "recharts/types/polar/Pie";
+import { payloadSearcher } from "../../../node_modules/recharts/types/chart/SunburstChart";
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+export const generateColors = (base: string, count: number): string[] => {
+  const colors: string[] = [];
+  const baseColor = tinycolor(base);
+
+  for (let i = 0; i < count; i++) {
+    // variation progressive de luminosité
+    const variation = (i - count / 2) * (20 / count);
+    const color = baseColor.clone().lighten(variation).toHexString();
+    colors.push(color);
+  }
+  return colors;
+};
+
 export type CustomPieChartProps = GlobalProps & {
   attributes: {
     name: string
@@ -13,9 +27,10 @@ export type CustomPieChartProps = GlobalProps & {
   heightChart: number
   widthChart: number
   filter?: boolean
+  chartSectorColor?: string
 }
 
-export const getItems = (children: ReactNode, attributes: string[])=> {
+export const getItems = (children: ReactNode, attributes: string[]) => {
   return (children as ReactElement[])
     .filter(c => typeof c != "string")
     .map(c => {
@@ -38,6 +53,7 @@ export const getItems = (children: ReactNode, attributes: string[])=> {
 const CustomPieChart: React.FC<CustomPieChartProps> = ({
   attributes,
   children,
+  chartSectorColor,
   heightChart,
   widthChart,
   classes = "",
@@ -49,17 +65,17 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
   }
 
   const renderActiveShape: ActiveShape<PieSectorDataItem> = ({
-     cx,
-     cy,
-     midAngle,
-     innerRadius,
-     outerRadius,
-     startAngle,
-     endAngle,
-     fill,
-     payload,
-     percent,
-     value,
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    startAngle,
+    endAngle,
+    fill,
+    payload,
+    percent,
+    value,
   }: PieSectorDataItem) => {
     const RADIAN = Math.PI / 180;
     const sin = Math.sin(-RADIAN * (midAngle ?? 1));
@@ -76,82 +92,107 @@ const CustomPieChart: React.FC<CustomPieChartProps> = ({
 
     const date = Date.now();
     return (
-      <g>
-        <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-          <tspan textAnchor="middle" x={cx} dy={8}>{payload.name}</tspan>
-          <tspan textAnchor="middle" x={cx} dy={25}>{payload[activeFilter]}€</tspan>
-        </text>
-        <Sector
-          cx={cx}
-          cy={cy}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          fill={fill}
-        />
-        <Sector
-          cx={cx}
-          cy={cy}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          innerRadius={(outerRadius ?? 0) + 6}
-          outerRadius={(outerRadius ?? 0) + 10}
-          fill={fill}
-        />
-        <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
-        <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-        <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} fill="#333">
-          <tspan x={ex + (cos >= 0 ? 1 : -1) * 12} textAnchor={textAnchor} y={boxTextY}>{payload.name}</tspan>
-          {attributes.map((a) => {
-            boxTextY += 30;
-            const title = <tspan key={`${a.label}_${payload.name}_${date}_title`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{a.label}</tspan>;
-            boxTextY += 20;
-            const value = <tspan key={`${a.label}_${payload.name}_${date}_value`} x={ex + (cos >= 0 ? 1 : -1) * 12} y={boxTextY} textAnchor={textAnchor} fill="#333">{`${payload[a.name]}€`}</tspan>;
-
-            return (
-              <Fragment key={`${a.label}_${payload.name}_${date}`}>
-                {title}
-                {value}
-              </Fragment>
-            );
-          })}
-        </text>
-      </g>
+      <>
+        <g>
+          <text x={cx} y={cy} dy={24} textAnchor="middle" fill={fill}>
+            <tspan textAnchor="middle" x={cx} y={cy}> {activeSector.name} : {payload[activeFilter]}€</tspan>
+          </text>
+          <Sector
+            cx={cx}
+            cy={cy}
+            innerRadius={innerRadius}
+            outerRadius={outerRadius}
+            startAngle={startAngle}
+            endAngle={endAngle}
+            fill={fill}
+          />
+          <Sector
+            cx={cx}
+            cy={cy}
+            startAngle={startAngle}
+            endAngle={endAngle}
+            innerRadius={(outerRadius ?? 0) + 6}
+            outerRadius={(outerRadius ?? 0) + 10}
+            fill={fill}
+          />
+        </g>
+      </>
     );
   };
 
   const keys = attributes.map(a => a.name);
   const items = getItems(children, keys);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const activeSector = activeIndex !== null ? items[activeIndex] : null;
+
+  const COLORS = generateColors(chartSectorColor || "#000", items.length);
 
   return (
     <>
       {filter &&
-        <div className="d-flex flex-column">
-          <h2>Filtrer par</h2>
-          {attributes.map(a => {
-            return <button key={`filter-${a.name}`} className={`btn mt-1 btn-info ${activeFilter == a.name ? "text-danger" : "text-light"}`} onClick={() => handleFilterClick(a.name)}>{a.label}</button>
-          })}
+        <div id="dropdown-chart" className="dropdown d-flex justify-content-center">
+          <button
+            className="btn btn btn-light dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {attributes.find(a => a.name === activeFilter)?.label}
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            {attributes.map(a => (
+              <li key={`filter-${a.name}`}>
+                <button
+                  className={`dropdown-item ${activeFilter === a.name ? "active" : ""}`}
+                  onClick={() => handleFilterClick(a.name)}
+                >
+                  {a.label}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       }
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
-          <Pie
-            activeShape={renderActiveShape}
-            data={items}
-            cx="50%"
-            cy="45%"
-            innerRadius={120}
-            outerRadius={180}
-            fill="#8884d8"
-            dataKey={activeFilter}
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie
+              activeShape={renderActiveShape}
+              data={items}
+              cx="50%"
+              cy="80%"
+              outerRadius={240}
+              startAngle={0}
+              endAngle={180}
+              fill="#8884d8"
+              dataKey={activeFilter}
+              activeIndex={activeIndex}
+              onMouseEnter={(_, index) => setActiveIndex(index)}
+              onMouseLeave={() => setActiveIndex(null)}
+            >
+              {items.map((entry, index) => (
+                <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+
+        {activeSector && (
+          <div
+            className="legend-box"
           >
-            {items.map((entry, index) => (
-              <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />
+            <strong>{activeSector.name}</strong>
+            {attributes.map((a) => (
+              <div key={`${a.label}_${activeSector.name}`} className="legend-item">
+                <span className="label">{a.label} :</span>
+                <span className="value">{activeSector[a.name]}€</span>
+              </div>
             ))}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
+          </div>
+        )}
+
+      </div>
     </>
   );
 };

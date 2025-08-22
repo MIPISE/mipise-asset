@@ -24,6 +24,34 @@
       font-size: 0.9em;
     }
   }
+
+}
+
+#dropdown-chart {
+  margin: -20px 0 0 0;
+}
+
+.legend-box {
+  background: #ffffffe0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 12px;
+  color: #333;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.legend-item {
+  margin-top: 6px;
+}
+
+.legend-item .label {
+  font-weight: bold;
+  margin-right: 4px;
 }
 
 /*---------------------------------------------- ------------------ ----------------------------------------------*/
