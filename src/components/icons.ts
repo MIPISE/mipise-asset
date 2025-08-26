@@ -29,7 +29,9 @@ export enum Icons {
   DROPDOWN = "menu-dots-vertical",
   SORT = "sort",
   SEARCH = "search",
-  SETTINGS_SLIDERS = "settings-sliders"
+  SETTINGS_SLIDERS = "settings-sliders",
+  INVALID = "cross",
+  VALID = "check"
 }
 
 const iconMapping = (name: string): string | undefined => {
