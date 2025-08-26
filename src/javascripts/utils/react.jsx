@@ -2,7 +2,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-const voidElements = ["img", "hr", "input"];
+const voidElements = ["img", "hr", "input", "br"];
 
 /**
  * @param element Element
