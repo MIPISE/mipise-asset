@@ -19,7 +19,7 @@ const Card: React.FC<CardProps>
           {title && <h2>{title}</h2>}
         </div>)}
         <div className="card-body">
-          {children && <p>{children}</p>}
+          {children}
         </div>
         {footer && (<div className="card-footer"></div>)}
       </div>
