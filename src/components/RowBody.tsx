@@ -1,12 +1,11 @@
 import React from "react";
 import {GlobalProps} from "./types";
 
-export type RowBodyProps = GlobalProps
-
-const RowBody: React.FC<RowBodyProps>
-  = (props) => {
+const RowBody: React.FC<GlobalProps>
+  = ({children, classes = ""}) => {
     return (
-      <div className={`row g-3 py-1 py-xl-3 ${props.classes}`}>
+      <div className={`row g-3 py-1 py-xl-3 ${classes}`}>
+        {children}
       </div>
     );
   };
