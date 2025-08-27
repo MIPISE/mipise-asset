@@ -1,4 +1,4 @@
-import {PropsWithChildren} from "react";
+import { PropsWithChildren, ReactNode } from "react";
 
 export enum Color {
   WHITE = "white",
