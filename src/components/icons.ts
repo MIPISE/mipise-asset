@@ -31,7 +31,8 @@ export enum Icons {
   SEARCH = "search",
   SETTINGS_SLIDERS = "settings-sliders",
   INVALID = "cross",
-  VALID = "check"
+  VALID = "check",
+  HELP = "interrogation"
 }
 
 const iconMapping = (name: string): string | undefined => {
