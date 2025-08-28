@@ -1,18 +1,16 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { Color, GlobalProps } from "./types";
 
 export type CardProps = GlobalProps & {
-  children: ReactElement[] | string,
-  background: Color,
-  border: Color
+  background: Color
 }
 
 const Card: React.FC<CardProps>
-  = ({ background, children, border, ...props }) => {
-    let classes = `card bg-${background} ${props.classes}`;
+  = ({ background, children, classes = "", ...props }) => {
+    let className = `card bg-${background} ${classes}`;
 
     return (
-      <div className={classes}>
+      <div className={className}>
         <div className="card-body">
           {children}
         </div>
