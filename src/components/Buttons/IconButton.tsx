@@ -5,7 +5,7 @@ import Icon from "../Icon";
 
 export type IconButtonProps = AbstractButtonProps & {
   icon: Icons
-  iconEnd: boolean
+  iconEnd?: boolean
   buttonType?: "submit" | "reset" | "button"
   iconType?: "rs" | "ss"
   square?: boolean

@@ -1,6 +1,6 @@
-import {ReactElement} from "react";
-import {InputItemProps} from "./InputItem";
-import {LabelProps} from "./Label";
+import { ReactElement } from "react";
+import { InputItemProps } from "./InputItem";
+import { LabelProps } from "./Label";
 
 // Fonction utilitaire pour extraire du texte d’un ReactElement[] ou string
 export const extractText = (node?: ReactElement[] | string): string => {
@@ -36,5 +36,5 @@ export default ({
     : extractText(displayLabel);
 
   const inputClasses = inputHtmlProps?.classes || ("form-control" + (inputHtmlProps?.additionalClasses ? " " + inputHtmlProps.additionalClasses : ""));
-  return {name, id, label: displayLabel, placeholder: placeholderText, inputClasses};
+  return { name, id, label: displayLabel, placeholder: placeholderText, inputClasses };
 }

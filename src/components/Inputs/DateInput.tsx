@@ -1,7 +1,7 @@
 import React from "react";
-import AbstractInput, {AbstractInputProps} from "./AbstractInput";
+import AbstractInput, { AbstractInputProps } from "./AbstractInput";
 
-type DateInputProps = Omit<AbstractInputProps, "type"> & {
+export type DateInputProps = Omit<AbstractInputProps, "type"> & {
   startYear?: number;
   endYear?: number;
 }
@@ -11,8 +11,11 @@ const DateInput: React.FC<DateInputProps> =
     startYear ||= new Date().getFullYear() - 5;
     endYear ||= new Date().getFullYear() + 5;
 
+    const min = `${startYear}-01-01`;
+    const max = `${endYear}-12-31`;
+
     return (
-      <AbstractInput type={"date"} min={startYear} max={endYear} {...props}/>
+      <AbstractInput type="date" min={min} max={max} {...props} />
     );
   };
 

@@ -9,6 +9,7 @@ export enum Color {
   INFO = "info",
   LIGHT = "light",
   PRIMARY_SUBTLE = "primary-subtle",
+  PRIMARY_LINK = "primary-link",
   DARK_SUBTLE = "dark-subtle",
 }
 

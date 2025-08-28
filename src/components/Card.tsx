@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import {Color, GlobalProps} from "./types";
+import { Color, GlobalProps } from "./types";
 
-type CardProps = GlobalProps & {
+export type CardProps = GlobalProps & {
   children: ReactElement[] | string,
   background: Color,
   border: Color
@@ -10,17 +10,11 @@ type CardProps = GlobalProps & {
 const Card: React.FC<CardProps>
   = ({ background, children, border, ...props }) => {
     let classes = `card bg-${background} ${props.classes}`;
-    let content;
-    if (Array.isArray(children) || React.isValidElement(children)) {
-      content = children;
-    } else {
-      content = <span dangerouslySetInnerHTML={{ __html: children }} />;
-    }
 
     return (
       <div className={classes}>
         <div className="card-body">
-          <p>{content}</p>
+          {children}
         </div>
       </div>
     );
