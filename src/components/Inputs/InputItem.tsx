@@ -14,7 +14,8 @@ export type InputItemProps = GlobalProps & InputHTMLAttributes<HTMLInputElement>
   inputHtmlProps?: {
     classes?: string
     additionalClasses?: string
-  }
+  },
+  noLabel?: boolean
 };
 
 const InputItem: React.FC<InputItemProps> = ({ref, type, value, required, ...props}) => {

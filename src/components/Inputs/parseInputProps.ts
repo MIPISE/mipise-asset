@@ -24,12 +24,13 @@ export default ({
   objectName,
   label,
   placeholder,
-  inputHtmlProps
+  inputHtmlProps,
+  noLabel
 }: InputItemProps & Omit<LabelProps, "isRequired">) => {
   const name = objectName ? formatName(objectName, attribute) : attribute;
   const id = objectName ? formatId(objectName, attribute) : attribute;
 
-  const displayLabel = label || attribute.charAt(0).toUpperCase() + attribute.slice(1);
+  const displayLabel = noLabel ? "" : label || attribute.charAt(0).toUpperCase() + attribute.slice(1);
   const placeholderText = placeholder !== undefined
     ? extractText(placeholder)
     : extractText(displayLabel);
