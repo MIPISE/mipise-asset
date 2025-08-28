@@ -14,9 +14,13 @@ const Label: React.FC<LabelProps> =
   ({ isRequired, ...props}) => {
     const {label, id} = parseInputProps(props);
     return (
-      <label htmlFor={id} className={props.classes || "form-label"}>
-        {label} {!isRequired && <OptionalText/>}
-      </label>
+      <>
+        {label != "" &&
+          <label htmlFor={id} className={props.classes || "form-label"}>
+            {label} {!isRequired && <OptionalText/>}
+          </label>
+        }
+      </>
     );
   };
 
