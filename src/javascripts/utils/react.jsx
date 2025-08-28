@@ -73,9 +73,6 @@ const renderElement = (element, index, pathKey) => {
             props[attr.name] = prop;
         });
 
-        if (element.className)
-            props.className = element.className;
-
         if (voidElements.includes(element.tagName.toLowerCase()))
             return React.createElement(element.tagName.toLowerCase(), { ...props, key: `${pathKey}_${element.tagName}_${index}}`});
 
@@ -85,10 +82,9 @@ const renderElement = (element, index, pathKey) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const time = Date.now();
-
-    const components = document.querySelectorAll("div[data-component]");
     const toBeRender = [];
-    components.forEach((component, i) => {
+
+    document.querySelectorAll("div[data-component]").forEach((component, i) => {
         let parent = component.parentElement;
         let componentHasComponentParent = false;
         while (parent != null) {
