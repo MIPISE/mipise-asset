@@ -1,6 +1,7 @@
 // React Helper
 import React from "react";
-import { createRoot } from "react-dom/client";
+import {createRoot} from "react-dom/client";
+import {flushSync} from "react-dom";
 
 const voidElements = ["img", "hr", "input", "br"];
 
@@ -83,15 +84,38 @@ const renderElement = (element, index, pathKey) => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const components = document.querySelectorAll("div[data-component]");
-    components.forEach((component, i) => {
-        const key = component.getAttribute("data-name");
-        const rendered = renderElement(component, i, `${key}_${i}`);
+    const time = Date.now();
 
-        component.innerHTML = "";
-        const root = createRoot(component);
-        root.render(rendered);
+    const components = document.querySelectorAll("div[data-component]");
+    const toBeRender = [];
+    components.forEach((component, i) => {
+        let parent = component.parentElement;
+        let componentHasComponentParent = false;
+        while (parent != null) {
+            if (parent.getAttributeNames().includes("data-component")) {
+                componentHasComponentParent = true;
+                break;
+            }
+
+            parent = parent.parentElement;
+        }
+
+        if (!componentHasComponentParent) {
+            const key = component.getAttribute("data-name");
+            const rendered = renderElement(component, i, `${key}_${i}`);
+
+            toBeRender.push([createRoot(component), rendered]);
+        }
     });
 
-    setTimeout(() => document.dispatchEvent(new Event("ReactComponentHydrated")), components.length * 10);
+    flushSync(() => {
+        for (const component of toBeRender)
+            component[0].render(component[1])
+    });
+
+    if (process.env.NODE_ENV === "development") {
+        console.debug(`React rendering time: ${Date.now() - time}ms`);
+    }
+
+    document.dispatchEvent(new Event("ReactComponentHydrated"));
 });
