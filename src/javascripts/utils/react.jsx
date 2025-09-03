@@ -73,6 +73,9 @@ const renderElement = (element, index, pathKey) => {
             props[attr.name] = prop;
         });
 
+        if (element.className)
+            props.className = element.className;
+
         if (voidElements.includes(element.tagName.toLowerCase()))
             return React.createElement(element.tagName.toLowerCase(), { ...props, key: `${pathKey}_${element.tagName}_${index}}`});
 
