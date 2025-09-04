@@ -1,7 +1,7 @@
 export enum Icons {
   WARNING = "triangle-warning",
   DEFAULT = "default-icon",
-  DOCUMENT = "file",
+  DOCUMENT = "document",
   ADD = "add",
   DELETE = "trash",
   LOGOUT = "log-out",
@@ -32,7 +32,12 @@ export enum Icons {
   SETTINGS_SLIDERS = "settings-sliders",
   INVALID = "cross",
   VALID = "check",
-  HELP = "interrogation"
+  HELP = "interrogation",
+  APPS = "apps",
+  COINS = "coins",
+  HISTOGRAM = "chart-histogram",
+  MESSAGE = "envelope",
+  MANAGEMENT = "computer"
 }
 
 const iconMapping = (name: string): string | undefined => {
