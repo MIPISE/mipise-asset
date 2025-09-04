@@ -11,76 +11,93 @@ const voidElements = ["img", "hr", "input", "br"];
  * @param pathKey string
  */
 const renderElement = (element, index, pathKey) => {
-    if (element.nodeType === Node.COMMENT_NODE)
-        return "";
+    try {
+        if (element.nodeType === Node.COMMENT_NODE)
+            return "";
 
-    if (element.nodeType === Node.TEXT_NODE)
-        return element.textContent;
+        if (element.nodeType === Node.TEXT_NODE)
+            return element.textContent;
 
-    const attributes = Array.from(element.attributes);
-    const children = Array.from(element.childNodes).map((child, i) => {
-        return renderElement(child, i, `${pathKey}_${i}`)
-    });
+        const attributes = Array.from(element.attributes);
+        const children = Array.from(element.childNodes).map((child, i) => {
+            return renderElement(child, i, `${pathKey}_${i}`)
+        });
 
-    const props = {};
-    if (element.hasAttribute("data-component")) {
-        let componentName = attributes.find(a => a.name === "data-name");
-        if (!componentName) {
-            console.warn("Component usage without data-name value in : " + element);
-            return;
-        }
-        componentName = componentName.value;
-
-        // React component
-        attributes.forEach(attr => {
-            let propName = attr.name.replace("data-", "");
-            if (["component", "name"].includes(propName))
+        const props = {};
+        if (element.hasAttribute("data-component")) {
+            let componentName = attributes.find(a => a.name === "data-name");
+            if (!componentName) {
+                console.warn("Component usage without data-name value in : " + element);
                 return;
+            }
+            componentName = componentName.value;
 
-            let prop = attr.value;
-            if (prop === "")
-                if (propName !== "value")
+            // React component
+            attributes.forEach(attr => {
+                let propName = attr.name.replace("data-", "");
+                if (["component", "name"].includes(propName))
+                    return;
+
+                let prop = attr.value;
+                if (prop === "")
+                    if (propName !== "value")
+                        prop = true;
+
+                if (!propName.startsWith("aria-") && !propName.includes("bs-")) {
+                    propName = propName.replace(/-(\w)/g, (str, p1) => {
+                        return p1.toUpperCase();
+                    });
+                }
+
+                try {
+                    props[propName] = JSON.parse(prop);
+                } catch (e) {
+                    props[propName] = prop;
+                }
+            });
+            props["children"] = children;
+
+            const ComponentFunction = require(`../../components/${componentName}.tsx`).default;
+            return (
+                <ComponentFunction {...props} key={pathKey}/>
+            );
+        } else {
+            // DOM element
+            attributes.forEach(attr => {
+                if (attr.name === "class")
+                    return;
+
+                let prop = attr.value;
+                if (prop === "")
                     prop = true;
 
-            if (!propName.startsWith("aria-") && !propName.includes("bs-")) {
-                propName = propName.replace(/-(\w)/g, (str, p1) => {
-                    return p1.toUpperCase();
+                props[attr.name] = prop;
+            });
+
+            if (element.className)
+                props.className = element.className;
+
+            if (voidElements.includes(element.tagName.toLowerCase()))
+                return React.createElement(element.tagName.toLowerCase(), {
+                    ...props,
+                    key: `${pathKey}_${element.tagName}_${index}}`
                 });
-            }
 
-            try {
-                props[propName] = JSON.parse(prop);
-            } catch (e) {
-                props[propName] = prop;
-            }
-        });
-        props["children"] = children;
-
-        const ComponentFunction = require(`../../components/${componentName}.tsx`).default;
-        return (
-            <ComponentFunction {...props} key={pathKey}/>
-        );
-    } else {
-        // DOM element
-        attributes.forEach(attr => {
-            if (attr.name === "class")
-                return;
-
-            let prop = attr.value;
-            if (prop === "")
-                prop = true;
-
-            props[attr.name] = prop;
-        });
-
-        if (element.className)
-            props.className = element.className;
-
-        if (voidElements.includes(element.tagName.toLowerCase()))
-            return React.createElement(element.tagName.toLowerCase(), { ...props, key: `${pathKey}_${element.tagName}_${index}}`});
-
-        return React.createElement(element.tagName.toLowerCase(), { ...props, key: `${pathKey}_${element.tagName}_${index}}`}, children);
+            return React.createElement(element.tagName.toLowerCase(), {
+                ...props,
+                key: `${pathKey}_${element.tagName}_${index}}`
+            }, children);
+        }
+    } catch (e) {
+        console.error(`React Render Error : The component ${formatComponentForError(element)} encountered and error while rendering ` + e);
     }
+}
+
+const formatComponentForError = (component) => {
+    return Array.from(component.attributes).filter(a => !a.name.includes("component")).map(a => {
+        const name = a.name.replace("data-", "");
+        return name + " = " + (a.value === "" ? true : a.value)
+    }).join(" | ");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -102,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!componentHasComponentParent) {
             const key = component.getAttribute("data-name");
             const rendered = renderElement(component, i, `${key}_${i}`);
-
             toBeRender.push([createRoot(component), rendered]);
         }
     });
