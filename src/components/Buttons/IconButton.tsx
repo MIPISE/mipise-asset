@@ -1,6 +1,6 @@
 import React from "react";
 import { Icons } from "../icons";
-import { AbstractButtonProps } from "./AbstractButton";
+import {AbstractButtonProps, createButtonClassName} from "./AbstractButton";
 import Icon from "../Icon";
 import confirmation from "../handlers/confirmation";
 
@@ -9,7 +9,6 @@ export type IconButtonProps = AbstractButtonProps & {
   iconEnd?: boolean
   buttonType?: "submit" | "reset" | "button"
   iconType?: "rs" | "ss"
-  square?: boolean
   visuallyHidden?: boolean
   confirmText?: string
 }
@@ -31,23 +30,23 @@ const IconButton: React.FC<IconButtonProps> = ({
   classes = "",
   ...props
 }) => {
-    return (
-      <button
-        className={`btn btn-${color}${(variant ? `-${variant}` : "")} ${size ? `btn-${size}` : ""} ${square ? `btn-square` : "d-inline-flex align-items-center justify-content-center"}${rounded ? ` rounded-${rounded}` : ""} ${fullwidth ? `w-100` : ""} ${classes} `}
-        type={buttonType}
-        onClick={(event) => {
-          if (confirmText)
-            confirmation(event, confirmText);
-        }}
-        {...props}
-      >
-        <Icon icon={icon} type={iconType} classes={`${iconEnd ? `${square ? "" : "ps-2"} order-2` : "pe-2"}`} />
-        <span
-          className={visuallyHidden ? "visually-hidden" : null}>
-          {children}
-        </span>
-      </button>
-    );
-  };
+  return (
+    <button
+      className={createButtonClassName({classes, color, variant, size, square, rounded, fullwidth})}
+      type={buttonType}
+      onClick={(event) => {
+        if (confirmText)
+          confirmation(event, confirmText);
+      }}
+      {...props}
+    >
+      <Icon icon={icon} type={iconType} classes={`${iconEnd ? `${square ? "" : "ps-2"} order-2` : "pe-2"}`} />
+      <span
+        className={visuallyHidden ? "visually-hidden" : null}>
+        {children}
+      </span>
+    </button>
+  );
+};
 
 export default IconButton;
