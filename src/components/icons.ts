@@ -37,7 +37,8 @@ export enum Icons {
   COINS = "coins",
   HISTOGRAM = "chart-histogram",
   MESSAGE = "envelope",
-  MANAGEMENT = "computer"
+  MANAGEMENT = "computer",
+  ANGLE_SMALL_RIGHT = "angle-small-right"
 }
 
 const iconMapping = (name: string): string | undefined => {
