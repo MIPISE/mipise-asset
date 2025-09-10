@@ -21,7 +21,7 @@ h1,
 .page-header h1,
 #page-header h1,
 .h1 {
-  font-size: calc($h1-font-size * 0.85);
+  font-size: calc(#{$h1-font-size} * 0.85);
   color: $black;
 }
 

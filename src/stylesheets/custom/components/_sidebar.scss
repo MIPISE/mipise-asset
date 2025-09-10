@@ -250,7 +250,7 @@ header,
 #sidebarToggle {
   transition: left, right, 0.3s;
   position: fixed;
-  left: calc($sidebar-width);
+  left: calc(#{$sidebar-width});
   //top: 0.875rem;
   display: flex;
   align-items: center;
@@ -269,9 +269,9 @@ header,
 // Gestion de la marge des éléments sticky-top en cas de présence d'un master header
 .header-master+#wrapper #content-wrapper,
 .header-master#header-super-admin+#AppMenuSidebar+#wrapper #content-wrapper {
-  min-height: calc(100vh - $header-master-height);
+  min-height: calc(100vh - #{$header-master-height});
   top: $header-master-height;
-  height: calc(100vh - $header-master-height);
+  height: calc(100vh - #{$header-master-height});
 }
 
 .header-master+.sidebar-fixed#wrapper #sidebar-wrapper,
@@ -279,7 +279,7 @@ header,
 .header-master#header-super-admin+#AppMenuSidebar+.sidebar-fixed#wrapper #sidebar-wrapper,
 .header-master#header-super-admin+#AppMenuSidebar+.sidebar-fixed#wrapper #content-wrapper {
   top: $header-master-height;
-  height: calc(100vh - $header-master-height);
+  height: calc(100vh - #{$header-master-height});
 }
 
 .header-master+#wrapper header.sticky-top,
