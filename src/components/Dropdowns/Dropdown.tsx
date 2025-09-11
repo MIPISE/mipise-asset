@@ -16,29 +16,15 @@ export type DropdownProps = GlobalProps & {
   hover?: boolean
   toggleIcon?: boolean
   customMenu?: boolean
-  customToggleIcon?: Icons
-  customToggleIconClasses?: string
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
-  title,
-  children,
-  titleIcon,
-  inNav,
-  color = Color.LIGHT,
-  size = Size.MEDIUM,
-  square,
-  direction = Direction.END,
-  hover,
-  fullWidth = true,
-  toggleIcon = true,
-  customMenu,
-  customToggleIcon,
-  customToggleIconClasses,
-  classes = "",
-  ...props
-}) => {
-    const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${square ? " btn-square" : ""}${fullWidth ? " d-flex flex-start justify-content-between align-items-center" : ""} ${toggleIcon && !customToggleIcon ? " dropdown-toggle" : ""} dropdown-responsive`
+const Dropdown: React.FC<DropdownProps>
+  = ({ title, children, titleIcon,
+       inNav, color = Color.LIGHT,
+       size = Size.MEDIUM, square = false, direction = Direction.END,
+       hover, fullWidth = true, toggleIcon = true, customMenu, classes = "", ...props }) => {
+
+    const btnClasses = inNav ? "nav-link" : `btn btn-${color}${size ? ` btn-${size}` : ""}${square ? " btn-square" : ""}${fullWidth ? " d-flex flex-start justify-content-between align-items-center" : ""} ${toggleIcon ? " dropdown-toggle" : ""} dropdown-responsive`
     return (
       <div
         className={`drop${direction}${fullWidth ? ` d-grid` : ""}${hover ? " drophover" : ""} ${classes}`}>
@@ -50,7 +36,6 @@ const Dropdown: React.FC<DropdownProps> = ({
             <>
               <Icon icon={titleIcon}/>
               <span>{title}</span>
-              { customToggleIcon && <Icon icon={customToggleIcon} classes={customToggleIconClasses}/> }
             </> : title}
         </button>
         {customMenu
