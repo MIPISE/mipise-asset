@@ -39,7 +39,8 @@ export enum Icons {
   MESSAGE = "envelope",
   MANAGEMENT = "computer",
   ANGLE_SMALL_RIGHT = "angle-small-right",
-  ANGLE_SMALL_DOWN = "angle-small-down"
+  ANGLE_SMALL_DOWN = "angle-small-down",
+  TABLE_FILE = "file-chart-line"
 }
 
 const iconMapping = (name: string): string | undefined => {
