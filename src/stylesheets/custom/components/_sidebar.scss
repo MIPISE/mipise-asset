@@ -12,7 +12,7 @@ header,
   justify-content: space-between;
   align-items: center;
   z-index: 1040; // Ensures the header appears above other elements
-  position: fixed;
+  position: relative;
   top: 0; // Fixe la position en haut de la page
   background-color: $primary; // Ajoute un fond pour éviter que le contenu défile sous le header
   min-width: 100vw;
@@ -29,6 +29,7 @@ header,
     justify-content: space-between;
     flex-grow: 1;
     min-height: 100vh;
+    z-index: 2;
     // margin-left: -$sidebar-width;
   }
 
@@ -69,11 +70,11 @@ header,
 
     .sidebar-toggled & {
       #sidebar-wrapper {
-        transform: translateX(-$sidebar-width);
+        transform: translateX(-100%);
       }
 
       #content-wrapper {
-        margin-left: -$sidebar-width;
+        // margin-left: -$sidebar-width;
       }
 
       #content-wrapper:before {
@@ -86,16 +87,16 @@ header,
 // Sidebar Wrapper
 #sidebar-wrapper {
   background-color: $white;
-  width: $sidebar-width;
+  // width: $sidebar-width;
   border-right: $border-width solid $border-color;
-  flex-basis: $sidebar-width;
+  // flex-basis: $sidebar-width;
   flex-shrink: 0;
   transition: transform 0.15s ease-in-out;
-  z-index: 10;
+  z-index: 9999;
   overflow: visible;
   position: relative;
-  height: 100vh;
-  transform: translateX(-$sidebar-width);
+  // height: 100vh;
+  transform: translateX(-100%);
 }
 
 .sidebar {
@@ -103,6 +104,7 @@ header,
   flex-direction: column;
   height: 100%;
   flex-wrap: nowrap;
+  z-index: 9999;
 
   .navbar-nav hr {
     margin: map-get($spacers, 2) 0;
@@ -117,6 +119,7 @@ header,
         padding: 0.5rem map-get($spacers, 2);
         color: $body-color;
         font-weight: 500;
+        font-size: 12px;
 
         &[aria-expanded="true"] i.sidebar-collapse-arrow {
           transform: rotate(90deg);
@@ -186,6 +189,14 @@ header,
     }
   }
 
+  .ongoing {
+    font-size: 12px;
+  }
+
+  .dropdown-toggle {
+    font-size: 12px;
+  }
+
   // Sidebar Footer
   .sidebar-footer {
     //padding: 0.75rem;
@@ -215,33 +226,30 @@ header,
 }
 
 
-.sidebar-fixed{
-  main{
-    // background-color: #F9F9F9;
-  }
-}
-
-
 // Sidebar and content with fixed positions
 .sidebar-fixed#wrapper {
   #sidebar-wrapper {
     z-index: 10;
     overflow: visible;
-    position: fixed;
     top: 0;
-    height: 100vh;
-    width: $sidebar-width;
+    // width: $sidebar-width;
   }
 
   @media (min-width: 992px) {
     #content-wrapper {
-      padding-left: $sidebar-width;
+      // padding-left: $sidebar-width;
     }
   }
 
   @media (max-width: 991px) {
+    #sidebar-wrapper {
+      position: fixed;
+      height: 100vh;
+      top: 28px;
+    }
+
     #content-wrapper {
-      padding-left: -$sidebar-width;
+      // padding-left: -$sidebar-width;
     }
   }
 }
@@ -250,8 +258,9 @@ header,
 #sidebarToggle {
   transition: left, right, 0.3s;
   position: fixed;
-  left: calc(#{$sidebar-width});
-  //top: 0.875rem;
+  // left: calc(#{$sidebar-width});
+  right: -60px;
+  top: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,33 +275,16 @@ header,
   }
 }
 
-// Gestion de la marge des éléments sticky-top en cas de présence d'un master header
-.header-master+#wrapper #content-wrapper,
-.header-master#header-super-admin+#AppMenuSidebar+#wrapper #content-wrapper {
-  min-height: calc(100vh - #{$header-master-height});
-  top: $header-master-height;
-  height: calc(100vh - #{$header-master-height});
+.sidebar-toggled #sidebarToggle {
+  right: 0px;
+  top: 12px;
 }
 
-.header-master+.sidebar-fixed#wrapper #sidebar-wrapper,
-.header-master+.sidebar-fixed#wrapper #content-wrapper,
-.header-master#header-super-admin+#AppMenuSidebar+.sidebar-fixed#wrapper #sidebar-wrapper,
-.header-master#header-super-admin+#AppMenuSidebar+.sidebar-fixed#wrapper #content-wrapper {
-  top: $header-master-height;
-  height: calc(100vh - #{$header-master-height});
-}
-
-.header-master+#wrapper header.sticky-top,
-.header-master#header-super-admin+#AppMenuSidebar+#wrapper header.sticky-top {
-  top: $header-master-height;
-}
 
 #sidebar-user {
   overflow: visible;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  position: fixed;
-  height: 100%;
 
   .navbar-nav {
     .nav-item {
