@@ -1,6 +1,6 @@
 import React from "react";
 import { Icons } from "../icons";
-import {AbstractButtonProps, createButtonClassName} from "./AbstractButton";
+import { AbstractButtonProps, createButtonClassName } from "./AbstractButton";
 import Icon from "../Icon";
 import confirmation from "../handlers/confirmation";
 
@@ -31,8 +31,8 @@ const IconButton: React.FC<IconButtonProps> = ({
   ...props
 }) => {
   return (
-    <button
-      className={createButtonClassName({classes, color, variant, size, square, rounded, fullwidth})}
+    <a
+      className={createButtonClassName({ classes, color, variant, size, square, rounded, fullwidth })}
       type={buttonType}
       onClick={(event) => {
         if (confirmText)
@@ -42,10 +42,10 @@ const IconButton: React.FC<IconButtonProps> = ({
     >
       <Icon icon={icon} type={iconType} classes={`${iconEnd ? `${square ? "" : "ps-2"} order-2` : "pe-2"}`} />
       <span
-        className={visuallyHidden ? "visually-hidden" : null}>
+        className={visuallyHidden ? "visually-hidden" : 'small'}>
         {children}
       </span>
-    </button>
+    </a>
   );
 };
 

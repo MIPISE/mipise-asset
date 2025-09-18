@@ -56,23 +56,23 @@ const AbstractButton: React.FC<AbstractButtonProps> = ({
   children,
   ...props
 }) => {
-  const className = createButtonClassName({classes, color, variant, size, square, rounded, fullwidth});
+  const className = createButtonClassName({ classes, color, variant, size, square, rounded, fullwidth });
 
   return (
     <Fragment>
       {hyperlink
         ? <a className={className}
-            onClick={(event) => {
-              if (confirmText)
-                confirmation(event, confirmText);
-            }}
-            {...props}>{children}</a>
-        : <button className={className} type={type}
-            onClick={(event) => {
-              if (confirmText)
-                confirmation(event, confirmText);
-            }}
-            {...props}>{children}</button>}
+          onClick={(event) => {
+            if (confirmText)
+              confirmation(event, confirmText);
+          }}
+          {...props}>{children}</a>
+        : <a className={className} type={type}
+          onClick={(event) => {
+            if (confirmText)
+              confirmation(event, confirmText);
+          }}
+          {...props}>{children}</a>}
     </Fragment>
   );
 };
