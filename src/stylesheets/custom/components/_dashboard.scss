@@ -27,6 +27,14 @@
 
 }
 
+.recharts-pie *:focus {
+  outline: none;
+}
+
+.recharts-responsive-container *:focus {
+  outline: none;
+}
+
 #dropdown-chart {
   margin: -20px 0 0 0;
 }
