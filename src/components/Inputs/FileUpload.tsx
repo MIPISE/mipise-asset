@@ -1,12 +1,10 @@
 import React from "react";
-import { Color, GlobalProps } from "../types";
+import { Color } from "../types";
 import Card from "../Card";
-import DateInput from "./DateInput";
+import DateInput, {DateInputProps} from "./DateInput";
 
-export type FileUploadProps = GlobalProps & {
+export type FileUploadProps = Omit<DateInputProps, "noLabel"> & {
   background: Color
-  label?: string
-  hint?: string
   legend?: string
   dateAttribute?: string
   dateValue?: string
@@ -19,12 +17,12 @@ const FileUpload: React.FC<FileUploadProps>
         {legend && <legend className="form-label">{legend}</legend>}
         <Card background={background} >
           <div className="row row align-items-center g-2">
-            <div id="" className="col col-sm-12 col-md-4 flex-fill">
+            <div className="col col-sm-12 col-md-4 flex-fill">
               <span>{label}</span>
             </div>
-            <div id="" role="" className="col col-sm-12 col-md-auto d-md-flex align-items-center ms-md-auto gap-1">
+            <div className="col col-sm-12 col-md-auto d-md-flex align-items-center ms-md-auto gap-1">
               {dateAttribute &&
-                <DateInput attribute={dateAttribute} value={dateValue} />
+                <DateInput attribute={dateAttribute} noLabel={true} value={dateValue} />
               }
               {children}
             </div>
