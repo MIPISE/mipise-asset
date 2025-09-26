@@ -1,6 +1,6 @@
-import React, {ReactElement} from "react";
-import {Color, Size, Direction, GlobalProps} from "../types";
-import {Icons} from "../icons";
+import React, { ReactElement } from "react";
+import { Color, Size, Direction, GlobalProps } from "../types";
+import { Icons } from "../icons";
 import Icon from "../Icon";
 import DropdownMenu from "./DropdownMenu";
 
@@ -44,7 +44,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         aria-label="" value="">
         {titleIcon != null ?
           <>
-            <Icon icon={titleIcon}/>
+            <Icon icon={titleIcon} />
             <span>{title}</span>
           </> : title}
       </button>

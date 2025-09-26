@@ -1,5 +1,5 @@
 import React from "react";
-import {Color, GlobalProps, Size} from "../types";
+import { Color, GlobalProps, Size } from "../types";
 
 export type AbstractBadgeProps = GlobalProps & {
     color: Color,
@@ -11,7 +11,7 @@ export type AbstractBadgeProps = GlobalProps & {
 const AbstractBadge: React.FC<AbstractBadgeProps>
     = ({ color, size, variant, children, rounded, classes = "", ...props }) => {
         return (
-            <span className={`badge badge-${color}${size ? ` badge-${size}` : ""}${variant ? ` badge-${variant}` : ""}${rounded ? ` ${rounded}` : ""} ${classes}`} {...props}>
+            <span className={`badge badge-${color}${size ? ` badge-${size}` : ""}${variant ? ` badge-${variant}` : ""}${rounded ? ` badge-${rounded}` : ""} ${classes}`} {...props}>
                 {children}
             </span>
         );

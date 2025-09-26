@@ -14,6 +14,7 @@ export enum Color {
 }
 
 export enum Size {
+  EXTRASMALL = "xs",
   SMALL = "sm",
   MEDIUM = "md",
   LARGE = "lg",
