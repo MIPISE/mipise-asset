@@ -15,7 +15,6 @@ header,
   position: relative;
   top: 0; // Fixe la position en haut de la page
   background-color: $primary; // Ajoute un fond pour éviter que le contenu défile sous le header
-  min-width: 100vw;
 }
 
 #wrapper {
@@ -225,6 +224,12 @@ header,
   }
 }
 
+@media (min-width: 992px) {
+  .sidebar-fixed>.row {
+    width: 100%;
+  }
+}
+
 
 // Sidebar and content with fixed positions
 .sidebar-fixed#wrapper {
@@ -232,13 +237,6 @@ header,
     z-index: 10;
     overflow: visible;
     top: 0;
-    // width: $sidebar-width;
-  }
-
-  @media (min-width: 992px) {
-    #content-wrapper {
-      // padding-left: $sidebar-width;
-    }
   }
 
   @media (max-width: 991px) {

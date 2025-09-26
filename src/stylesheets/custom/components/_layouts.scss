@@ -178,3 +178,11 @@ footer {
   z-index: 9999;
   transition: bottom 0.8s ease-in-out;
 }
+
+
+@media (max-width: 768px) {
+  .sidebar-toggled #header-super-admin {
+    position: fixed;
+    min-height: 30px;
+  }
+}
