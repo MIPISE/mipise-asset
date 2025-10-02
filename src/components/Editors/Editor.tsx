@@ -1,4 +1,3 @@
-// src/components/CodeEditor.tsx
 import React from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { searchKeymap, highlightSelectionMatches } from "@codemirror/search";

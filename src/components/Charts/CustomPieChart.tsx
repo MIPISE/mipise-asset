@@ -4,7 +4,6 @@ import { GlobalProps } from "../types";
 import tinycolor from "tinycolor2";
 import { ActiveShape } from "recharts/types/util/types";
 import { PieSectorDataItem } from "recharts/types/polar/Pie";
-import { payloadSearcher } from "../../../node_modules/recharts/types/chart/SunburstChart";
 
 export const generateColors = (base: string, count: number): string[] => {
   const colors: string[] = [];
