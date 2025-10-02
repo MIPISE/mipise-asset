@@ -5,20 +5,24 @@ import DateInput, {DateInputProps} from "./DateInput";
 
 export type FileUploadProps = Omit<DateInputProps, "noLabel"> & {
   background: Color
-  legend?: string
   dateAttribute?: string
   dateValue?: string
+  image?: boolean
+  legend?: string
 }
 
 const FileUpload: React.FC<FileUploadProps>
-  = ({ background, label, dateAttribute, dateValue, hint, legend, children }) => {
+  = ({ background, label, attribute, dateAttribute, dateValue, hint, legend, image, children }) => {
     return (
       <>
         {legend && <legend className="form-label">{legend}</legend>}
         <Card background={background} >
           <div className="row row align-items-center g-2">
             <div className="col col-sm-12 col-md-4 flex-fill">
-              <span>{label}</span>
+              {image
+                ? <img src={label} width="15%" alt={attribute}/>
+                : <span>{label}</span>
+              }
             </div>
             <div className="col col-sm-12 col-md-auto d-md-flex align-items-center ms-md-auto gap-1">
               {dateAttribute &&
