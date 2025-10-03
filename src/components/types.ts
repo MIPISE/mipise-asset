@@ -11,6 +11,7 @@ export enum Color {
   PRIMARY_SUBTLE = "primary-subtle",
   PRIMARY_LINK = "primary-link",
   DARK_SUBTLE = "dark-subtle",
+  DARK = "dark",
 }
 
 export enum Size {
