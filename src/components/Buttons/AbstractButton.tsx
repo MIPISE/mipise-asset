@@ -13,7 +13,7 @@ type DesignAbstractButtonProps = GlobalProps & {
 
 export type AbstractButtonProps = DesignAbstractButtonProps & {
   hyperlink?: boolean
-  type?: "submit" | "reset" | "button"
+  type?: "submit" | "button"
   confirmText?: string
 }
 
@@ -57,16 +57,17 @@ const AbstractButton: React.FC<AbstractButtonProps> = ({
   ...props
 }) => {
   const className = createButtonClassName({ classes, color, variant, size, square, rounded, fullwidth });
+  const isButton = ["button", "submit"].includes(type);
 
   return (
     <Fragment>
-      {hyperlink
-        ? <a className={className}
+      {isButton
+        ? <button className={className}
           onClick={(event) => {
             if (confirmText)
               confirmation(event, confirmText);
           }}
-          {...props}>{children}</a>
+          {...props}>{children}</button>
         : <a className={className} type={type}
           onClick={(event) => {
             if (confirmText)
