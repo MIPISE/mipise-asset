@@ -1,7 +1,7 @@
 import React, {ReactNode} from "react";
 import { GlobalProps } from "../../types";
 import CustomRadioItem, {CustomRadioItemProps} from "./CustomRadioItem";
-import {formatName} from "../parseInputProps";
+import {formatId, formatName} from "../parseInputProps";
 
 export type CustomRadioProps = GlobalProps & {
   attribute: string
@@ -11,9 +11,9 @@ export type CustomRadioProps = GlobalProps & {
 }
 
 const CustomRadio: React.FC<CustomRadioProps>
-  = ({ attribute, items, legend, objectName, classes = "", ...props }) => {
+  = ({ attribute, items, legend, objectName, classes = "" }) => {
     return (
-      <div className={`form-group ${classes}`}>
+      <div className={`form-group ${formatId(objectName, attribute)} radio_buttons ${classes}`}>
         <legend
           className="form-label">
           {legend}
