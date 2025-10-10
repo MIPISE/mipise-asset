@@ -18,7 +18,7 @@ const AbstractInput: React.FC<AbstractInputProps> = ({
   useEffect(optionalManagement(inputRef, setIsRequired), []);
 
   return (
-    <div className={`form-group ${parseInputProps(props).id} ${props.classes || ""}`}>
+    <div className={`form-group ${parseInputProps(props).id} ${props.type} ${props.classes || ""}`}>
       <Label isRequired={isRequired} {...props}/>
       <InputItem required={isRequired} ref={inputRef} {...props}/>
       {hint && <small className="form-text text-muted">{hint}</small>}
