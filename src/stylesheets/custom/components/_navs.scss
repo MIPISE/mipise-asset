@@ -29,12 +29,8 @@
     max-height: 2.5rem;
   }
 
-  header .navbar-brand
-
-  /*.sidebar-header .navbar-brand */
-    {
-    width: $sidebar-width;
-    min-width: $sidebar-width;
+  header .navbar-brand {
+    width: 6rem;
   }
 
   #menu-user {
