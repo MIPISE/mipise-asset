@@ -38,7 +38,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   delete props.objectName
 
   return (
-    <div className={`form-group ${id} ${classes}`}>
+    <div className={`form-group text-area ${id} ${classes}`}>
       <Label isRequired={isRequired} {...props}/>
       <textarea
         id={id}

@@ -16,7 +16,7 @@ const CheckboxInput: React.FC<AbstractInputProps> = ({
   useEffect(optionalManagement(inputRef, setIsRequired), []);
 
   return (
-    <div className={`form-group ${props.classes}`}>
+    <div className={`form-group boolean ${props.classes}`}>
       <div className="form-check">
         <HiddenInput {...props} />
         <InputItem type="checkbox" ref={inputRef} inputHtmlProps={{classes: "form-check-input"}} defaultChecked={checked} {...props} />
