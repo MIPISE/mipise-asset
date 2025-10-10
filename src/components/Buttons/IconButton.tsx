@@ -24,7 +24,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   square,
   rounded,
   visuallyHidden,
-  fullwidth,
+  fullWidth,
   buttonType = "submit",
   confirmText,
   classes = "",
@@ -32,7 +32,7 @@ const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   return (
     <a
-      className={createButtonClassName({ classes, color, variant, size, square, rounded, fullwidth })}
+      className={createButtonClassName({ classes, color, variant, size, square, rounded, fullWidth })}
       type={buttonType}
       onClick={(event) => {
         if (confirmText)

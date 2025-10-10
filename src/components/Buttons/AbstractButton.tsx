@@ -7,7 +7,7 @@ type DesignAbstractButtonProps = GlobalProps & {
   size?: Size
   rounded?: string
   square?: boolean
-  fullwidth?: boolean
+  fullWidth?: boolean
   variant?: "link" | "subtle"
 }
 
@@ -36,7 +36,7 @@ export const createButtonClassName = (props: DesignAbstractButtonProps) => {
   if (props.rounded != undefined)
     className.push(`rounded-${props.rounded}`)
 
-  if (props.fullwidth)
+  if (props.fullWidth)
     className.push("w-100");
 
   return className.join(" ");
@@ -50,13 +50,13 @@ const AbstractButton: React.FC<AbstractButtonProps> = ({
   rounded,
   square,
   type,
-  fullwidth,
+  fullWidth,
   confirmText,
   classes = "",
   children,
   ...props
 }) => {
-  const className = createButtonClassName({ classes, color, variant, size, square, rounded, fullwidth });
+  const className = createButtonClassName({ classes, color, variant, size, square, rounded, fullWidth });
   const isButton = ["button", "submit"].includes(type);
 
   return (
