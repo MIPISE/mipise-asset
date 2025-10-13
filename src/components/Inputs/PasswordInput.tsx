@@ -24,7 +24,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   useEffect(optionalManagement(inputRef, setIsRequired), []);
 
   return (
-    <div className={`form-group ${parseInputProps(props).id} ${props.classes || ""}`}>
+    <div className={`form-group ${parseInputProps(props).id} password ${props.classes || ""}`}>
       <Label isRequired={isRequired} {...props}/>
       <div className="input-group">
         <InputItem type={showed ? "text" : "password"} ref={inputRef} {...props}/>
