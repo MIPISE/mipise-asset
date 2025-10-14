@@ -23,6 +23,14 @@
     span {
       font-size: 0.9em;
     }
+
+  }
+
+  @media only screen and (min-width: 992px) {
+    .headerContact {
+      margin-top: -80px;
+      width: auto !important;
+    }
   }
 
 }
@@ -252,7 +260,7 @@
   font-weight: 600
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 992px) {
   .benefits_tickets--left {
     border-right: 0;
     border-bottom: 2px dotted black;
@@ -265,5 +273,9 @@
 
   .benefits_link--code {
     margin: 4% 0
+  }
+
+  .benefits_head--ban {
+    width: 30%;
   }
 }
