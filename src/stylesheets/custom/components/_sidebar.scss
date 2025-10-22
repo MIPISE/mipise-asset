@@ -28,8 +28,6 @@ header,
     justify-content: space-between;
     flex-grow: 1;
     min-height: 100vh;
-    z-index: 2;
-    // margin-left: -$sidebar-width;
   }
 
   .sidebar-toggled & {
