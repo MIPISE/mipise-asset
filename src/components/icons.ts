@@ -41,7 +41,8 @@ export enum Icons {
   ANGLE_SMALL_RIGHT = "angle-small-right",
   ANGLE_SMALL_DOWN = "angle-small-down",
   TABLE_FILE = "file-chart-line",
-  PASSWORD_SMARTPHONE = "password-smartphone"
+  PASSWORD_SMARTPHONE = "password-smartphone",
+  PHONE = "phone-flip"
 }
 
 const iconMapping = (name: string): string | undefined => {
