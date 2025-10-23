@@ -1,7 +1,7 @@
 import React from "react";
 import {CellProps} from "../Table";
 
-const Head: React.FC<CellProps> = ({
+const Body: React.FC<CellProps> = ({
   action,
   children,
   classes = "",
@@ -15,4 +15,4 @@ const Head: React.FC<CellProps> = ({
   )
 }
 
-export default Head;
+export default Body;
