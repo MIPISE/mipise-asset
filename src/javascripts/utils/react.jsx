@@ -3,7 +3,7 @@ import React from "react";
 import {createRoot} from "react-dom/client";
 import {flushSync} from "react-dom";
 
-const voidElements = ["img", "hr", "input", "br"];
+const voidElements = ["area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
 
 /**
  * @param element Element
