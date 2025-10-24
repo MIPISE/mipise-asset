@@ -43,11 +43,8 @@ const renderElement = (element, index, pathKey) => {
                     if (propName !== "value")
                         prop = true;
 
-                if (!propName.startsWith("aria-") && !propName.includes("bs-")) {
-                    propName = propName.replace(/-(\w)/g, (str, p1) => {
-                        return p1.toUpperCase();
-                    });
-                }
+                if (!propName.startsWith("aria-") && !propName.includes("bs-"))
+                    propName = kebabToCamel(propName);
 
                 try {
                     props[propName] = JSON.parse(prop);
@@ -74,6 +71,15 @@ const renderElement = (element, index, pathKey) => {
                 props[attr.name] = prop;
             });
 
+            if (props.hasOwnProperty("style")) {
+                const resultStyle = {};
+                props["style"].split(";").forEach(s => {
+                    const [key, value] = s.split(":");
+                    resultStyle[kebabToCamel(key)] = value;
+                });
+                props["style"] = resultStyle;
+            }
+
             if (element.className)
                 props.className = element.className;
 
@@ -91,6 +97,12 @@ const renderElement = (element, index, pathKey) => {
     } catch (e) {
         console.error(`React Render Error : The component ${formatComponentForError(element)} encountered and error while rendering ` + e);
     }
+}
+
+const kebabToCamel = (value) => {
+    return value.replace(/-(\w)/g, (str, p1) => {
+        return p1.toUpperCase();
+    });
 }
 
 const formatComponentForError = (component) => {
