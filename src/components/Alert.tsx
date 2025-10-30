@@ -1,15 +1,16 @@
 import React from "react";
 import { Color, GlobalProps } from "./types";
-import { Icons } from "icons";
-import Icon from "icons";
+import { Icons } from "./icons";
+import Icon from "./Icon";
 
 export type AlertProps = GlobalProps & {
   color: Color;
   dismissible?: boolean;
   large?: boolean;
-  icon?: Icons;
+  icon?: Icons | string;
   iconType?: "rs" | "ss";
   iconClassName?: string;
+  iconWrapperClassName?: string;
 };
 
 const Alert: React.FC<AlertProps> = ({
@@ -19,7 +20,8 @@ const Alert: React.FC<AlertProps> = ({
   large = false,
   icon,
   iconType = "rs",
-  iconClassName = "me-3 d-flex align-items-center",
+  iconClassName = "col-1 display-6",
+  iconWrapperClassName,
   ...props
 }) => {
   let classes = `alert alert-${color} ${props.classes ?? ""}`;
@@ -30,9 +32,13 @@ const Alert: React.FC<AlertProps> = ({
     <div className={classes} role="alert">
       <div className={icon ? "d-flex align-items-center" : undefined}>
         {icon && (
-          <div className={iconClassName}>
-            <Icon icon={icon} type={iconType} classes="display-6" />
-          </div>
+          iconWrapperClassName ? (
+            <div className={iconWrapperClassName}>
+              <Icon icon={icon} type={iconType} classes={iconClassName} />
+            </div>
+          ) : (
+            <Icon icon={icon} type={iconType} classes={iconClassName} />
+          )
         )}
         <div>{children}</div>
       </div>
