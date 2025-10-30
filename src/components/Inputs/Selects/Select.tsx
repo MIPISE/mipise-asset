@@ -27,22 +27,24 @@ const Select: React.FC<SelectProps> = ({collection, required, includeBlank, ...p
 
   return (
     <div className={`form-group ${props.classes}`}>
-      <Label isRequired={isRequired} {...props}/>
-      <select
-        id={id}
-        name={name}
-        required={required}
-        className={`form-select ${attributeClass}`}
-        defaultValue={collection.find(c => c.selected)?.value || ""}
-        ref={selectRef}
-      >
-        {includeBlank &&
-          <option value="" disabled></option>
-        }
-        {collection.map((item: SelectOption, idx: number) => (
-          <SelectItem key={idx} {...item} />
-        ))}
-      </select>
+        {props.label !== false && (
+          <Label isRequired={isRequired} {...props} />
+        )}
+        <select
+          id={id}
+          name={name}
+          required={required}
+          className={`form-select ${attributeClass}`}
+          defaultValue={collection.find(c => c.selected)?.value || ""}
+          ref={selectRef}
+        >
+          {includeBlank &&
+            <option value="" disabled></option>
+          }
+          {collection.map((item: SelectOption, idx: number) => (
+            <SelectItem key={idx} {...item} />
+          ))}
+        </select>
     </div>
   );
 };
