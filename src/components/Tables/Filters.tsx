@@ -1,5 +1,5 @@
 import React from "react";
-import {Direction, GlobalProps, Size} from "../types";
+import { Direction, GlobalProps, Size } from "../types";
 import Dropdown from "../Dropdowns/Dropdown";
 
 type FiltersProps = GlobalProps & {
@@ -15,7 +15,7 @@ const Filters: React.FC<FiltersProps> = ({
   ...props
 }) => {
   return (
-    <Dropdown title={"Filtrer"} customMenu={true} size={Size.SMALL} fullWidth={false} direction={Direction.DOWN}>
+    <Dropdown title={"Filtrer"} customMenu={true} size={Size.SMALL} fullWidth={false} direction={Direction.DOWN} classes="ms-auto">
       <form className="dropdown-menu dropdown-menu-md max-vh-80 overflow-y-auto" aria-labelledby="filterMenu" role="combobox">
         <div className="dropdown-body p-3">
           {children}

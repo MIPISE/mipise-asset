@@ -1,7 +1,7 @@
 import React from "react";
 import { Color } from "../types";
-import Card from "../Card";
-import DateInput, {DateInputProps} from "./DateInput";
+import Card, { CardProps } from "../Card";
+import DateInput, { DateInputProps } from "./DateInput";
 
 export type FileUploadProps = Omit<DateInputProps, "noLabel"> & {
   background: Color
@@ -16,17 +16,17 @@ const FileUpload: React.FC<FileUploadProps>
     return (
       <>
         {legend && <legend className="form-label">{legend}</legend>}
-        <Card background={background} >
-          <div className="row row align-items-center g-2">
+        <Card background={background} classes={"border-0"}>
+          <div className="align-items-center">
             <div className="col col-sm-12 col-md-4 flex-fill">
               {image
-                ? <img src={label} width="15%" alt={attribute}/>
+                ? <img src={label} width="15%" alt={attribute} />
                 : <span>{label}</span>
               }
             </div>
             <div className="col col-sm-12 col-md-auto d-md-flex align-items-center ms-md-auto gap-1">
               {dateAttribute &&
-                <DateInput attribute={dateAttribute} noLabel={true} value={dateValue} />
+                <DateInput attribute={dateAttribute} noLabel={true} value={dateValue} classes={"align-items-strech"} />
               }
               {children}
             </div>

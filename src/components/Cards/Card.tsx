@@ -7,11 +7,12 @@ export type CardProps = GlobalProps & {
   background: Color
   header?: boolean
   footer?: boolean
+  borderless?: boolean
 }
 
 const Card: React.FC<CardProps>
-  = ({ background, children, title, header, footer, ...props }) => {
-    let classes = `card bg-${background} ${props.classes}`;
+  = ({ background, children, title, header, footer, borderless, ...props }) => {
+    let classes = `card bg-${background} ${borderless ? ` border-0` : ""} ${props.classes}`;
 
     return (
       <div className={classes}>

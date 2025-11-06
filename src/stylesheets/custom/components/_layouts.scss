@@ -186,3 +186,7 @@ footer {
     min-height: 30px;
   }
 }
+
+.sticky-footer {
+  z-index: 9 !important;
+}

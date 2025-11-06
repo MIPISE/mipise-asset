@@ -464,7 +464,7 @@ $body-secondary-color: rgba($body-color, .65) !default;
 // // Settings for the `<header>` element.
 
 $header-height: 4rem;
-$header-master-height: 40px;
+$header-master-height: 35px;
 //
 
 // // Links
@@ -710,7 +710,7 @@ $display-font-weight: $headings-font-weight !default;
 $lead-font-size: $font-size-base * 1.15 !default;
 // $lead-font-weight:            300 !default;
 //
-$small-font-size:             .875em !default;
+$small-font-size: .875em !default;
 //
 // $sub-sup-font-size:           .75em !default;
 //
@@ -1201,7 +1201,7 @@ $form-check-min-height: 1.25em !default;
 // // scss-docs-start nav-variables
 // $nav-link-padding-y:                .5rem !default;
 // $nav-link-padding-x:                1rem !default;
-$nav-link-font-size:                $small-font-size !default;
+$nav-link-font-size: $small-font-size !default;
 $nav-link-font-weight: 500 !default;
 $nav-link-color: $body-secondary-color !default;
 $nav-link-hover-color: $body-color !default;
@@ -1300,7 +1300,7 @@ $dropdown-min-width: 10rem !default;
 // $dropdown-padding-x:                0 !default;
 $dropdown-padding-y: .5rem !default;
 // $dropdown-spacer:                   .125rem !default;
-$dropdown-font-size:                $small-font-size !default;
+$dropdown-font-size: $small-font-size !default;
 // $dropdown-color:                    var(--#{$prefix}body-color) !default;
 // $dropdown-bg:                       var(--#{$prefix}body-bg) !default;
 $dropdown-border-color: $border-color !default;

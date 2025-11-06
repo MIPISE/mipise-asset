@@ -10,6 +10,47 @@
   background-color: $white;
 }
 
+.header-master {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1040;
+  position: relative;
+  background-color: #034ea2;
+
+  &_platform_btn {
+    background-color: #034ea2;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  &_platform_btn:hover {
+    background-color: #2360a4;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  &_admin_btn {
+    background-color: #fff;
+    color: #034ea2;
+    border-color: #fff;
+  }
+
+  &_admin_btn:hover {
+    background-color: #ffffffe3;
+    color: #034ea2;
+    border-color: #fff;
+  }
+
+  &_disconnect_btn {
+    color: white;
+  }
+
+  &_disconnect_btn:hover {
+    color: #ffffffe3;
+  }
+}
+
 #sidebar-user .navbar-brand .logo,
 #sidebar-manager .navbar-brand .logo,
 #sidebar-mps .navbar-brand .logo {
@@ -54,7 +95,9 @@
   #header-workflow #user-space span,
   #header-user #support span,
   #header-user #user-space span,
-  .header #user-space span {
+  .header #user-space span,
+  #mipise-header-super-admin .header-master_platform_btn span,
+  #mipise-header-super-admin .header-master_admin_btn span {
     display: none;
   }
 
