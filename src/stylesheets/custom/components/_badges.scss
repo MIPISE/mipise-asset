@@ -1,16 +1,15 @@
 // Base Badge styles
 .badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    vertical-align: middle;
-    line-height: .8rem;
-    white-space: normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  line-height: .8rem;
 
-    &.badge-bordered {
-        border: solid 1px $white;
-    }
+  &.badge-bordered {
+    border: solid 1px $white;
+  }
 }
 
 // Color Variations
@@ -32,7 +31,7 @@
 
 }
 
-.badge-white{
+.badge-white {
   background-color: $white;
   color: $primary;
 }
@@ -58,60 +57,61 @@
 
 // Form variations
 .badge-square {
-    border-radius: $border-radius; // Forme carrée
+  border-radius: $border-radius; // Forme carrée
 }
 
 .badge-circle {
-    border-radius: 50%; // Forme circulaire
+  border-radius: 50%; // Forme circulaire
 }
 
 ////// Size variations
 
-.badge-square, .badge-circle {
+.badge-square,
+.badge-circle {
   width: 1.25rem;
   min-width: 1.25rem;
   height: 1.25rem;
 
 
   &.badge-sm {
-      width: 1rem;
-      min-width: 1rem;
-      height: 1rem;
-      font-size: $font-size-base * 0.65;
+    width: 1rem;
+    min-width: 1rem;
+    height: 1rem;
+    font-size: $font-size-base * 0.65;
   }
 
   &.badge-lg {
-      width: 3rem;
-      min-width: 3rem;
-      height: 3rem;
-      font-size: $font-size-base * 1.25;
+    width: 3rem;
+    min-width: 3rem;
+    height: 3rem;
+    font-size: $font-size-base * 1.25;
   }
 
   &.badge-xl {
-      width: 4rem;
-      min-width: 4rem;
-      height: 4rem;
-      font-size: $font-size-base * 1.5;
+    width: 4rem;
+    min-width: 4rem;
+    height: 4rem;
+    font-size: $font-size-base * 1.5;
   }
 }
 
 // Badge dot (pour les petites pastilles)
 .badge-dot {
-    display: inline-flex;
-    align-items: center;
-    padding: 0;
-    background: transparent;
-    color: $body-color;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  color: $body-color;
 
-    i {
-        width: .375rem;
-        height: .375rem;
-        border-radius: 50%;
-        margin-right: .35rem;
-    }
+  i {
+    width: .375rem;
+    height: .375rem;
+    border-radius: 50%;
+    margin-right: .35rem;
+  }
 
-    &.badge-lg i {
-        width: .625rem;
-        height: .625rem;
-    }
+  &.badge-lg i {
+    width: .625rem;
+    height: .625rem;
+  }
 }

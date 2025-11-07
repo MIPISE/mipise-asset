@@ -9,6 +9,7 @@ type DesignAbstractButtonProps = GlobalProps & {
   square?: boolean
   fullWidth?: boolean
   variant?: "link" | "subtle"
+  title?: string
 }
 
 export type AbstractButtonProps = DesignAbstractButtonProps & {
@@ -52,6 +53,7 @@ const AbstractButton: React.FC<AbstractButtonProps> = ({
   confirmText,
   classes = "",
   children,
+  title,
   ...props
 }) => {
   const className = createButtonClassName({ classes, color, variant, size, square, rounded, fullWidth });
@@ -60,13 +62,13 @@ const AbstractButton: React.FC<AbstractButtonProps> = ({
   return (
     <>
       {isButton
-        ? <button className={className} type={type}
+        ? <button className={className} type={type} title={title}
           onClick={(event) => {
             if (confirmText)
               confirmation(event, confirmText);
           }}
           {...props}>{children}</button>
-        : <a className={className} type={type}
+        : <a className={className} type={type} title={title}
           onClick={(event) => {
             if (confirmText)
               confirmation(event, confirmText);

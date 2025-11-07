@@ -6,19 +6,8 @@ header,
   // min-height: $header-height;
 }
 
-.header-master {
-  min-height: $header-master-height;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1040; // Ensures the header appears above other elements
-  position: relative;
-  top: 0; // Fixe la position en haut de la page
-  background-color: $primary; // Ajoute un fond pour éviter que le contenu défile sous le header
-}
 
 #wrapper {
-  //display: flex;
   position: relative;
 
   #content-wrapper {
@@ -116,7 +105,6 @@ header,
         padding: 0.5rem map-get($spacers, 2);
         color: $body-color;
         font-weight: 500;
-        font-size: 12px;
 
         &[aria-expanded="true"] i.sidebar-collapse-arrow {
           transform: rotate(90deg);

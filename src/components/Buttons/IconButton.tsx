@@ -11,7 +11,9 @@ export type IconButtonProps = AbstractButtonProps & {
   iconType?: "rs" | "ss"
   visuallyHidden?: boolean
   confirmText?: string
+  title?: string
 }
+
 
 const IconButton: React.FC<IconButtonProps> = ({
   color,
@@ -19,6 +21,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   variant,
   children,
   icon,
+  title,
   iconType = "rs",
   iconEnd,
   square,
@@ -34,6 +37,7 @@ const IconButton: React.FC<IconButtonProps> = ({
     <a
       className={createButtonClassName({ classes, color, variant, size, square, rounded, fullWidth })}
       type={buttonType}
+      title={title}
       onClick={(event) => {
         if (confirmText)
           confirmation(event, confirmText);

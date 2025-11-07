@@ -22,6 +22,7 @@ export enum Icons {
   DUPLICATE = "duplicate",
   CIRCLE_STAR = "circle-star",
   SETTINGS = "workflow-setting-alt",
+  ADMIN = "admin-alt",
   SHOW_PASSWORD = "eye",
   HIDE_PASSWORD = "crossed-eye",
   COPY = "copy",
