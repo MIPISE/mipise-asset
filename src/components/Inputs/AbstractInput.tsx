@@ -5,7 +5,7 @@ import Label, {LabelProps} from "./Label";
 import parseInputProps from "./parseInputProps";
 
 export type AbstractInputProps = Omit<LabelProps, "isRequired"> & InputItemProps & {
- hint?: string
+  hint?: string
 }
 
 const AbstractInput: React.FC<AbstractInputProps> = ({
@@ -17,10 +17,17 @@ const AbstractInput: React.FC<AbstractInputProps> = ({
   const [isRequired, setIsRequired] = useState(required || false);
   useEffect(optionalManagement(inputRef, setIsRequired), []);
 
+  const { id } = parseInputProps(props);
+
+  const hasLabel =
+    typeof props.label === "string" && props.label.trim() !== "";
+
   return (
-    <div className={`form-group ${parseInputProps(props).id} ${props.type} ${props.classes || ""}`}>
-      <Label isRequired={isRequired} {...props}/>
-      <InputItem required={isRequired} ref={inputRef} {...props}/>
+    <div className={`form-group ${id} ${props.type} ${props.classes || ""}`}>
+      {hasLabel && (
+        <Label isRequired={isRequired} {...props} />
+      )}
+      <InputItem required={isRequired} ref={inputRef} {...props} />
       {hint && <small className="form-text text-muted">{hint}</small>}
     </div>
   );
