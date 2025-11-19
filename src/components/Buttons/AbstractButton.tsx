@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Color, GlobalProps, Size } from "../types";
 import confirmation from "../handlers/confirmation";
 
@@ -15,6 +15,8 @@ type DesignAbstractButtonProps = GlobalProps & {
 export type AbstractButtonProps = DesignAbstractButtonProps & {
   type?: "submit" | "button"
   confirmText?: string
+  href?: string
+  link?: string
 }
 
 export const createButtonClassName = (props: DesignAbstractButtonProps) => {
@@ -54,26 +56,36 @@ const AbstractButton: React.FC<AbstractButtonProps> = ({
   classes = "",
   children,
   title,
+  href,
+  link,
   ...props
 }) => {
   const className = createButtonClassName({ classes, color, variant, size, square, rounded, fullWidth });
   const isButton = ["button", "submit"].includes(type);
+  const resolvedHref = href || link;
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    if (confirmText)
+      confirmation(event, confirmText);
+  };
 
   return (
     <>
       {isButton
-        ? <button className={className} type={type} title={title}
-          onClick={(event) => {
-            if (confirmText)
-              confirmation(event, confirmText);
-          }}
-          {...props}>{children}</button>
-        : <a className={className} type={type} title={title}
-          onClick={(event) => {
-            if (confirmText)
-              confirmation(event, confirmText);
-          }}
-          {...props}>{children}</a>}
+        ? <button
+            className={className}
+            type={type}
+            title={title}
+            onClick={handleClick}
+            {...props}
+          >{children}</button>
+        : <a
+            className={className}
+            href={resolvedHref}
+            title={title}
+            onClick={handleClick}
+            {...props}
+          >{children}</a>}
     </>
   );
 };
