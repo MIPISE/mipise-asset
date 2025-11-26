@@ -16,7 +16,7 @@ export type SelectProps = AbstractInputProps & {
   includeBlank?: boolean
 };
 
-const Select: React.FC<SelectProps> = ({collection, required, includeBlank, ...props}) => {
+const Select: React.FC<SelectProps> = ({collection, required, includeBlank, label, ...props}) => {
   const selectRef = useRef(null);
   const [isRequired, setIsRequired] = useState(required || false);
 
@@ -24,11 +24,13 @@ const Select: React.FC<SelectProps> = ({collection, required, includeBlank, ...p
 
   const attributeClass = `select--${props.attribute.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
   useEffect(optionalManagement(selectRef, setIsRequired), []);
+  const safeLabel = (label === "false" || label === false) ? "" : label;
 
   return (
     <div className={`form-group ${props.classes}`}>
-      {props.label && props.label !== false && (
-        <Label isRequired={isRequired} {...props} />
+      {}
+      {safeLabel && (
+        <Label isRequired={isRequired} label={safeLabel} {...props} />
       )}
       <select
         id={id}
