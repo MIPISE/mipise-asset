@@ -13,9 +13,24 @@ const Pane: React.FC<Pane> = ({
   classes = ""
 }) => {
   return (
-    <div className={`tab-pane fade${active ? " show active" : ""} ${classes}`} id={`${id}-pane`} role={"tabpanel"} aria-labelledby={id} tabIndex={0}>
-      {children}
-    </div>
+    <>
+      <style>
+        {`
+          .mr-tab-pane { display: none !important; }
+          .mr-tab-pane.active { display: block !important; }
+        `}
+      </style>
+
+      <div 
+        className={`tab-pane mr-tab-pane ${active ? "active" : ""} ${classes}`} 
+        id={`${id}-pane`} 
+        role={"tabpanel"} 
+        aria-labelledby={id} 
+        tabIndex={0}
+      >
+        {children}
+      </div>
+    </>
   )
 }
 

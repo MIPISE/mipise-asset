@@ -15,15 +15,35 @@ const Item: React.FC<ItemProps> = ({
   href,
   classes = ""
 }) => {
-  const className = `nav-link ${active ? "active" : null}`;
+  const activeClass = active ? "active" : "";
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (!href) {
+      if (typeof window !== 'undefined' && (window as any).bootstrap) {
+        const triggerEl = e.currentTarget;
+        const tab = new (window as any).bootstrap.Tab(triggerEl);
+        tab.show();
+      }
+    }
+  }
+
   return (
-    <li className={`nav-item ${classes}`} id={`${id}`}>
+    <li className={`nav-item ${classes}`} id={`li-${id}`} role="presentation">
       {href
-        ? <a className={className} href={href}>
+        ? <a className={`nav-link ${activeClass}`} href={href}>
             {label}
           </a>
-        : <button aria-controls={`${id}-pane`} aria-selected={active}
-                  className={className} data-bs-toggle="tab" data-bs-target={`#${id}-pane`} role="tab" id={id}>
+        : <button
+            id={id}
+            className={`nav-link ${activeClass}`} 
+            data-bs-toggle="tab" 
+            data-bs-target={`#${id}-pane`} 
+            type="button" 
+            role="tab"
+            aria-controls={`${id}-pane`} 
+            aria-selected={active}
+            onClick={handleClick}
+          >
             {label}
           </button>
       }
