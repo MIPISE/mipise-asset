@@ -28,7 +28,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   rounded,
   visuallyHidden,
   fullWidth,
-  buttonType = "submit",
+  buttonType,
   confirmText,
   classes = "",
   ...props
