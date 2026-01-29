@@ -1,23 +1,66 @@
-import React, {ReactElement, useEffect, useRef, useState} from "react";
-import {GlobalProps} from "../../types";
-import optionalManagement from "../optionalManagement";
-import OptionalText from "../OptionalText";
+import React, { ReactElement } from "react";
+import { GlobalProps } from "../../types";
 
 export type ItemRadioProps = GlobalProps & {
-  data: ReactElement[] | string
-  required?: boolean
-}
+  data?: ReactElement[] | string | ReactElement;
+  label?: string | ReactElement;
+  value?: string | number;
+  name?: string;
+  id?: string;
+  checked?: boolean;
+  defaultChecked?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  // 👇 AJOUTS OBLIGATOIRES POUR TYPESCRIPT
+  objectName?: string;
+  attribute?: string;
+};
 
-const ItemRadio: React.FC<ItemRadioProps>
-  = ({ data, required, ...props }) => {
-    return (
-      <div className={`form-check ${props.classes}`}>
-        <input className="form-check-input" type="radio" name="" id=""/>
-        <label className="form-check-label" htmlFor="">
-          {data}
-        </label>
-      </div>
-    );
-  };
+const ItemRadio: React.FC<ItemRadioProps> = ({
+  data,
+  label,
+  value,
+  name,
+  id,
+  required,
+  checked,
+  defaultChecked,
+  disabled,
+  objectName, // On le récupère pour éviter qu'il pollue ...props
+  attribute, // On le récupère pour éviter qu'il pollue ...props
+  // @ts-ignore
+  classes,
+  // @ts-ignore
+  className,
+  ...props
+}) => {
+  const content = label || data;
+
+  const generatedId =
+    id ||
+    (name && value
+      ? `${name}_${value}`.replace(/[^a-zA-Z0-9-_]/g, "_")
+      : undefined);
+
+  return (
+    <div className={`form-check ${classes || ""}`}>
+      <input
+        className="form-check-input"
+        type="radio"
+        name={name}
+        id={generatedId}
+        value={value}
+        required={required}
+        checked={checked}
+        defaultChecked={defaultChecked}
+        disabled={disabled}
+        {...props}
+      />
+      <label className="form-check-label" htmlFor={generatedId}>
+        {content}
+      </label>
+    </div>
+  );
+};
 
 export default ItemRadio;
