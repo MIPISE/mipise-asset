@@ -80,7 +80,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
   };
 
   const currentLabel = isRemoved
-    ? "Charger un fichier"
+    ? "Aucun fichier chargé"
     : fileName || initialLabel;
   const showImage =
     image &&
