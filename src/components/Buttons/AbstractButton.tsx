@@ -73,19 +73,19 @@ const AbstractButton: React.FC<AbstractButtonProps> = ({
     <>
       {isButton
         ? <button
-            className={className}
-            type={type}
-            title={title}
-            onClick={handleClick}
-            {...props}
-          >{children}</button>
+          className={className}
+          type={type}
+          title={title}
+          onClick={handleClick}
+          {...props}
+        >{children}</button>
         : <a
-            className={className}
-            href={resolvedHref}
-            title={title}
-            onClick={handleClick}
-            {...props}
-          >{children}</a>}
+          className={className}
+          href={resolvedHref}
+          title={title}
+          onClick={handleClick}
+          {...props}
+        >{children}</a>}
     </>
   );
 };
