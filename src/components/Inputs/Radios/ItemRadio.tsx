@@ -11,7 +11,6 @@ export type ItemRadioProps = GlobalProps & {
   defaultChecked?: boolean;
   required?: boolean;
   disabled?: boolean;
-  // 👇 AJOUTS OBLIGATOIRES POUR TYPESCRIPT
   objectName?: string;
   attribute?: string;
 };
@@ -26,11 +25,9 @@ const ItemRadio: React.FC<ItemRadioProps> = ({
   checked,
   defaultChecked,
   disabled,
-  objectName, // On le récupère pour éviter qu'il pollue ...props
-  attribute, // On le récupère pour éviter qu'il pollue ...props
-  // @ts-ignore
+  objectName,
+  attribute,
   classes,
-  // @ts-ignore
   className,
   ...props
 }) => {
