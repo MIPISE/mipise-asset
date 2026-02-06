@@ -69,7 +69,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
           </div>
         </div>
       </Card>
-      {hint && <span className="form-text text-muted">{hint}</span>}
+      {hint && <small className="form-text text-muted">{hint}</small>}
     </>
   );
 };

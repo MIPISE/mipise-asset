@@ -8,7 +8,6 @@ export type CustomRadioProps = GlobalProps & {
   items: CustomRadioItemProps[];
   legend: ReactNode;
   objectName: string;
-  hint?: string;
   disabled?: boolean;
 };
 
@@ -17,7 +16,6 @@ const CustomRadio: React.FC<CustomRadioProps> = ({
   items,
   legend,
   objectName,
-  hint,
   classes = "",
   disabled = false,
 }) => {
@@ -45,9 +43,6 @@ const CustomRadio: React.FC<CustomRadioProps> = ({
           />
         );
       })}
-      <div className="mt-2">
-        <small className="form-text text-muted">{hint}</small>
-      </div>
     </div>
   );
 };
