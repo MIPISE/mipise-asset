@@ -24,3 +24,4 @@ const IconBadge: React.FC<IconBadgeProps>
     };
 
 export default IconBadge;
+
