@@ -14,7 +14,7 @@ const ClipboardBadge: React.FC<ClipboardBadgeProps> = ({
   variant,
   children,
   rounded,
-  sizeClipboard = Size.EXTRASMALL,
+  sizeClipboard,
   colorClipboard,
   valueToCopy, // On récupère la prop
   classes = "",
@@ -32,7 +32,7 @@ const ClipboardBadge: React.FC<ClipboardBadgeProps> = ({
     try {
       await navigator.clipboard.writeText(textToCopy);
       setIsCopied(true);
-      
+
       // Remet l'icône normale après 2 secondes
       setTimeout(() => setIsCopied(false), 2000);
     } catch (err) {
@@ -50,7 +50,7 @@ const ClipboardBadge: React.FC<ClipboardBadgeProps> = ({
       </span>
       <button
         type="button"
-        className={`copyButton btn btn-${colorClipboard || "link"} btn-${sizeClipboard} btn-square p-0 border-0`}
+        className={`copyButton btn btn-${colorClipboard || "link"} btn-${sizeClipboard} p-0 border-0`}
         onClick={handleCopy}
         title="Copier"
         style={{ lineHeight: 1, verticalAlign: 'middle', opacity: 0.7 }}
