@@ -1,0 +1,14 @@
+label {
+    abbr[title] {
+        display: none;
+    }
+}
+
+.optional-text {
+    font-size: $font-size-sm;
+    color: $gray-500;
+}
+
+.bg-primary-subtle hr {
+    border-color: $border-color;
+}

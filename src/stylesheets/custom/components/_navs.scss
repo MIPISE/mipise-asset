@@ -1,0 +1,171 @@
+//
+// // Main Menu
+//
+
+.header {
+  border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+}
+
+.navbar {
+  background-color: $white;
+}
+
+.header-master {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1040;
+  position: relative;
+  background-color: #034ea2;
+
+  &_platform_btn {
+    background-color: #034ea2;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  &_platform_btn:hover {
+    background-color: #2360a4;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  &_admin_btn {
+    background-color: #fff;
+    color: #034ea2;
+    border-color: #fff;
+  }
+
+  &_admin_btn:hover {
+    background-color: #ffffffe3;
+    color: #034ea2;
+    border-color: #fff;
+  }
+
+  &_disconnect_btn {
+    color: white;
+  }
+
+  &_disconnect_btn:hover {
+    color: #ffffffe3;
+  }
+}
+
+#sidebar-user .navbar-brand .logo,
+#sidebar-manager .navbar-brand .logo,
+#sidebar-mps .navbar-brand .logo {
+  height: 25px;
+  max-width: 8rem;
+}
+
+@media (min-width: 992px) {
+
+  header .navbar,
+  .sidebar-header .navbar {
+    height: 60px;
+  }
+
+  .navbar-brand .logo {
+    max-width: 5rem;
+    max-height: 2.5rem;
+  }
+
+  header .navbar-brand {
+    width: 6rem;
+  }
+
+  #menu-user {
+    order: 2;
+  }
+
+  #toggler,
+  #signup i {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-brand .logo {
+    max-width: 5rem;
+    max-height: 2.5rem;
+  }
+
+  #signup span,
+  #header-workflow #support span,
+  #header-workflow #user-space span,
+  #header-user #support span,
+  #header-user #user-space span,
+  .header #user-space span,
+  #mipise-header-super-admin .header-master_platform_btn span,
+  #mipise-header-super-admin .header-master_admin_btn span {
+    display: none;
+  }
+
+  #signup.btn,
+  #header-workflow #support.btn,
+  #header-workflow #user-space.btn,
+  .header #user-space.btn {
+    width: 2.0625rem;
+    height: 2.0625rem;
+  }
+}
+
+// Dropdowns dans le header horizontal
+
+// #navbar .navbar-nav .dropdown {
+//   position: relative; /* Permet aux sous-menus de s'afficher correctement */
+// }
+//
+// #navbar .navbar-nav .dropdown-menu {
+//   position: absolute; /* Détache le sous-menu du flux normal */
+//   top: 100%; /* Aligne le sous-menu en dessous du lien parent */
+//   left: 0;
+//   z-index: 1050; /* Assure que le sous-menu reste au-dessus */
+// }
+
+
+// .scrollable-navbar {
+//   display: flex;
+//   overflow-x: auto;
+//   position: relative; /* Nécessaire pour positionner les dropdowns */
+// }
+//
+// .scrollable-navbar .dropdown-menu {
+//   position: fixed; /* Affiche le dropdown en dehors des limites du conteneur scrollable */
+//   z-index: 1050; /* Priorité sur les autres éléments */
+//   display: none; /* Caché par défaut */
+//   top: 0; /* Position initiale, sera ajustée par JavaScript */
+//   left: 0;
+// }
+//
+// .dropdown.show .dropdown-menu {
+//   display: block; /* Affiche le menu quand le dropdown est ouvert */
+// }
+
+
+//
+// // Inner nav
+//
+
+.nav.nav-underline {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.nav.nav-underline .nav-item {
+  width: auto;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
+
+.nav-underline .nav-link.active,
+.nav-underline .show>.nav-link {
+  font-weight: $nav-link-font-weight;
+  //  color: $body-color;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  background-color: var(--bs-body-bg);
+}
