@@ -28,7 +28,6 @@ const ItemRadio: React.FC<ItemRadioProps> = ({
   objectName,
   attribute,
   classes,
-  className,
   ...props
 }) => {
   const content = label || data;
