@@ -8,7 +8,6 @@ export type CustomRadioProps = GlobalProps & {
   items: CustomRadioItemProps[];
   legend: ReactNode;
   objectName: string;
-  hint?: string;
   disabled?: boolean;
 };
 
@@ -17,10 +16,14 @@ const CustomRadio: React.FC<CustomRadioProps> = ({
   items,
   legend,
   objectName,
-  hint,
   classes = "",
   disabled = false,
 }) => {
+  const inputName = formatName(objectName, attribute);
+
+  // Find selected item (important for fallback submission)
+  const selectedItem = items.find((i) => i.selected);
+
   return (
     <div
       className={`form-group ${formatId(objectName, attribute)} radio_buttons ${classes}`}
@@ -29,25 +32,29 @@ const CustomRadio: React.FC<CustomRadioProps> = ({
         {legend}
       </legend>
 
-      <input
-        type="hidden"
-        name={formatName(objectName, attribute)}
-        autoComplete="off"
-      />
-      {items.map((i, index) => {
-        return (
-          <CustomRadioItem
-            key={index}
-            attribute={attribute}
-            objectName={objectName}
-            disabled={disabled}
-            {...i}
-          />
-        );
-      })}
-      <div className="mt-2">
-        <small className="form-text text-muted">{hint}</small>
-      </div>
+      {disabled ? (
+        <input
+          type="hidden"
+          name={inputName}
+          value={selectedItem?.value ?? ""}
+        />
+      ) : (
+        <input
+          type="hidden"
+          name={inputName}
+          autoComplete="off"
+        />
+      )}
+
+      {items.map((i, index) => (
+        <CustomRadioItem
+          key={index}
+          attribute={attribute}
+          objectName={objectName}
+          disabled={disabled}
+          {...i}
+        />
+      ))}
     </div>
   );
 };

@@ -5,252 +5,252 @@
 
 .box_project {
 
-    &_categorie {
-        background-color: #1B4A6A;
+  &_categorie {
+    background-color: #1B4A6A;
+  }
+
+  &_content {
+
+    span,
+    p {
+      color: #1B4A6A;
     }
 
-    &_content {
-
-        span,
-        p {
-            color: #1B4A6A;
-        }
-
-        h3 {
-            color: #0095FB;
-        }
-
+    h3 {
+      color: #0095FB;
     }
 
-    &_stats {
-        span {
-            border: 1px solid #1B4A6A;
-            color: #1B4A6A;
-        }
-    }
+  }
 
-    &_button {
-        background-color: #0095FB;
+  &_stats {
+    span {
+      border: 1px solid #1B4A6A;
+      color: #1B4A6A;
     }
+  }
+
+  &_button {
+    background-color: #0095FB;
+  }
 }
 
 .box_project_1 {
 
-    &_categorie {
-        color: #fb8a00;
+  &_categorie {
+    color: #fb8a00;
+  }
+
+  &_content {
+
+    span,
+    p {
+      color: #1B4A6A;
     }
 
-    &_content {
-
-        span,
-        p {
-            color: #1B4A6A;
-        }
-
-        h3 {
-            color: #fb8a00;
-        }
-
+    h3 {
+      color: #fb8a00;
     }
 
-    &_stats_up {
+  }
 
-        &_status,
-        &_percent {
-            color: #1b4a6a41;
-        }
+  &_stats_up {
+
+    &_status,
+    &_percent {
+      color: #1b4a6a41;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #1b4a6a47;
     }
 
-    &_stats_progress {
-        .progress {
-            background-color: #1b4a6a47;
-        }
-
-        .progress-bar {
-            background-color: #fb8a00;
-        }
+    .progress-bar {
+      background-color: #fb8a00;
     }
+  }
 
-    &_stats_down {
-        &_amount {
-            color: #fb8a00;
-        }
+  &_stats_down {
+    &_amount {
+      color: #fb8a00;
     }
+  }
 }
 
 .box_project_2 {
 
-    &_categorie {
-        color: #0095FB;
-        margin: 0 0 50px 0;
+  &_categorie {
+    color: #0095FB;
+    margin: 0 0 50px 0;
+  }
+
+  &_content {
+    margin: -50px 0 0 0;
+
+    span,
+    p {
+      color: #1B4A6A;
     }
 
-    &_content {
-        margin: -50px 0 0 0;
-
-        span,
-        p {
-            color: #1B4A6A;
-        }
-
-        h3 {
-            color: #0095FB;
-        }
-
+    h3 {
+      color: #0095FB;
     }
 
-    &_stats {
-        background-color: #1b4a6a13;
+  }
 
-        &_title {
-            color: #1b4a6a;
-        }
+  &_stats {
+    background-color: #1b4a6a13;
 
-        &_numb {
-            color: #0095FB;
-        }
+    &_title {
+      color: #1b4a6a;
     }
+
+    &_numb {
+      color: #0095FB;
+    }
+  }
 
 }
 
 .box_project_3 {
 
-    background-color: #002C72;
+  background-color: #002C72;
 
-    &_categorie {
-        color: #FF783F;
-        margin: 0 0 50px 0;
-        border: 1px solid #FF783F;
+  &_categorie {
+    color: #FF783F;
+    margin: 0 0 50px 0;
+    border: 1px solid #FF783F;
+  }
+
+  &_stats {
+
+    &_time,
+    &_percent {
+      font-size: 3rem;
+      margin-bottom: -10px;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #ffffff20;
     }
 
-    &_stats {
-
-        &_time,
-        &_percent {
-            font-size: 3rem;
-            margin-bottom: -10px;
-        }
+    .progress-bar {
+      background-color: #FF783F;
     }
+  }
 
-    &_stats_progress {
-        .progress {
-            background-color: #ffffff20;
-        }
-
-        .progress-bar {
-            background-color: #FF783F;
-        }
-    }
-
-    &_button {
-        color: #FF783F;
-    }
+  &_button {
+    color: #FF783F;
+  }
 
 }
 
 .box_project_4 {
 
-    border: 2px solid #002005 !important;
+  border: 2px solid #002005 !important;
 
-    &_status {
-        color: #006b10;
-        margin: 0 0 50px 0;
-        border: 1px solid #006b10;
+  &_status {
+    color: #006b10;
+    margin: 0 0 50px 0;
+    border: 1px solid #006b10;
+  }
+
+  &_content {
+    h3 {
+      color: #006b10;
+    }
+  }
+
+  &_stats {
+
+    &_time,
+    &_percent {
+      font-size: 3rem;
+      margin-bottom: -10px;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #006b1029;
     }
 
-    &_content {
-        h3 {
-            color: #006b10;
-        }
+    .progress-bar {
+      background-color: #006b10;
     }
+  }
 
-    &_stats {
-
-        &_time,
-        &_percent {
-            font-size: 3rem;
-            margin-bottom: -10px;
-        }
-    }
-
-    &_stats_progress {
-        .progress {
-            background-color: #006b1029;
-        }
-
-        .progress-bar {
-            background-color: #006b10;
-        }
-    }
-
-    &_button {
-        color: #006b10;
-        border: 2px solid #006b10;
-    }
+  &_button {
+    color: #006b10;
+    border: 2px solid #006b10;
+  }
 
 }
 
 .box_project_5 {
 
-    &_overlay {
-        background-color: #00011873;
-        height: 400px;
-    }
+  &_overlay {
+    background-color: #00011873;
+    height: 400px;
+  }
 
-    &_content {
-        h3 {}
-    }
+  &_content {
+    h3 {}
+  }
 
-    &_stats {
+  &_stats {
 
-        &_time,
-        &_percent {
-            font-size: 3rem;
-            margin-bottom: -10px;
-        }
+    &_time,
+    &_percent {
+      font-size: 3rem;
+      margin-bottom: -10px;
     }
+  }
 
-    &_button {
-        color: #b000b0;
-        border: 2px solid #b000b0;
-    }
+  &_button {
+    color: #b000b0;
+    border: 2px solid #b000b0;
+  }
 
 }
 
 .box_project_6 {
 
-    &_categorie {
-        color: #212121;
-        border: 1px solid #212121;
+  &_categorie {
+    color: #212121;
+    border: 1px solid #212121;
+  }
+
+  &_content {
+
+    p {
+      color: #212121;
     }
 
-    &_content {
-
-        p {
-            color: #212121;
-        }
-
-        h3 {
-            color: #212121;
-        }
-
-        span {
-            border: 1px solid #BC9A33;
-            color: #BC9A33
-        }
-
+    h3 {
+      color: #212121;
     }
 
-    &_stats {
-
-        &_title {
-            color: #212121;
-        }
-
-        &_numb {
-            color: #BC9A33;
-        }
+    span {
+      border: 1px solid #BC9A33;
+      color: #BC9A33
     }
+
+  }
+
+  &_stats {
+
+    &_title {
+      color: #212121;
+    }
+
+    &_numb {
+      color: #BC9A33;
+    }
+  }
 
 }
 
@@ -258,161 +258,580 @@
 
 
 
-    &_content {
+  &_content {
 
-        p {
-            color: #3D3D3D;
-        }
+    p {
+      color: #3D3D3D;
+    }
 
-        h3 {
-            color: #3D3D3D;
-        }
+    h3 {
+      color: #3D3D3D;
+    }
 
-        span {
-            color: #980000;
-            border: 1px solid #980000;
-        }
+    span {
+      color: #980000;
+      border: 1px solid #980000;
+    }
+
+  }
+
+  &_stats_up {
+
+    &_status,
+    &_percent {
+      color: #3D3D3D;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #9800001b;
+      border-radius: 0;
 
     }
 
-    &_stats_up {
-
-        &_status,
-        &_percent {
-            color: #3D3D3D;
-        }
+    .progress-bar {
+      background-color: #980000;
     }
+  }
 
-    &_stats_progress {
-        .progress {
-            background-color: #9800001b;
-            border-radius: 0;
-
-        }
-
-        .progress-bar {
-            background-color: #980000;
-        }
+  &_stats_up {
+    &_amount {
+      color: #980000;
     }
-
-    &_stats_up {
-        &_amount {
-            color: #980000;
-        }
-    }
+  }
 }
 
 .box_project_8 {
 
-    &_location {}
+  &_location {}
 
-    &_status {
-        background-color: #af005f;
+  &_status {
+    background-color: #af005f;
+  }
+
+  &_time {
+    background-color: #293133;
+  }
+
+  &_content {
+
+    p {
+      color: #293133;
     }
 
-    &_time {
-        background-color: #293133;
+    h3 {
+      color: #293133;
     }
 
-    &_content {
+  }
 
-        p {
-            color: #293133;
-        }
 
-        h3 {
-            color: #293133;
-        }
+  &_stats {
 
+    &_categorie {
+      color: #af005f;
+      border: 1px solid #af005f;
     }
 
-
-    &_stats {
-
-        &_categorie {
-            color: #af005f;
-            border: 1px solid #af005f;
-        }
-
-        &_title {
-            color: #293133;
-        }
-
-        &_numb {
-            color: #af005f;
-        }
+    &_title {
+      color: #293133;
     }
+
+    &_numb {
+      color: #af005f;
+    }
+  }
 
 }
 
 .box_project_9 {
 
-    border: 2px solid #264684 !important;
+  border: 2px solid #264684 !important;
 
-    &_categorie {
-        color: #188289;
-        border: 1px solid #188289;
+  &_categorie {
+    color: #188289;
+    border: 1px solid #188289;
+  }
+
+
+  &_content {
+
+    p {
+      color: #000;
     }
 
-
-    &_content {
-
-        p {
-            color: #000;
-        }
-
-        h3 {
-            color: #264684;
-        }
-
+    h3 {
+      color: #264684;
     }
 
-    &_stats_down_investors {
-        color: #264684;
+  }
 
-    }
+  &_stats_down_investors {
+    color: #264684;
 
-    &_button {
-        color: #fff;
-        background: #264684;
-        border: 2px solid #264684;
-    }
+  }
+
+  &_button {
+    color: #fff;
+    background: #264684;
+    border: 2px solid #264684;
+  }
 
 
 }
 
 .box_project_10 {
 
-    border: 2px solid #264684 !important;
+  border: 2px solid #264684 !important;
+
+  &_categorie {
+    color: #188289;
+    border: 1px solid #188289;
+  }
+
+
+  &_content {
+
+    p {
+      color: #000;
+    }
+
+    h3 {
+      color: #264684;
+    }
+
+  }
+
+  &_stats_down_investors {
+    color: #264684;
+
+  }
+
+  &_button {
+    color: #fff;
+    background: #264684;
+    border: 2px solid #264684;
+  }
+
+
+}
+
+//
+// // Only for project box catalogue on sandbox
+// //
+//
+
+.box_project {
+
+  &_categorie {
+    background-color: #1B4A6A;
+  }
+
+  &_content {
+
+    span,
+    p {
+      color: #1B4A6A;
+    }
+
+    h3 {
+      color: #0095FB;
+    }
+
+  }
+
+  &_stats {
+    span {
+      border: 1px solid #1B4A6A;
+      color: #1B4A6A;
+    }
+  }
+
+  &_button {
+    background-color: #0095FB;
+  }
+}
+
+.box_project_1 {
+
+  &_categorie {
+    color: #fb8a00;
+  }
+
+  &_content {
+
+    span,
+    p {
+      color: #1B4A6A;
+    }
+
+    h3 {
+      color: #fb8a00;
+    }
+
+  }
+
+  &_stats_up {
+
+    &_status,
+    &_percent {
+      color: #1b4a6a41;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #1b4a6a47;
+    }
+
+    .progress-bar {
+      background-color: #fb8a00;
+    }
+  }
+
+  &_stats_down {
+    &_amount {
+      color: #fb8a00;
+    }
+  }
+}
+
+.box_project_2 {
+
+  &_categorie {
+    color: #0095FB;
+    margin: 0 0 50px 0;
+  }
+
+  &_content {
+    margin: -50px 0 0 0;
+
+    span,
+    p {
+      color: #1B4A6A;
+    }
+
+    h3 {
+      color: #0095FB;
+    }
+
+  }
+
+  &_stats {
+    background-color: #1b4a6a13;
+
+    &_title {
+      color: #1b4a6a;
+    }
+
+    &_numb {
+      color: #0095FB;
+    }
+  }
+
+}
+
+.box_project_3 {
+
+  background-color: #002C72;
+
+  &_categorie {
+    color: #FF783F;
+    margin: 0 0 50px 0;
+    border: 1px solid #FF783F;
+  }
+
+  &_stats {
+
+    &_time,
+    &_percent {
+      font-size: 3rem;
+      margin-bottom: -10px;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #ffffff20;
+    }
+
+    .progress-bar {
+      background-color: #FF783F;
+    }
+  }
+
+  &_button {
+    color: #FF783F;
+  }
+
+}
+
+.box_project_4 {
+
+  border: 2px solid #002005 !important;
+
+  &_status {
+    color: #006b10;
+    margin: 0 0 50px 0;
+    border: 1px solid #006b10;
+  }
+
+  &_content {
+    h3 {
+      color: #006b10;
+    }
+  }
+
+  &_stats {
+
+    &_time,
+    &_percent {
+      font-size: 3rem;
+      margin-bottom: -10px;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #006b1029;
+    }
+
+    .progress-bar {
+      background-color: #006b10;
+    }
+  }
+
+  &_button {
+    color: #006b10;
+    border: 2px solid #006b10;
+  }
+
+}
+
+.box_project_5 {
+
+  &_overlay {
+    background-color: #00011873;
+    height: 400px;
+  }
+
+  &_content {
+    h3 {}
+  }
+
+  &_stats {
+
+    &_time,
+    &_percent {
+      font-size: 3rem;
+      margin-bottom: -10px;
+    }
+  }
+
+  &_button {
+    color: #b000b0;
+    border: 2px solid #b000b0;
+  }
+
+}
+
+.box_project_6 {
+
+  &_categorie {
+    color: #212121;
+    border: 1px solid #212121;
+  }
+
+  &_content {
+
+    p {
+      color: #212121;
+    }
+
+    h3 {
+      color: #212121;
+    }
+
+    span {
+      border: 1px solid #BC9A33;
+      color: #BC9A33
+    }
+
+  }
+
+  &_stats {
+
+    &_title {
+      color: #212121;
+    }
+
+    &_numb {
+      color: #BC9A33;
+    }
+  }
+
+}
+
+.box_project_7 {
+
+
+
+  &_content {
+
+    p {
+      color: #3D3D3D;
+    }
+
+    h3 {
+      color: #3D3D3D;
+    }
+
+    span {
+      color: #980000;
+      border: 1px solid #980000;
+    }
+
+  }
+
+  &_stats_up {
+
+    &_status,
+    &_percent {
+      color: #3D3D3D;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #9800001b;
+      border-radius: 0;
+
+    }
+
+    .progress-bar {
+      background-color: #980000;
+    }
+  }
+
+  &_stats_up {
+    &_amount {
+      color: #980000;
+    }
+  }
+}
+
+.box_project_8 {
+
+  &_location {}
+
+  &_status {
+    background-color: #af005f;
+  }
+
+  &_time {
+    background-color: #293133;
+  }
+
+  &_content {
+
+    p {
+      color: #293133;
+    }
+
+    h3 {
+      color: #293133;
+    }
+
+  }
+
+
+  &_stats {
 
     &_categorie {
-        color: #188289;
-        border: 1px solid #188289;
+      color: #af005f;
+      border: 1px solid #af005f;
     }
 
-
-    &_content {
-
-        p {
-            color: #000;
-        }
-
-        h3 {
-            color: #264684;
-        }
-
+    &_title {
+      color: #293133;
     }
 
-    &_stats_down_investors {
-        color: #264684;
+    &_numb {
+      color: #af005f;
+    }
+  }
 
+}
+
+.box_project_9 {
+
+  border: 2px solid #264684 !important;
+
+  &_categorie {
+    color: #188289;
+    border: 1px solid #188289;
+  }
+
+
+  &_content {
+
+    p {
+      color: #000;
     }
 
-    &_button {
-        color: #fff;
-        background: #264684;
-        border: 2px solid #264684;
+    h3 {
+      color: #264684;
     }
+
+  }
+
+  &_stats_down_investors {
+    color: #264684;
+
+  }
+
+  &_button {
+    color: #fff;
+    background: #264684;
+    border: 2px solid #264684;
+  }
+
+
+}
+
+.box_project_10 {
+
+  border: 2px solid #264684 !important;
+
+  &_categorie {
+    color: #188289;
+    border: 1px solid #188289;
+  }
+
+
+  &_content {
+
+    p {
+      color: #000;
+    }
+
+    h3 {
+      color: #264684;
+    }
+
+  }
+
+  &_stats_down_investors {
+    color: #264684;
+
+  }
+
+  &_button {
+    color: #fff;
+    background: #264684;
+    border: 2px solid #264684;
+  }
 
 
 }

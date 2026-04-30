@@ -5,95 +5,95 @@
 
 .fiche_project_1 {
 
-    &_categorie {
-        background-color: #1B4A6A;
+  &_categorie {
+    background-color: #1B4A6A;
+  }
+
+  &_content {
+
+    span,
+    p {
+      color: #1B4A6A;
     }
 
-    &_content {
-
-        span,
-        p {
-            color: #1B4A6A;
-        }
-
-        h3 {
-            color: #0095FB;
-        }
-
+    h3 {
+      color: #0095FB;
     }
 
-    &_stats_up {
+  }
 
-        &_status,
-        &_percent {
-            color: #1b4a6a41;
-        }
+  &_stats_up {
+
+    &_status,
+    &_percent {
+      color: #1b4a6a41;
+    }
+  }
+
+  &_stats_progress {
+    .progress {
+      background-color: #1b4a6a47;
     }
 
-    &_stats_progress {
-        .progress {
-            background-color: #1b4a6a47;
-        }
-
-        .progress-bar {
-            background-color: #1B4A6A;
-        }
+    .progress-bar {
+      background-color: #1B4A6A;
     }
+  }
 
-    &_stats_down {
-        &_amount {
-            color: #1B4A6A;
-        }
+  &_stats_down {
+    &_amount {
+      color: #1B4A6A;
     }
+  }
 
-    &_button {
-        background-color: #0095FB;
-    }
+  &_button {
+    background-color: #0095FB;
+  }
 
 }
 
 .fiche_project_2 {
 
-    &_card {
-        margin-top: -200px;
+  &_card {
+    margin-top: -200px;
+  }
+
+  &_categorie {
+    background-color: #1B4A6A;
+  }
+
+  &_type {
+    background-color: #0095FB;
+  }
+
+  &_content {
+
+    span,
+    p {
+      color: #1B4A6A;
     }
 
-    &_categorie {
-        background-color: #1B4A6A;
+    h3 {
+      color: #0095FB;
     }
 
-    &_type {
-        background-color: #0095FB;
+  }
+
+  &_stats {
+    background-color: #0097fb26;
+
+    &_amount {
+      color: #1B4A6A;
     }
 
-    &_content {
-
-        span,
-        p {
-            color: #1B4A6A;
-        }
-
-        h3 {
-            color: #0095FB;
-        }
-
+    &_time {
+      color: #1B4A6A;
     }
 
-    &_stats {
-        background-color: #0097fb26;
 
-        &_amount {
-            color: #1B4A6A;
-        }
-
-        &_time {
-            color: #1B4A6A;
-        }
-
-
-        &_button {
-            background-color: #0095FB;
-        }
+    &_button {
+      background-color: #0095FB;
     }
+  }
 
 }
