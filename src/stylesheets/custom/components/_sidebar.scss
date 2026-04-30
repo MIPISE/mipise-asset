@@ -293,6 +293,22 @@ header,
     }
 
   }
+
+  @media (max-width: 991.98px) {
+    .js-sidebar-collapse.mobile-open {
+      .dropdown-menu {
+        display: block;
+        position: static;
+        width: 100%;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .sidebar-collapse-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
 
 #sidebar-user::-webkit-scrollbar {

@@ -7,3 +7,4 @@ import "./elements/clipboard.js";
 
 import "./utils/react.jsx";
 import "./utils/input_masks.js";
+import "./utils/sidebar_mobile_toggle.js";
