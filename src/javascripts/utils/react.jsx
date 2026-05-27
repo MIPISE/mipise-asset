@@ -1,7 +1,7 @@
 // React Helper
 import React from "react";
-import {createRoot} from "react-dom/client";
-import {flushSync} from "react-dom";
+import { createRoot } from "react-dom/client";
+import { flushSync } from "react-dom";
 
 const voidElements = ["area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
 
@@ -56,7 +56,7 @@ const renderElement = (element, index, pathKey) => {
 
             const ComponentFunction = require(`../../components/${componentName}.tsx`).default;
             return (
-                <ComponentFunction {...props} key={pathKey}/>
+                <ComponentFunction {...props} key={pathKey} />
             );
         } else {
             // DOM element
