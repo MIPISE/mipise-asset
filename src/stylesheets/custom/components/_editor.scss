@@ -1,3 +1,81 @@
-.headerEditor {
-  background: #0b1623 !important;
+// Tokyo Night palette (matches the CodeMirror theme)
+$editor-bg: #1a1b26;
+$editor-fg: #c0caf5;
+$editor-scrollbar-track: #1a1b26;
+$editor-scrollbar-thumb: #3b4261;
+$editor-scrollbar-thumb-hover: #565f89;
+
+.Custom_Editor {
+  background: $editor-bg !important;
+  color: $editor-fg;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.Custom_Editor__label {
+  opacity: 0.6;
+}
+
+.Custom_Editor__copy {
+  background: transparent;
+  border: none;
+  color: $editor-fg;
+  opacity: 0.5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &:focus {
+    outline: none;
+    opacity: 1;
+  }
+}
+
+.cm-editor {
+  border: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
+  &.cm-focused {
+    outline: none;
+  }
+}
+
+// Dark scrollbars (WebKit / Chromium + Firefox)
+.cm-scroller {
+  scrollbar-color: $editor-scrollbar-thumb $editor-scrollbar-track;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $editor-scrollbar-track;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $editor-scrollbar-thumb;
+    border-radius: 6px;
+    border: 2px solid $editor-scrollbar-track;
+
+    &:hover {
+      background: $editor-scrollbar-thumb-hover;
+    }
+  }
+  &::-webkit-scrollbar-corner {
+    background: $editor-scrollbar-track;
+  }
 }
