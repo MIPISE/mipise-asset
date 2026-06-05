@@ -4,10 +4,12 @@ import Label from "./Label";
 import InputItem from "./InputItem";
 import optionalManagement from "./optionalManagement";
 import parseInputProps from "./parseInputProps";
+import Icon from "../Icon";
+import { Icons } from "../icons";
 
-type PhoneInputProps = Omit<AbstractInputProps, "type"> & { error?: string };
+type PasswordInputProps = Omit<AbstractInputProps, "type"> & { error?: string };
 
-const PhoneInput: React.FC<PhoneInputProps> = ({
+const PasswordInput: React.FC<PasswordInputProps> = ({
   required,
   error,
   classes = "",
@@ -16,6 +18,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [isRequired, setIsRequired] = useState(required || false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(optionalManagement(inputRef, setIsRequired), []);
 
@@ -27,22 +30,29 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   const computedInputClasses = `${classes} ${error ? "is-invalid" : ""}`.trim();
 
   return (
-    <div className={`form-group ${id} phone-input`}>
+    <div className={`form-group ${id} password-input`}>
       {hasLabel && (
         <Label isRequired={isRequired} label={safeLabel} {...props} />
       )}
 
       <div className="input-group has-validation">
         <InputItem
-          type="tel"
-          pattern="^\d{8,15}$"
-          inputMode="numeric"
-          data-behavior="digits-only"
+          type={isVisible ? "text" : "password"}
           ref={inputRef}
           required={isRequired}
           classes={computedInputClasses}
           {...props}
         />
+
+        <button
+          type="button"
+          className="btn btn-primary rounded-end"
+          aria-label={isVisible ? "Masquer" : "Afficher"}
+          aria-pressed={isVisible}
+          onClick={() => setIsVisible((value) => !value)}
+        >
+          <Icon icon={isVisible ? Icons.HIDE_PASSWORD : Icons.SHOW_PASSWORD} />
+        </button>
 
         {error && <div className="invalid-feedback">{error}</div>}
       </div>
@@ -52,4 +62,4 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   );
 };
 
-export default PhoneInput;
+export default PasswordInput;
