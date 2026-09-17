@@ -228,8 +228,35 @@ header,
   @media (max-width: 991px) {
     #sidebar-wrapper {
       position: fixed;
-      height: 100vh;
       top: 28px;
+      height: calc(100dvh - 28px);
+      width: 320px;
+      max-width: 85vw;
+    }
+
+    #sidebar-user {
+      height: 100%;
+    }
+
+    #sidebar-user .sidebar-body {
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+
+    #sidebar-user .sidebar-body::-webkit-scrollbar {
+      display: block;
+      width: 6px;
+    }
+
+    #sidebar-user .sidebar-body::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 3px;
+    }
+
+    .dropdown-menu {
+      min-width: 0;
     }
 
     #content-wrapper {
@@ -294,7 +321,7 @@ header,
 
   }
 
-  @media (max-width: 991.98px) {
+  @media (max-width: 991.98px), (hover: none) {
     .js-sidebar-collapse.mobile-open {
       .dropdown-menu {
         display: block;

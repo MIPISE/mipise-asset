@@ -1,7 +1,10 @@
 const MOBILE_BREAKPOINT = 992;
 
+const usesCollapsibleSubmenus = () =>
+  window.innerWidth < MOBILE_BREAKPOINT || window.matchMedia("(hover: none)").matches;
+
 document.addEventListener("click", (event) => {
-  if (window.innerWidth >= MOBILE_BREAKPOINT) return;
+  if (!usesCollapsibleSubmenus()) return;
 
   const link = event.target.closest("a.nav-link");
   if (!link) return;
