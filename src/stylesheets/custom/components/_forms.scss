@@ -12,3 +12,8 @@ label {
 .bg-primary-subtle hr {
     border-color: $border-color;
 }
+
+.was-validated .btn-check:invalid + .btn {
+    border-color: var(--#{$prefix}form-invalid-border-color);
+    color: var(--#{$prefix}form-invalid-color);
+}
