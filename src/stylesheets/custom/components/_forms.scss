@@ -17,3 +17,8 @@ label {
     border-color: var(--#{$prefix}form-invalid-border-color);
     color: var(--#{$prefix}form-invalid-color);
 }
+
+.was-validated .questionnaire-field .btn-check:valid + .btn {
+    border-color: var(--#{$prefix}form-valid-border-color);
+    color: var(--#{$prefix}form-valid-color);
+}
